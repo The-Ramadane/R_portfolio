@@ -1,7 +1,8 @@
 import { useColorMode } from '@chakra-ui/react'
 import Head from 'next/head'
+import { ReactNode } from 'react'
 
-const FavIconProvider = ({ children }: { children: JSX.Element }) => {
+const FavIconProvider = ({ children }: { children: ReactNode }) => {
   const { colorMode } = useColorMode()
   return (
     <>

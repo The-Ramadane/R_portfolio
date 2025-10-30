@@ -55,12 +55,7 @@ const Sidebar = () => {
         alignItems={{ xl: 'center' }}
       >
         <MotionStack variants={stagger} spacing={6} w="100">
-          <MotionText
-            variants={fadeInUp}
-            delay={1}
-            variant="accent"
-            fontWeight="light"
-          >
+          <MotionText variants={fadeInUp} variant="accent" fontWeight="light">
             Ohh you found me?. Howdy! I am
           </MotionText>
           <MotionHeading
@@ -127,7 +122,8 @@ const Sidebar = () => {
             fontSize="sm"
             width="120px"
             variants={simpleOpacity}
-            as={'a'}
+            as="a"
+            // @ts-expect-error - Chakra UI typing issue with motion components
             href="mailto:marcjhon18@gmail.com"
             target="_blank"
             whileHover={{ scale: 1.1 }}
@@ -136,7 +132,7 @@ const Sidebar = () => {
             Get in touch!
           </MotionButton>
 
-          <MotionBox d="flex" variants={simpleOpacity}>
+          <MotionBox display="flex" variants={simpleOpacity}>
             {SocialMedias.map((socMedia) => (
               <Link
                 variant="description"

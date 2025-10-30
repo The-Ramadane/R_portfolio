@@ -1,4 +1,5 @@
 import { Link } from '@chakra-ui/react'
+import { ReactElement } from 'react'
 
 export type Company = 'Deloitte' | 'SCG' | 'Blotocol'
 
@@ -13,7 +14,7 @@ export type CompanyDetail = {
     light: string
     dark?: string
   }
-  roles?: JSX.Element[]
+  roles?: ReactElement[]
 }
 
 export const Experiences: {
