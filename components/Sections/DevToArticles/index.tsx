@@ -41,7 +41,7 @@ const DevToArticles = ({ articles }: { articles: Article[] }) => {
             target="_blank"
             rel="noreferrer"
             key={item.id}
-            href={item.url}
+            href={`/blog/${item.id}`}
             color="currentcolor"
             _hover={{ textDecoration: 'none' }}
             transition="all 0.5s ease"
@@ -71,7 +71,7 @@ const DevToArticles = ({ articles }: { articles: Article[] }) => {
                   paddingX={2}
                   variant="accentAlternative"
                 >
-                  {item.tag_list.join(', ')}
+                  {Array.isArray(item.tag_list) ? item.tag_list.join(', ') : item.tag_list}
                 </Heading>
                 <Heading fontSize="smaller" variant="description" paddingX={2}>
                   {item.readable_publish_date}

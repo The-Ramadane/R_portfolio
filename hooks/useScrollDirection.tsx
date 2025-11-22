@@ -18,10 +18,12 @@ const useScrollDirection = (
 
   useEffect(() => {
     const avatarContainer = document.querySelector('#klAvatar') as HTMLElement
-    const avatarScrollY =
-      avatarContainer?.offsetTop +
-      avatarContainer.clientHeight -
-      AVATAR_PADD_OFFSET
+    
+    // Si l'avatar n'existe pas (ex: page blog), utiliser une valeur par défaut
+    const avatarScrollY = avatarContainer
+      ? avatarContainer.offsetTop + avatarContainer.clientHeight - AVATAR_PADD_OFFSET
+      : 0
+    
     const threshold = 10
     let lastScrollY = window.scrollY || 0
 

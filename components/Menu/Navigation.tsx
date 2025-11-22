@@ -128,11 +128,11 @@ const Navigation = () => {
               padding={2}
               marginX={2}
               as="a"
-              href={isMobile ? '#aboutMe' : '#'}
+              href={isMobile ? '/#aboutMe' : '/#'}
               rel="noreferrer"
               onClick={onMenuItemClick}
             >
-              About
+              A propos
             </Button>
           </Box>
           <Box
@@ -149,7 +149,28 @@ const Navigation = () => {
               padding={2}
               marginX={2}
               as="a"
-              href="#jobs"
+              href="/#formation"
+              rel="noreferrer"
+              onClick={onMenuItemClick}
+            >
+              Formation
+            </Button>
+          </Box>
+          <Box
+            width={{ base: '100%', lg: 'auto' }}
+            textAlign={{ base: 'center', lg: 'left' }}
+            marginY={{ base: 2, lg: 0 }}
+          >
+            <Button
+              fontWeight="light"
+              variant="ghost"
+              fontSize={menuButtonSize}
+              letterSpacing={2}
+              className={btnClassName}
+              padding={2}
+              marginX={2}
+              as="a"
+              href="/#jobs"
               rel="noreferrer"
               onClick={onMenuItemClick}
             >
@@ -170,11 +191,11 @@ const Navigation = () => {
               padding={2}
               marginX={2}
               as="a"
-              href="#works"
+              href="/#works"
               rel="noreferrer"
               onClick={onMenuItemClick}
             >
-              Works
+              Projets
             </Button>
           </Box>
           <Box
@@ -191,7 +212,28 @@ const Navigation = () => {
               padding={2}
               marginX={2}
               as="a"
-              href="#contact"
+              href="/blog"
+              rel="noreferrer"
+              onClick={onMenuItemClick}
+            >
+              Blog
+            </Button>
+          </Box>
+          <Box
+            width={{ base: '100%', lg: 'auto' }}
+            textAlign={{ base: 'center', lg: 'left' }}
+            marginY={{ base: 2, lg: 0 }}
+          >
+            <Button
+              fontWeight="light"
+              variant="ghost"
+              fontSize={menuButtonSize}
+              letterSpacing={2}
+              className={btnClassName}
+              padding={2}
+              marginX={2}
+              as="a"
+              href="/#contact"
               rel="noreferrer"
               onClick={onMenuItemClick}
             >

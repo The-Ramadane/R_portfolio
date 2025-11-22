@@ -6,11 +6,16 @@ import {
   Grid,
   GridItem,
   useBreakpointValue,
+  Box,
+  Badge,
+  HStack,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import FeaturedCard from './FeaturedCard'
 import { fadeInUpSlower, galleryStagger } from 'config/animations'
 import { mobileBreakpointsMap } from 'config/theme'
+import { Projects } from 'config/projects'
+
 const MotionGrid = motion(Grid)
 const MotionGridItem = motion(GridItem)
 
@@ -28,11 +33,10 @@ const FeaturedWorksSection = () => {
           fontVariantCaps: 'small-caps',
         }}
       >
-        Some of my works.
+        Projets Réalisés.
       </Heading>
       <Text variant="description">
-        Check out some of the works I made at freelancing, company projects and
-        even case studies.
+        Une sélection de projets techniques sur lesquels j'ai travaillé, démontrant mes compétences en développement Full-Stack et Backend.
       </Text>
 
       <MotionGrid
@@ -41,56 +45,31 @@ const FeaturedWorksSection = () => {
         gap={{ base: 5, md: 6 }}
         variants={galleryStagger}
       >
-        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
-          <FeaturedCard
-            idx={1}
-            title="Tobira!"
-            src="/works/tobira/IphoneX-tobira.webp"
-            description="Japanese social media platform for travelers to show off their
-          adventure to the world. I was incharge of Front end integration, made using React, Antd and Styled Components."
-            height={{ base: '130px', md: '225px', '2xl': '300px' }}
-            ctaUrl="https://tobira-app-test.netlify.app/"
-            objectPosition="right 20%"
-            isMobile={isMobile}
-          />
-        </MotionGridItem>
-
-        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
-          <FeaturedCard
-            idx={2}
-            title="RSV"
-            description="RSV is a smart contract (ERC20) powered reservation system. I am incharge of backend using NET.Core 2.1."
-            src="/works/rsv.webp"
-            height={{ base: '130px', md: '225px', '2xl': '300px' }}
-            ctaUrl="https://solution.rsv.ltd/jp"
-            isMobile={isMobile}
-          />
-        </MotionGridItem>
-
-        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
-          <FeaturedCard
-            idx={3}
-            title="Agora School"
-            description="A quizz - reviewer LMS, I made as a freelancer. Backend were powered by PHPSlim and VueJS for Front end."
-            src="/works/agora.webp"
-            height={{ base: '130px', md: '225px', '2xl': '300px' }}
-            ctaUrl="https://dev.agora-school.com"
-            objectPosition="right 20%"
-            isMobile={isMobile}
-          />
-        </MotionGridItem>
-
-        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
-          <FeaturedCard
-            idx={4}
-            title="TMH Layla EC"
-            description="A Japanese Semi-conductor e-commerce made at my old place at IVP. I was working with backend using ASP.NET MVC"
-            src="/works/tmh.webp"
-            height={{ base: '130px', md: '225px', '2xl': '300px' }}
-            ctaUrl="https://www.layla-ec.com/"
-            isMobile={isMobile}
-          />
-        </MotionGridItem>
+        {Projects.map((project, idx) => (
+          <MotionGridItem colSpan={6} variants={fadeInUpSlower} key={idx}>
+            <FeaturedCard
+              idx={idx}
+              title={project.title}
+              src={project.image}
+              description={
+                <Box>
+                  <Text mb={2}>{project.description}</Text>
+                  <Text fontSize="sm" fontWeight="bold" mb={1}>Rôle: <Text as="span" fontWeight="normal">{project.role}</Text></Text>
+                  <HStack spacing={2} mt={2} wrap="wrap">
+                    {project.technologies.map((tech) => (
+                      <Badge key={tech} colorScheme="teal" variant="subtle">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </HStack>
+                </Box>
+              }
+              height={{ base: '130px', md: '225px', '2xl': '300px' }}
+              ctaUrl={project.url || '#'}
+              isMobile={isMobile}
+            />
+          </MotionGridItem>
+        ))}
       </MotionGrid>
     </Stack>
   )

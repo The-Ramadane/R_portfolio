@@ -32,11 +32,6 @@ export const SocialMedias: SocialMedia[] = [
     icon: FaLinkedin,
   },
   {
-    label: 'StackOverflow',
-    href: 'https://stackoverflow.com/users/3867490/keysl',
-    icon: FaStackOverflow,
-  },
-  {
     label: 'Youtube',
     href: 'https://www.youtube.com/channel/UCV-MiUVsKJrKJKKfUK58nhg',
     icon: FaYoutube,
@@ -45,10 +40,5 @@ export const SocialMedias: SocialMedia[] = [
     label: 'Github',
     href: 'https://github.com/klawingco',
     icon: FaGithub,
-  },
-  {
-    label: 'Dev.to',
-    href: 'https://dev.to/klawingco',
-    icon: FaDev,
   },
 ]

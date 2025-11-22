@@ -5,10 +5,13 @@ import theme from 'config/theme'
 import FavIconProvider from 'components/Misc/FavIconProvider'
 import { ReactElement } from 'react'
 
+import AnimatedBackground from 'components/Layout/AnimatedBackground'
+
 function KLSite({ Component, pageProps }: AppProps): ReactElement {
   return (
     <ChakraProvider theme={theme}>
       <FavIconProvider>
+        <AnimatedBackground />
         <Component {...pageProps} />
       </FavIconProvider>
     </ChakraProvider>

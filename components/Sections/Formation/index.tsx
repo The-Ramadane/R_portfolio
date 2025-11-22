@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Heading, Text, Stack, Link } from '@chakra-ui/react'
-import ExperienceTab from './ExperienceTab'
+import ExperienceTab from './FormationTab'
 const DetailSection = () => (
   <Stack
     width={{ base: '99%', lg: '60%', xl: '75%' }}
@@ -13,10 +13,10 @@ const DetailSection = () => (
         fontVariantCaps: 'small-caps',
       }}
     >
-      Places i’ve worked.
+      Formations & Certifications.
     </Heading>
     <Text variant="description">
-      Mon expérience professionnelle où j'ai pu mettre en pratique mes compétences et apporter de la valeur.
+      Mon parcours académique et mes certifications qui valident mes compétences techniques.
     </Text>
 
     <ExperienceTab />

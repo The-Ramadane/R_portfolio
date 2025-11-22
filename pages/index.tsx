@@ -19,6 +19,7 @@ import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
 import { Article } from 'types/article'
 import { ReactElement } from 'react'
+import Formation from '../components/Sections/Formation'
 // These are on bottom sections so no need to render it instantly
 const DevToArticles = dynamic(() => import('components/Sections/DevToArticles'))
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
@@ -96,6 +97,18 @@ const Portfolio = ({ articles }: { articles: Article[] }): ReactElement => {
               >
                 <About />
                 <Avatar />
+              </Box>
+            </FadeInLayout>
+            <FadeInLayout>
+              <Box
+                id="formation"
+                className="contentRow"
+                paddingTop={{ base: 0, lg: 20, xl: 0 }}
+                paddingBottom={{ base: 12, lg: 10 }}
+                paddingX={0}
+                flexDirection={'row'}
+              >
+                <Formation />
               </Box>
             </FadeInLayout>
             <FadeInLayout>

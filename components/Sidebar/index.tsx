@@ -38,15 +38,6 @@ const Sidebar = () => {
       maxWidth={{ xl: '34%' }}
       top={{ lg: 0 }}
     >
-      <motion.div
-        id="sidebarCircle"
-        className={`${styles.sidebar} ${
-          colorMode === 'light' ? styles.dark : ''
-        }`}
-        variants={scaleUp}
-        style={{ display: display }}
-        animate={colorMode === 'dark' ? 'animate' : 'lightMode'}
-      ></motion.div>
       <Container
         padding={0}
         margin={0}
@@ -54,30 +45,48 @@ const Sidebar = () => {
         display={{ xl: 'flex' }}
         alignItems={{ xl: 'center' }}
       >
-        <MotionStack variants={stagger} spacing={6} w="100">
-          <MotionText variants={fadeInUp} variant="accent" fontWeight="light">
-            Ohh you found me?. Howdy! I am
+        <MotionStack
+          variants={stagger}
+          spacing={{ base: 5, md: 6 }}
+          w="100"
+          bg={colorMode === 'dark' ? 'gray.900' : 'white'}
+          borderRadius="xl"
+          padding={{ base: 6, md: 8, lg: 10 }}
+          boxShadow={colorMode === 'dark'
+            ? '0 4px 20px rgba(0, 0, 0, 0.5)'
+            : '0 4px 20px rgba(0, 0, 0, 0.08)'}
+          border="1px solid"
+          borderColor={colorMode === 'dark' ? 'gray.800' : 'gray.200'}
+        >
+          <MotionText
+            variants={fadeInUp}
+            variant="accent"
+            fontWeight="medium"
+            fontSize="sm"
+            letterSpacing="wide"
+          >
+            👋 Ahh vous me cherchez ? Bonjour! je suis
           </MotionText>
           <MotionHeading
             as="h1"
-            size="2xl"
-            paddingRight={{ lg: '20' }}
+            size={{ base: "xl", md: "2xl" }}
             textTransform="uppercase"
             variants={fadeInUp}
+            fontWeight="700"
+            letterSpacing="tight"
+            color={colorMode === 'dark' ? 'white' : 'gray.900'}
           >
-            Marc Jhon
+            Diallo Mouhammadou
           </MotionHeading>
           <MotionHeading
             as="h2"
-            size={surNameSize}
+            size={{ base: "lg", md: surNameSize }}
             variant="emphasis"
             className={styles.marginTopForce}
             textTransform="uppercase"
             variants={letterSpace}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
           >
-            Lawingco.
+            Ramadane.
           </MotionHeading>
           <MotionText
             colorScheme="gray"
@@ -85,17 +94,18 @@ const Sidebar = () => {
             className={styles.marginTopForce}
             variants={fadeInUp}
           >
-            Or you could call me KL. That works too . . .
+            Ou tu pourrais m'appeler Ramadane😉. Ça marche aussi...
           </MotionText>
 
           <MotionHeading
             as="h3"
-            size="md"
-            variant="emphasis"
+            size={{ base: "sm", md: "md" }}
             className={styles.marginTopSmall}
             variants={fadeInUp}
+            fontWeight="600"
+            color={colorMode === 'dark' ? 'gray.300' : 'gray.700'}
           >
-            Software Engineer
+            💻 Developpeur FullStack / mobile / IA
           </MotionHeading>
 
           <MotionText
@@ -104,47 +114,62 @@ const Sidebar = () => {
             paddingRight={{ lg: '12' }}
             variants={fadeInUp}
             maxWidth={{ base: '100%', lg: '80%' }}
+            lineHeight="tall"
           >
-            Hey! How nice of you to look at my personal site,
+            Hé ! Merci beaucoup d’être passé sur mon site,
             <Text variant="emphasis" as="span">
               {' '}
-              Thank you!
+              ça me fait super plaisir ! ✨
             </Text>
-            <br />I am software engineer that specializes at backend apis, front
-            end integration, recently found myself studying UX too.
+            <br /> Je suis developpeur logiciel spécialisé backend apis,
+            intégration front-end, récemment trouvé en train d’étudier l’UX aussi.
           </MotionText>
           <MotionButton
-            size="lg"
+            size={{ base: "md", md: "lg" }}
             variant="outline"
-            borderWidth="1px"
-            borderRadius="0"
             fontWeight="normal"
             fontSize="sm"
-            width="120px"
+            width={{ base: "100%", md: "fit-content" }}
+            px={{ base: 6, md: 8 }}
             variants={simpleOpacity}
             as="a"
             // @ts-expect-error - Chakra UI typing issue with motion components
-            href="mailto:marcjhon18@gmail.com"
+            href="mailto:mouhammadouramadaned@gmail.com"
             target="_blank"
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
           >
-            Get in touch!
+            Entrez en contact
           </MotionButton>
 
-          <MotionBox display="flex" variants={simpleOpacity}>
+          <MotionBox
+            display="flex"
+            gap={3}
+            variants={simpleOpacity}
+            flexWrap="wrap"
+          >
             {SocialMedias.map((socMedia) => (
               <Link
-                variant="description"
                 key={socMedia.label}
+                variant="description"
                 aria-label={socMedia.label}
                 rel="noreferrer"
-                width={8}
                 href={socMedia.href}
                 target="_blank"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                w={{ base: 9, md: 10 }}
+                h={{ base: 9, md: 10 }}
+                borderRadius="md"
+                border="1px solid"
+                borderColor={colorMode === 'dark' ? 'gray.700' : 'gray.300'}
+                _hover={{
+                  borderColor: colorMode === 'dark' ? 'gold.400' : 'gold.500',
+                  bg: colorMode === 'dark' ? 'gray.800' : 'gray.50',
+                }}
+                transition="all 0.2s"
                 _focus={{ boxShadow: 'none' }}
               >
-                <Icon w={6} h={6} as={socMedia.icon} color="currentColor" />
+                <Icon w={{ base: 4, md: 5 }} h={{ base: 4, md: 5 }} as={socMedia.icon} />
               </Link>
             ))}
           </MotionBox>

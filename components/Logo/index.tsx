@@ -19,9 +19,9 @@ const Logo = () => {
             className={!isMobile ? styles.logo : ''}
             boxSize={isMobile ? '30px' : '50px'}
             objectFit="cover"
-            src="./logo.png"
+            src="/ramadan1.png"
             alt="KL Lawingco Logo"
-            fallbackSrc="./logo.png"
+            fallbackSrc="/ramadan1.png"
             variants={simpleOpacity}
             initial="initial"
             animate={isLogoLoaded && 'animate'}
@@ -33,8 +33,8 @@ const Logo = () => {
             className={!isMobile ? styles.logo : ''}
             boxSize={isMobile ? '30px' : '50px'}
             objectFit="cover"
-            src="./logo_light.png"
-            fallbackSrc="./logo_light.png"
+            src="/ramadan11.png"
+            fallbackSrc="/ramadan11.png"
             alt="KL Lawingco Logo"
             variants={simpleOpacity}
             initial="initial"

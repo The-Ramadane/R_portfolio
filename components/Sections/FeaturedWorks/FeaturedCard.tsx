@@ -23,7 +23,7 @@ export type FeaturedCardProps = {
   src: string
   idx: number
   title: string
-  description: string
+  description: React.ReactNode
   objectPosition?: string
   ctaUrl: string
   isMobile?: boolean
@@ -62,7 +62,7 @@ const ProjectDescription = ({
 }: {
   idx?: number
   title: string
-  description: string
+  description: React.ReactNode
   ctaUrl: string
   isLeft: boolean
 }) => (
@@ -85,7 +85,7 @@ const ProjectDescription = ({
         as="span"
       >
         <Text variant="accentAlternative" fontSize="md" as="span">
-          #0{idx}
+          #0{(idx || 0) + 1}
           {'  '}
         </Text>
         {title}
@@ -97,29 +97,29 @@ const ProjectDescription = ({
         alignSelf={isLeft ? 'flex-end' : 'flex-start'}
       />
     </Stack>
-    <Text
+    <Box
       fontSize="smaller"
-      variant="accentAlternative"
       width="90%"
       alignSelf={isLeft ? 'flex-end' : 'flex-start'}
-      wordBreak="break-word"
       paddingY={{ base: 3, md: 0 }}
     >
       {description}
-    </Text>
-    <Button
-      variant="outlineAlternative"
-      fontWeight="light"
-      fontSize={{ base: 'sm', '2xl': 'md' }}
-      size="sm"
-      as="a"
-      href={ctaUrl}
-      rel="noreferrer"
-      target="_blank"
-      marginY={{ base: 3, md: 0 }}
-    >
-      View Project
-    </Button>
+    </Box>
+    {ctaUrl && ctaUrl !== '#' && (
+      <Button
+        variant="outlineAlternative"
+        fontWeight="light"
+        fontSize={{ base: 'sm', '2xl': 'md' }}
+        size="sm"
+        as="a"
+        href={ctaUrl}
+        rel="noreferrer"
+        target="_blank"
+        marginY={{ base: 3, md: 0 }}
+      >
+        View Project
+      </Button>
+    )}
   </Container>
 )
 

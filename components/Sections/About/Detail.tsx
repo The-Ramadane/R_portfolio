@@ -37,94 +37,162 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
   return (
     <Stack
       width={{ base: '100%', lg: '70%' }}
-      spacing={{ base: 6, xl: 8 }}
+      height="100%"
+      spacing={{ base: 5, md: 6, xl: 8 }}
       as="section"
+      bg={useColorModeValue('white', 'gray.900')}
+      borderRadius="xl"
+      padding={{ base: 6, md: 8, lg: 10 }}
+      boxShadow={useColorModeValue(
+        '0 4px 20px rgba(0, 0, 0, 0.08)',
+        '0 4px 20px rgba(0, 0, 0, 0.5)'
+      )}
+      border="1px solid"
+      borderColor={useColorModeValue('gray.200', 'gray.800')}
     >
       <Heading
         as="h4"
-        size="2xl"
-        letterSpacing={1.8}
-        style={{
-          fontVariantCaps: 'small-caps',
-        }}
+        size={{ base: "xl", md: "2xl" }}
+        letterSpacing="tight"
+        fontWeight="700"
+        color={useColorModeValue('gray.900', 'white')}
       >
-        What i do.
+        Ce que je fais.
       </Heading>
-      <Text variant="description">
-        I`ve been coding professionally for {professionalYears} years now and
-        currently working as a <b>Software Engineer</b> that focuses on{' '}
-        <b>architecture</b>, <b>APIs</b>,{' '}
-        <Tooltip
-          label="Ha!. Or more accurately TECH DEBT"
-          aria-label="Tech Debt?"
-          hasArrow
-        >
-          <Text as="span" variant="emphasis">
-            <b>nitty-gritty business logics</b>
-          </Text>
-        </Tooltip>{' '}
-        and even <b>front end integration</b> stuff now, how time flies!
-        <br /> <br />
-        Here are few technologies that are cup of my{' '}
-        <Tooltip
-          label="I only drink tea if I needed too!"
-          aria-label="I hate Tea!"
-          hasArrow
-        >
-          <Text as="span" variant="emphasis" textDecorationLine="line-through">
-            tea
-          </Text>
-        </Tooltip>{' '}
-        coffee <Icon as={GiCoffeePot} color={emphasis} />.
+      <Text variant="description" fontSize="lg" lineHeight="tall">
+        <Tooltip label="Architecture & Logique métier" hasArrow>
+          <Text as="span" fontWeight="bold" color={emphasis}>Développeur Backend & IA</Text>
+        </Tooltip> basé à <Text as="span" fontWeight="bold">Lyon</Text>.
+        Je fusionne la rigueur du développement <Tooltip label="Maîtrise du front au back" hasArrow><Text as="span" fontWeight="bold">Full-Stack</Text></Tooltip> (
+        <Tooltip label="Framework Java robuste" hasArrow><Text as="span" fontWeight="bold" color={emphasis}>Spring Boot</Text></Tooltip>,{' '}
+        <Tooltip label="Framework Frontend Google" hasArrow><Text as="span" fontWeight="bold" color={emphasis}>Angular</Text></Tooltip>,{' '}
+        <Tooltip label="Base de données relationnelle avancée" hasArrow><Text as="span" fontWeight="bold" color={emphasis}>PostgreSQL</Text></Tooltip>)
+        avec la puissance de la <Tooltip label="Machine Learning & Analytics" hasArrow><Text as="span" fontWeight="bold">Data Science</Text></Tooltip> pour bâtir des systèmes intelligents.
+        <br /><br />
+        Actuellement à l'<Tooltip label="École Centrale d'Électronique" hasArrow><Text as="span" fontWeight="bold">ECE Lyon</Text></Tooltip>, je suis animé par l'<Text as="span" fontWeight="bold">innovation</Text> et l'<Text as="span" fontWeight="bold">automatisation</Text>.
+        Je transforme vos défis complexes en solutions logicielles performantes. 🚀
       </Text>
 
-      <SimpleGrid columns={2} spacing={4}>
-        <List spacing={3}>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiDotnet} color={emphasis} fontSize="2em" />
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 3, md: 4 }}>
+        <List spacing={{ base: 3, md: 4 }}>
+          <ListItem
+            fontSize="small"
+            display="flex"
+            alignItems="center"
+            p={{ base: 3, md: 4 }}
+            borderRadius="md"
+            bg={useColorModeValue('gray.50', 'gray.800')}
+            transition="all 0.2s"
+            _hover={{
+              bg: useColorModeValue('gray.100', 'gray.700'),
+            }}
+          >
+            <ListIcon as={SiDotnet} color={useColorModeValue('gray.700', 'gray.300')} fontSize="1.5em" />
             C# - .NET.Core
           </ListItem>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiJavascript} color={emphasis} fontSize="2em" />
+          <ListItem
+            fontSize="small"
+            display="flex"
+            alignItems="center"
+            p={{ base: 3, md: 4 }}
+            borderRadius="md"
+            bg={useColorModeValue('gray.50', 'gray.800')}
+            transition="all 0.2s"
+            _hover={{
+              bg: useColorModeValue('gray.100', 'gray.700'),
+            }}
+          >
+            <ListIcon as={SiJavascript} color={useColorModeValue('gray.700', 'gray.300')} fontSize="1.5em" />
             Javascript (ES6+)
           </ListItem>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiTypescript} color={emphasis} fontSize="2em" />
+          <ListItem
+            fontSize="small"
+            display="flex"
+            alignItems="center"
+            p={{ base: 3, md: 4 }}
+            borderRadius="md"
+            bg={useColorModeValue('gray.50', 'gray.800')}
+            transition="all 0.2s"
+            _hover={{
+              bg: useColorModeValue('gray.100', 'gray.700'),
+            }}
+          >
+            <ListIcon as={SiTypescript} color={useColorModeValue('gray.700', 'gray.300')} fontSize="1.5em" />
             Typescript
           </ListItem>
 
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiNodedotjs} color={emphasis} fontSize="2em" />
+
+        </List>
+        <List spacing={{ base: 3, md: 4 }}>
+
+          <ListItem
+            fontSize="small"
+            display="flex"
+            alignItems="center"
+            p={{ base: 3, md: 4 }}
+            borderRadius="md"
+            bg={useColorModeValue('gray.50', 'gray.800')}
+            transition="all 0.2s"
+            _hover={{
+              bg: useColorModeValue('gray.100', 'gray.700'),
+            }}
+          >
+            <ListIcon as={SiReact} color={useColorModeValue('gray.700', 'gray.300')} fontSize="1.5em" />
+            React
+          </ListItem>
+          <ListItem
+            fontSize="small"
+            display="flex"
+            alignItems="center"
+            p={{ base: 3, md: 4 }}
+            borderRadius="md"
+            bg={useColorModeValue('gray.50', 'gray.800')}
+            transition="all 0.2s"
+            _hover={{
+              bg: useColorModeValue('gray.100', 'gray.700'),
+            }}
+          >
+            <ListIcon as={SiNextdotjs} color={useColorModeValue('gray.700', 'gray.300')} fontSize="1.5em" />
+            NextJS
+          </ListItem>
+          <ListItem
+            fontSize="small"
+            display="flex"
+            alignItems="center"
+            p={{ base: 3, md: 4 }}
+            borderRadius="md"
+            bg={useColorModeValue('gray.50', 'gray.800')}
+            transition="all 0.2s"
+            _hover={{
+              bg: useColorModeValue('gray.100', 'gray.700'),
+            }}
+          >
+            <ListIcon as={SiNodedotjs} color={useColorModeValue('gray.700', 'gray.300')} fontSize="1.5em" />
             Node
           </ListItem>
         </List>
-        <List spacing={3}>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiGraphql} color={emphasis} fontSize="2em" />
-            Graphql
-          </ListItem>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiReact} color={emphasis} fontSize="2em" />
-            React
-          </ListItem>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiNextdotjs} color={emphasis} fontSize="2em" />
-            NextJS
-          </ListItem>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiDocker} color={emphasis} fontSize="2em" />
-            Docker
-          </ListItem>
-        </List>
-        <Box>
+        <Box gridColumn={{ base: '1', md: 'span 2' }}>
           <Text
             as="button"
-            variant="emphasis"
-            fontSize="smaller"
-            textAlign="left"
+            fontSize="sm"
+            textAlign="center"
             onClick={onOpen}
+            p={{ base: 3, md: 4 }}
+            borderRadius="md"
+            bg={useColorModeValue('gray.900', 'white')}
+            color={useColorModeValue('white', 'gray.900')}
+            fontWeight="500"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            gap={2}
+            width="100%"
+            transition="all 0.2s"
+            _hover={{
+              bg: useColorModeValue('gray.800', 'gray.100'),
+            }}
           >
-            See my full arsenal <Icon as={IoMdOpen} />
+            voir mon arsenal complet <Icon as={IoMdOpen} />
           </Text>
         </Box>
       </SimpleGrid>
