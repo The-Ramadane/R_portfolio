@@ -69,20 +69,20 @@ const ScrollMore = () => {
         {[ScrollDirection.Initial, ScrollDirection.Up].includes(
           scrollDirection
         ) && (
-          <motion.div
-            initial="initial"
-            animate={['hidden', 'bounce']}
-            variants={scrollMoreVariants}
-          >
-            <Icon
-              w={6}
-              h={6}
-              as={RiMouseLine}
-              color="currentColor"
-              opacity="0.75"
-            />
-          </motion.div>
-        )}
+            <motion.div
+              initial="initial"
+              animate={['hidden', 'bounce']}
+              variants={scrollMoreVariants}
+            >
+              <Icon
+                w={6}
+                h={6}
+                as={RiMouseLine}
+                color="currentColor"
+                opacity="0.75"
+              />
+            </motion.div>
+          )}
       </AnimatePresence>
       <AnimatePresence>
         {scrollDirection === ScrollDirection.Down && (
@@ -103,7 +103,7 @@ const ScrollMore = () => {
               as="a"
               paddingY={3}
               fontFamily="monospace"
-              href="mailto:marcjhon18@gmail.com"
+              href="mailto:mouhammadouramadaned@gmail.com"
               target="_blank"
               rel="noreferrer"
               color={emailColor}
@@ -130,7 +130,7 @@ const ScrollMore = () => {
                 marginTop: '10px',
               }}
             >
-              marcjhon@gmail.com{' '}
+              mouhammadouramadaned@gmail.com{' '}
             </Text>
           </motion.div>
         )}

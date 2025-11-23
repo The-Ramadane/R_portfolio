@@ -39,7 +39,7 @@ const GetInTouch = () => {
           fontVariantCaps: 'small-caps',
         }}
       >
-        Say hi!{' '}
+        Restons en contact !{' '}
         <Text as="span" fontSize="2xl" variant="emphasis">
           <motion.div
             style={{ display: 'inline-block' }}
@@ -52,12 +52,11 @@ const GetInTouch = () => {
         </Text>
       </Heading>
       <Text variant="description">
-        Though, I am fairly introverted myself. I do reply to messages as long
-        as my human interaction battery lasts. Coding, work, movies or even weeb
-        stuff, anything is cool. So feel free to message me on any of my social
-        media or shoot me an{' '}
+        Envie de concrétiser une idée, de lancer un projet innovant ou simplement de discuter tech ?
+        Mon inbox est toujours ouverte pour des échanges passionnants.
+        N'hésitez pas à me faire signe sur mes réseaux ou à m'envoyer un{' '}
         <Link
-          href="mailto:marcjhon18@gmail.com"
+          href="mailto:mouhammadouramadaned@gmail.com"
           target="_blank"
           rel="noreferrer"
         >
@@ -76,14 +75,14 @@ const GetInTouch = () => {
           variant="description"
           textDecoration="none"
           rel="noreferrer"
-          href="https://github.com/klawingco/kl_portfolio"
+          href="https://github.com/The-Ramadane"
           target="_blank"
           _focus={{ boxShadow: 'none' }}
         >
           <Text as="span">
             <Icon as={RiGithubFill} h={6} w={6} /> <br />
-            Designed and Made with <Icon as={RiHeartPulseFill} /> <br />
-            KL Lawingco <Icon as={RiCopyleftLine} /> 2021
+            Conçu et développé avec <Icon as={RiHeartPulseFill} /> <br />
+            Ramadane <Icon as={RiCopyleftLine} /> 2025
           </Text>
         </Link>
       </Box>

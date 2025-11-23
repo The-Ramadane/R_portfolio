@@ -28,11 +28,12 @@ const Navigation = () => {
   })
 
   const bg = useColorModeValue(
-    'rgba(237, 242, 247, 0.95)',
-    'rgba(18, 18, 18, 0.9)'
+    'rgba(255, 255, 255, 0.2)',
+    'rgba(0, 0, 0, 0.3)'
   )
 
   const borderColor = useColorModeValue('teal.500', 'cyan.200')
+  const glassBorder = useColorModeValue('rgba(255, 255, 255, 0.3)', 'rgba(255, 255, 255, 0.05)')
 
   const IsDark = colorMode === ThemeMode.Dark
   const btnClassName = `${styles.blogBtn} ${!IsDark && styles.dark}`
@@ -72,6 +73,7 @@ const Navigation = () => {
       <MotionContainer
         width="100%"
         backgroundColor={bg}
+        backdropFilter="blur(16px) saturate(180%)"
         maxWidth={{ base: '100%', sm: '100%', lg: '50%', xl: '60%' }}
         className={styles.menu}
         right={{
@@ -91,8 +93,10 @@ const Navigation = () => {
           opacity: !isOpen && isMobile ? 0 : undefined,
           left: isOpen && isMobile ? 0 : undefined,
         }}
-        borderColor={isOpen && isMobile ? borderColor : undefined}
-        borderBottomWidth={isOpen && isMobile ? '1px' : undefined}
+        borderColor={isOpen && isMobile ? borderColor : glassBorder}
+        borderWidth="1px"
+        borderRadius={{ base: 0, lg: "2xl" }}
+        boxShadow="0 8px 32px 0 rgba(0, 0, 0, 0.1)"
         paddingBottom={isOpen && isMobile ? '1px' : undefined}
         variants={menuAnim}
         marginTop={0}
@@ -174,7 +178,7 @@ const Navigation = () => {
               rel="noreferrer"
               onClick={onMenuItemClick}
             >
-              Experience
+              Expérience
             </Button>
           </Box>
           <Box

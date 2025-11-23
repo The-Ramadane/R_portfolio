@@ -13,7 +13,7 @@ const DetailSection = () => (
         fontVariantCaps: 'small-caps',
       }}
     >
-      Places i’ve worked.
+      Expérience Professionnelle.
     </Heading>
     <Text variant="description">
       Mon expérience professionnelle où j'ai pu mettre en pratique mes compétences et apporter de la valeur.

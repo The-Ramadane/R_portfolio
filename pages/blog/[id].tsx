@@ -20,18 +20,11 @@ import { FiCalendar, FiClock, FiArrowLeft, FiShare2 } from 'react-icons/fi'
 import { FaTwitter, FaLinkedin, FaFacebook } from 'react-icons/fa'
 import Menu from 'components/Menu'
 import Link from 'next/link'
-import { Article } from 'types/article'
+import ReactMarkdown from 'react-markdown'
+import { getAllPosts, getPostById, BlogPost as BlogPostType } from 'lib/blogService'
 
 interface BlogPostProps {
-  article: Article & {
-    body_html: string
-    reading_time_minutes: number
-    published_at: string
-    user: {
-      name: string
-      profile_image: string
-    }
-  }
+  article: BlogPostType
 }
 
 const BlogPost = ({ article }: BlogPostProps): ReactElement => {
@@ -71,8 +64,6 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
     )
   }
 
-  console.log('Rendering article:', article?.title)
-
   return (
     <>
       <Menu />
@@ -95,7 +86,7 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
           {/* Header */}
           <Box textAlign="center" maxW="3xl" mx="auto">
             <HStack justify="center" spacing={2} mb={6}>
-              {(Array.isArray(article.tags) ? article.tags : (typeof article.tag_list === 'string' ? article.tag_list.split(',').map(t => t.trim()) : article.tag_list))?.map((tag) => (
+              {article.tags && article.tags.split(',').map((tag) => (
                 <Badge
                   key={tag}
                   colorScheme="gold"
@@ -107,7 +98,7 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
                   fontSize="xs"
                   textTransform="lowercase"
                 >
-                  #{tag}
+                  #{tag.trim()}
                 </Badge>
               ))}
             </HStack>
@@ -132,22 +123,22 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
               mb={8}
             >
               <HStack spacing={2}>
-                <Avatar size="xs" src={article.user.profile_image} name={article.user.name} />
-                <Text fontWeight="600">{article.user.name}</Text>
+                <Avatar size="xs" src="/avatar.jpg" name="Ramadane" />
+                <Text fontWeight="600">Ramadane</Text>
               </HStack>
               <HStack spacing={1}>
                 <Icon as={FiCalendar} />
-                <Text>{article.readable_publish_date}</Text>
+                <Text>{new Date(article.published_at).toLocaleDateString('en-GB')}</Text>
               </HStack>
               <HStack spacing={1}>
                 <Icon as={FiClock} />
-                <Text>{article.reading_time_minutes} min de lecture</Text>
+                <Text>5 min de lecture</Text>
               </HStack>
             </HStack>
           </Box>
 
           {/* Cover Image */}
-          {article.social_image && (
+          {article.cover_image && (
             <Box
               borderRadius="2xl"
               overflow="hidden"
@@ -156,7 +147,7 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
               position="relative"
             >
               <Image
-                src={article.social_image}
+                src={article.cover_image}
                 alt={article.title}
                 width="100%"
                 height="100%"
@@ -220,8 +211,9 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
                   fontSize: 'xl',
                 },
               }}
-              dangerouslySetInnerHTML={{ __html: article.body_html }}
-            />
+            >
+              <ReactMarkdown>{article.content}</ReactMarkdown>
+            </Box>
           </Box>
 
           <Divider borderColor={borderColor} />
@@ -252,7 +244,7 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
                   colorScheme="twitter"
                   variant="solid"
                   as="a"
-                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}&url=${encodeURIComponent(article.url)}`}
+                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}`}
                   target="_blank"
                 >
                   Twitter
@@ -262,7 +254,7 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
                   colorScheme="linkedin"
                   variant="solid"
                   as="a"
-                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(article.url)}`}
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
                   target="_blank"
                 >
                   LinkedIn
@@ -272,7 +264,7 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
                   colorScheme="facebook"
                   variant="solid"
                   as="a"
-                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(article.url)}`}
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
                   target="_blank"
                 >
                   Facebook
@@ -300,32 +292,29 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch('https://dev.to/api/articles?username=klawingco')
-  const articles = await res.json()
+  const posts = await getAllPosts()
 
-  const paths = articles.map((article: Article) => ({
-    params: { id: article.id.toString() },
+  const paths = posts.map((post) => ({
+    params: { id: post.id.toString() },
   }))
 
   return { paths, fallback: true }
 }
 
 export async function getStaticProps({ params }: { params: { id: string } }) {
-  const res = await fetch(`https://dev.to/api/articles/${params.id}`)
+  const article = await getPostById(Number(params.id))
 
-  if (!res.ok) {
+  if (!article) {
     return {
       notFound: true,
     }
   }
 
-  const article = await res.json()
-
   return {
     props: {
-      article,
+      article: JSON.parse(JSON.stringify(article)),
     },
-    revalidate: 60, // Revalidate every 60 seconds
+    revalidate: 10,
   }
 }
 

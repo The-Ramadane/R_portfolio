@@ -59,7 +59,8 @@ const ExperienceTab = () => {
           <Tab
             key={`Tab-${company.name}`}
             fontSize="smaller"
-            h="120px"
+            px={4}
+            py={4}
             minWidth={tabMinWidth}
             boxShadow="none"
             borderColor={borderColor}
@@ -73,14 +74,7 @@ const ExperienceTab = () => {
             }}
             borderBottomWidth={tabOrientation === 'horizontal' ? '4px' : '0'}
           >
-            <Image
-              src={
-                colorMode === 'dark' ? company.logo.dark : company.logo.light
-              }
-              alt={company.longName}
-              maxWidth="88px"
-              fallback={<Skeleton height="100%" width="100%" />}
-            ></Image>
+            <Text fontWeight="600" fontSize="md">{company.name}</Text>
           </Tab>
         ))}
       </TabList>

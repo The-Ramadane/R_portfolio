@@ -24,7 +24,7 @@ export const Experiences: {
     name: 'SPA Technology',
     longName: 'SPA Technology',
     subDetail: 'Conakry, Guinée',
-    url: '#',
+    url: 'https://spa-dev.com/',
     position: 'Stagiaire en développement',
     duration: 'Juin 2024 – Octobre 2024',
     logo: {

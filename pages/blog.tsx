@@ -14,15 +14,15 @@ import {
   Avatar,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
-import { FiCalendar, FiClock, FiArrowRight } from 'react-icons/fi'
+import { FiCalendar, FiClock } from 'react-icons/fi'
 import Menu from 'components/Menu'
 import FadeInLayout from 'components/Layout/FadeWhenVisible'
-import { Article } from 'types/article'
+import { getAllPosts, BlogPost } from 'lib/blogService'
 
 const MotionBox = motion(Box)
 
 interface BlogProps {
-  articles: Article[]
+  articles: BlogPost[]
 }
 
 const Blog = ({ articles }: BlogProps): ReactElement => {
@@ -95,7 +95,7 @@ const Blog = ({ articles }: BlogProps): ReactElement => {
                       {/* Image */}
                       <Box
                         height="220px"
-                        bgImage={`url(${post.social_image || '/avatar.jpg'})`}
+                        bgImage={`url(${post.cover_image || '/avatar.jpg'})`}
                         bgSize="cover"
                         bgPosition="center"
                         position="relative"
@@ -109,22 +109,20 @@ const Blog = ({ articles }: BlogProps): ReactElement => {
                           bgGradient="linear(to-b, transparent 60%, blackAlpha.600)"
                         />
                         <HStack position="absolute" bottom={4} left={4} spacing={2}>
-                          {(Array.isArray(post.tag_list) ? post.tag_list : (typeof post.tag_list === 'string' ? (post.tag_list as string).split(',') : []))
-                            .slice(0, 2)
-                            .map((tag) => (
-                              <Badge
-                                key={tag}
-                                colorScheme="gold"
-                                variant="solid"
-                                px={3}
-                                py={1}
-                                borderRadius="full"
-                                fontSize="xs"
-                                textTransform="lowercase"
-                              >
-                                #{tag.trim()}
-                              </Badge>
-                            ))}
+                          {post.tags && post.tags.split(',').slice(0, 2).map((tag) => (
+                            <Badge
+                              key={tag}
+                              colorScheme="gold"
+                              variant="solid"
+                              px={3}
+                              py={1}
+                              borderRadius="full"
+                              fontSize="xs"
+                              textTransform="lowercase"
+                            >
+                              #{tag.trim()}
+                            </Badge>
+                          ))}
                         </HStack>
                       </Box>
 
@@ -158,17 +156,17 @@ const Blog = ({ articles }: BlogProps): ReactElement => {
                         <Box pt={4} borderTop="1px solid" borderColor={useColorModeValue('gray.100', 'gray.700')}>
                           <HStack justify="space-between" fontSize="xs" color="gray.500">
                             <HStack>
-                              <Avatar size="xs" src={post.user.profile_image} name={post.user.name} />
-                              <Text fontWeight="600">{post.user.name}</Text>
+                              <Avatar size="xs" src="/avatar.jpg" name="Ramadane" />
+                              <Text fontWeight="600">Ramadane</Text>
                             </HStack>
                             <HStack spacing={4}>
                               <HStack spacing={1}>
                                 <Icon as={FiCalendar} />
-                                <Text>{post.readable_publish_date}</Text>
+                                <Text>{new Date(post.published_at).toLocaleDateString('en-GB')}</Text>
                               </HStack>
                               <HStack spacing={1}>
                                 <Icon as={FiClock} />
-                                <Text>{post.reading_time_minutes} min</Text>
+                                <Text>5 min</Text>
                               </HStack>
                             </HStack>
                           </HStack>
@@ -187,14 +185,13 @@ const Blog = ({ articles }: BlogProps): ReactElement => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://dev.to/api/articles?username=klawingco')
-  const articles = await res.json()
+  const articles = await getAllPosts()
 
   return {
     props: {
-      articles,
+      articles: JSON.parse(JSON.stringify(articles)), // Serialize dates if needed, though getAllPosts returns strings/numbers usually. Safety first.
     },
-    revalidate: 60,
+    revalidate: 10, // Revalidate every 10 seconds to show new posts
   }
 }
 
