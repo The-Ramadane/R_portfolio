@@ -36,8 +36,8 @@ const SkillList = ({
   title: string
   columns: Skill[][]
 }) => {
-  const emphasis = useColorModeValue('gold.500', 'gold.300')
-  const textColor = useColorModeValue('gray.600', 'gray.300')
+  const emphasis = useColorModeValue('teal.300', 'gold.300')
+  const textColor = 'white'
   const [colOne, colTwo = []] = columns
 
   return (
@@ -46,7 +46,7 @@ const SkillList = ({
         as="h3"
         size="sm"
         mb={3}
-        color={useColorModeValue('gray.800', 'white')}
+        color="white"
         textTransform="uppercase"
         letterSpacing="wider"
         fontWeight="bold"
@@ -97,8 +97,8 @@ const SkillList = ({
 }
 
 const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
-  const bg = useColorModeValue('rgba(255, 255, 255, 0.9)', 'rgba(26, 32, 44, 0.9)')
-  const borderColor = useColorModeValue('gray.200', 'gray.700')
+  const bg = useColorModeValue('rgba(255, 255, 255, 0.2)', 'rgba(0, 0, 0, 0.2)')
+  const borderColor = useColorModeValue('rgba(255, 255, 255, 0.3)', 'rgba(255, 255, 255, 0.1)')
 
   const backendCols = splitSkills(Skills.backend)
   const frontendCols = splitSkills(Skills.frontend)
@@ -121,21 +121,22 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
       <ModalOverlay backdropFilter="blur(5px)" />
       <ModalContent
         bg={bg}
-        backdropFilter="blur(10px)"
+        backdropFilter="blur(20px) saturate(180%)"
         border="1px solid"
         borderColor={borderColor}
         borderRadius="2xl"
-        boxShadow="2xl"
+        boxShadow="0 8px 32px 0 rgba(0, 0, 0, 0.37)"
       >
         <ModalHeader
           fontSize="2xl"
           fontWeight="800"
+          color="white"
           textAlign="center"
           pt={8}
           pb={2}
         >
           Expertise Technique
-          <Text fontSize="sm" fontWeight="normal" color="gray.500" mt={2}>
+          <Text fontSize="sm" fontWeight="normal"  color="white.500" mt={2}>
             Vue d'ensemble de mes compétences
           </Text>
         </ModalHeader>

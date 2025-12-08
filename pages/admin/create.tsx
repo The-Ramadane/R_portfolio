@@ -28,25 +28,29 @@ const CreatePost = () => {
         e.preventDefault()
         setIsSubmitting(true)
 
-        const token = localStorage.getItem('admin_token')
+        try {
+            // Dynamically import Firebase modules to ensure they are loaded
+            const { collection, addDoc } = await import('firebase/firestore')
+            const { db, auth } = await import('lib/firebase')
 
-        const res = await fetch('/api/posts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-            },
-            body: JSON.stringify({
+            // We skip strict auth.currentUser check here because Firestore rules are open (testing mode)
+            // and auth state might be asynchronous.
+            // if (!auth.currentUser) { ... }
+
+            const newPost = {
                 title,
                 slug,
                 description,
                 content,
                 tags,
                 cover_image: coverImage,
-            }),
-        })
+                published_at: new Date().toISOString(),
+            }
 
-        if (res.ok) {
+            console.log("Attempting to add doc to Firestore 'posts'...", newPost)
+            await addDoc(collection(db, 'posts'), newPost)
+            console.log("Doc added successfully")
+
             toast({
                 title: 'Post created.',
                 status: 'success',
@@ -54,13 +58,16 @@ const CreatePost = () => {
                 isClosable: true,
             })
             router.push('/admin')
-        } else {
+        } catch (error: any) {
+            console.error(error)
             toast({
                 title: 'Failed to create post.',
+                description: error.message || 'Unknown error',
                 status: 'error',
                 duration: 3000,
                 isClosable: true,
             })
+        } finally {
             setIsSubmitting(false)
         }
     }

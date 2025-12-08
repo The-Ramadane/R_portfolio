@@ -10,7 +10,7 @@ const FavIconProvider = ({ children }: { children: ReactNode }) => {
         <link
           rel="icon"
           href={
-            colorMode === 'dark' ? '/favicon.ico' : '/favicon-lightmode.ico'
+            colorMode === 'dark' ? '/favicon-dark.png' : '/favicon-light.png'
           }
         />
         <meta charSet="utf-8" />

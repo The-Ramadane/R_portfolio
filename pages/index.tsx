@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Grid,
   GridItem,
@@ -17,14 +16,14 @@ import About from 'components/Sections/About'
 import Experience from 'components/Sections/Experience'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
 import ScrollMore from 'components/Misc/ScrollMore'
-import { Article } from 'types/article'
+import { BlogPost, getAllPosts } from 'lib/blogService'
 import { ReactElement } from 'react'
 import Formation from '../components/Sections/Formation'
-// These are on bottom sections so no need to render it instantly
-const DevToArticles = dynamic(() => import('components/Sections/DevToArticles'))
+
+const FeaturedArticles = dynamic(() => import('components/Sections/FeaturedArticles'))
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
 
-const Portfolio = ({ articles }: { articles: Article[] }): ReactElement => {
+const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
   const sideBarPadding = useBreakpointValue({ base: '5', md: '8', lg: '14' })
   const mainContent = useBreakpointValue({
     base: '5',
@@ -144,7 +143,7 @@ const Portfolio = ({ articles }: { articles: Article[] }): ReactElement => {
                 paddingX={0}
                 flexDirection={'row'}
               >
-                <DevToArticles articles={articles} />
+                <FeaturedArticles articles={articles} />
               </Box>
             </FadeInLayout>
             <FadeInLayout>
@@ -167,12 +166,19 @@ const Portfolio = ({ articles }: { articles: Article[] }): ReactElement => {
 }
 
 export async function getStaticProps() {
-  const res = await fetch('https://dev.to/api/articles?username=klawingco')
-  const articles = await res.json()
+  const articles = await getAllPosts()
+
+  // Optimization: Don't send full content to client for the index page to reduce JSON size
+  const optimizedArticles = articles.map(article => ({
+    ...article,
+    content: '' // Strip content for list view
+  }))
+
   return {
     props: {
-      articles,
+      articles: JSON.parse(JSON.stringify(optimizedArticles)),
     },
+    revalidate: 10,
   }
 }
 

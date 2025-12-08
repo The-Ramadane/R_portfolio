@@ -26,33 +26,24 @@ const Login = () => {
         setIsLoading(true)
 
         try {
-            const res = await fetch('/api/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username, password }),
-            })
+            const { signInWithEmailAndPassword } = await import('firebase/auth')
+            const { auth } = await import('lib/firebase')
 
-            const data = await res.json()
+            const userCredential = await signInWithEmailAndPassword(auth, username, password)
+            const token = await userCredential.user.getIdToken()
 
-            if (res.ok) {
-                localStorage.setItem('admin_token', data.token)
-                toast({
-                    title: 'Login successful',
-                    status: 'success',
-                    duration: 3000,
-                })
-                router.push('/admin')
-            } else {
-                toast({
-                    title: 'Login failed',
-                    description: data.error,
-                    status: 'error',
-                    duration: 3000,
-                })
-            }
-        } catch (error) {
+            localStorage.setItem('admin_token', token)
+
             toast({
-                title: 'An error occurred',
+                title: 'Login successful',
+                status: 'success',
+                duration: 3000,
+            })
+            router.push('/admin')
+        } catch (error: any) {
+            toast({
+                title: 'Login failed',
+                description: error.message || 'Invalid credentials',
                 status: 'error',
                 duration: 3000,
             })

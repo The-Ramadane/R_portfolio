@@ -45,7 +45,7 @@ const AdminDashboard = () => {
         router.push('/admin/login')
     }
 
-    const handleDelete = async (id: number) => {
+    const handleDelete = async (id: string) => {
         if (!confirm('Are you sure you want to delete this post?')) return
 
         const token = localStorage.getItem('admin_token')

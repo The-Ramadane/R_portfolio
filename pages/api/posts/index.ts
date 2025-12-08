@@ -10,7 +10,7 @@ export default async function handler(
         const posts = await getAllPosts()
         res.status(200).json(posts)
     } else if (req.method === 'POST') {
-        if (!verifyAuth(req)) {
+        if (!await verifyAuth(req)) {
             return res.status(401).json({ error: 'Unauthorized' })
         }
         try {

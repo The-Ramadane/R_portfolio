@@ -122,7 +122,7 @@ const Sidebar = () => {
               ça me fait super plaisir ! ✨
             </Text>
             <br /> Je suis developpeur logiciel spécialisé backend apis,
-            intégration front-end, récemment trouvé en train d’étudier l’UX aussi.
+            intégration front-end et passionné par le machine learning.
           </MotionText>
           <MotionButton
             size={{ base: "md", md: "lg" }}

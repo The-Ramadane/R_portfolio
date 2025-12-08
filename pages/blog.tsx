@@ -10,7 +10,6 @@ import {
   HStack,
   VStack,
   Icon,
-  Link,
   Avatar,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
@@ -18,11 +17,12 @@ import { FiCalendar, FiClock } from 'react-icons/fi'
 import Menu from 'components/Menu'
 import FadeInLayout from 'components/Layout/FadeWhenVisible'
 import { getAllPosts, BlogPost } from 'lib/blogService'
+import NextLink from 'next/link'
 
 const MotionBox = motion(Box)
 
 interface BlogProps {
-  articles: BlogPost[]
+  articles: (BlogPost & { reading_time: number })[]
 }
 
 const Blog = ({ articles }: BlogProps): ReactElement => {
@@ -69,13 +69,16 @@ const Blog = ({ articles }: BlogProps): ReactElement => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -10 }}
                 >
-                  <Link
+                  <NextLink
                     href={`/blog/${post.id}`}
-                    _hover={{ textDecoration: 'none' }}
-                    display="block"
-                    height="100%"
+                    passHref
+                    legacyBehavior
                   >
                     <Box
+                      as="a"
+                      display="flex"
+                      flexDirection="column"
+                      height="100%"
                       bg={cardBg}
                       backdropFilter="blur(10px)"
                       borderRadius="2xl"
@@ -87,10 +90,8 @@ const Blog = ({ articles }: BlogProps): ReactElement => {
                       _hover={{
                         boxShadow: '2xl',
                         borderColor: 'gold.500',
+                        textDecoration: 'none'
                       }}
-                      height="100%"
-                      display="flex"
-                      flexDirection="column"
                     >
                       {/* Image */}
                       <Box
@@ -166,14 +167,14 @@ const Blog = ({ articles }: BlogProps): ReactElement => {
                               </HStack>
                               <HStack spacing={1}>
                                 <Icon as={FiClock} />
-                                <Text>5 min</Text>
+                                <Text>{post.reading_time || 5} min</Text>
                               </HStack>
                             </HStack>
                           </HStack>
                         </Box>
                       </VStack>
                     </Box>
-                  </Link>
+                  </NextLink>
                 </MotionBox>
               ))}
             </SimpleGrid>
@@ -187,9 +188,22 @@ const Blog = ({ articles }: BlogProps): ReactElement => {
 export async function getStaticProps() {
   const articles = await getAllPosts()
 
+  // Optimization: Don't send full content to client for the index page to reduce JSON size
+  const optimizedArticles = articles.map(article => {
+    // Calculate reading time before stripping content (approx 200 words/min)
+    const wordCount = article.content ? article.content.split(/\s+/).length : 0
+    const readingTime = Math.ceil(wordCount / 200) || 1
+
+    return {
+      ...article,
+      reading_time: readingTime,
+      content: '' // Strip content for list view
+    }
+  })
+
   return {
     props: {
-      articles: JSON.parse(JSON.stringify(articles)), // Serialize dates if needed, though getAllPosts returns strings/numbers usually. Safety first.
+      articles: JSON.parse(JSON.stringify(optimizedArticles)), // Serialize dates if needed, though getAllPosts returns strings/numbers usually. Safety first.
     },
     revalidate: 10, // Revalidate every 10 seconds to show new posts
   }

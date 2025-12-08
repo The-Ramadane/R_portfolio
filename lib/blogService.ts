@@ -1,7 +1,19 @@
-import { getDb } from './db'
+import { db } from './firebase'
+import {
+    collection,
+    getDocs,
+    getDoc,
+    doc,
+    addDoc,
+    updateDoc,
+    deleteDoc,
+    query,
+    where,
+    orderBy,
+} from 'firebase/firestore'
 
 export type BlogPost = {
-    id: number
+    id: string
     title: string
     slug: string
     description: string
@@ -11,58 +23,86 @@ export type BlogPost = {
     published_at: string
 }
 
+const POSTS_COLLECTION = 'posts'
+
 export const getAllPosts = async (): Promise<BlogPost[]> => {
-    const db = await getDb()
-    return db.all('SELECT * FROM posts ORDER BY published_at DESC')
+    try {
+        const q = query(
+            collection(db, POSTS_COLLECTION),
+            orderBy('published_at', 'desc')
+        )
+        const querySnapshot = await getDocs(q)
+        return querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...(doc.data() as Omit<BlogPost, 'id'>),
+        }))
+    } catch (error) {
+        console.error('Error getting posts:', error)
+        return []
+    }
 }
 
-export const getPostBySlug = async (slug: string): Promise<BlogPost | undefined> => {
-    const db = await getDb()
-    return db.get('SELECT * FROM posts WHERE slug = ?', slug)
+export const getPostBySlug = async (
+    slug: string
+): Promise<BlogPost | undefined> => {
+    try {
+        const q = query(collection(db, POSTS_COLLECTION), where('slug', '==', slug))
+        const querySnapshot = await getDocs(q)
+        if (querySnapshot.empty) return undefined
+        const doc = querySnapshot.docs[0]
+        return { id: doc.id, ...(doc.data() as Omit<BlogPost, 'id'>) }
+    } catch (error) {
+        console.error('Error getting post by slug:', error)
+        return undefined
+    }
 }
 
-export const getPostById = async (id: number): Promise<BlogPost | undefined> => {
-    const db = await getDb()
-    return db.get('SELECT * FROM posts WHERE id = ?', id)
+export const getPostById = async (
+    id: string
+): Promise<BlogPost | undefined> => {
+    try {
+        const docRef = doc(db, POSTS_COLLECTION, id)
+        const docSnap = await getDoc(docRef)
+        if (!docSnap.exists()) return undefined
+        return { id: docSnap.id, ...(docSnap.data() as Omit<BlogPost, 'id'>) }
+    } catch (error) {
+        console.error('Error getting post by id:', error)
+        return undefined
+    }
 }
 
-export const createPost = async (post: Omit<BlogPost, 'id' | 'published_at'>) => {
-    const db = await getDb()
-    const result = await db.run(
-        'INSERT INTO posts (title, slug, description, content, tags, cover_image) VALUES (?, ?, ?, ?, ?, ?)',
-        post.title,
-        post.slug,
-        post.description,
-        post.content,
-        post.tags,
-        post.cover_image
-    )
-    return result.lastID
+export const createPost = async (
+    post: Omit<BlogPost, 'id' | 'published_at'>
+) => {
+    try {
+        const newPost = {
+            ...post,
+            published_at: new Date().toISOString(),
+        }
+        const docRef = await addDoc(collection(db, POSTS_COLLECTION), newPost)
+        return docRef.id
+    } catch (error) {
+        console.error('Error creating post:', error)
+        throw error
+    }
 }
 
-export const updatePost = async (id: number, post: Partial<BlogPost>) => {
-    const db = await getDb()
-    // This is a simplified update, ideally we construct the query dynamically based on fields
-    await db.run(
-        `UPDATE posts SET 
-      title = COALESCE(?, title), 
-      slug = COALESCE(?, slug), 
-      description = COALESCE(?, description), 
-      content = COALESCE(?, content), 
-      tags = COALESCE(?, tags), 
-      cover_image = COALESCE(?, cover_image) 
-    WHERE id = ?`,
-        post.title,
-        post.slug,
-        post.description,
-        post.content,
-        post.tags,
-        post.cover_image,
-        id
-    )
+export const updatePost = async (id: string, post: Partial<BlogPost>) => {
+    try {
+        const docRef = doc(db, POSTS_COLLECTION, id)
+        await updateDoc(docRef, post)
+    } catch (error) {
+        console.error('Error updating post:', error)
+        throw error
+    }
 }
 
-export const deletePost = async (id: number) => {
-    const db = await getDb()
-    await db.run('DELETE FROM posts WHERE id = ?', id)
+export const deletePost = async (id: string) => {
+    try {
+        const docRef = doc(db, POSTS_COLLECTION, id)
+        await deleteDoc(docRef)
+    } catch (error) {
+        console.error('Error deleting post:', error)
+        throw error
+    }
 }

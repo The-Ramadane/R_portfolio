@@ -32,7 +32,6 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
 
   const textColor = useColorModeValue('gray.800', 'gray.100')
   const mutedColor = useColorModeValue('gray.600', 'gray.400')
-  const contentBg = useColorModeValue('rgba(255, 255, 255, 0.85)', 'rgba(26, 32, 44, 0.85)')
   const borderColor = useColorModeValue('gray.200', 'gray.700')
 
   // Loading state
@@ -55,8 +54,8 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
         <Container maxW="container.md" py={20}>
           <VStack spacing={4}>
             <Heading>Article non trouvé</Heading>
-            <Link href="/blog" passHref>
-              <Button leftIcon={<FiArrowLeft />}>Retour au blog</Button>
+            <Link href="/blog" passHref legacyBehavior>
+              <Button as="a" leftIcon={<FiArrowLeft />}>Retour au blog</Button>
             </Link>
           </VStack>
         </Container>
@@ -64,41 +63,54 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
     )
   }
 
+  // Calculate reading time: approx 200 words per minute
+  const wordCount = article.content.split(/\s+/).length
+  const readingTime = Math.ceil(wordCount / 200)
+
   return (
     <>
       <Menu />
-      <Container maxW="container.lg" py={{ base: 24, md: 32 }} mt={{ base: 20, md: 28 }} position="relative" zIndex={1}>
-
-        <VStack spacing={10} align="stretch">
-          {/* Back Button */}
-          <Link href="/blog" passHref>
+      <Container maxW="container.md" py={{ base: 24, md: 32 }} position="relative" zIndex={1}>
+        <VStack spacing={8} align="stretch">
+          {/* Exit / Back Navigation */}
+          <Link href="/blog" passHref legacyBehavior>
             <Button
-              leftIcon={<FiArrowLeft />}
-              variant="ghost"
+              as="a"
+              role="group"
+              leftIcon={
+                <Icon
+                  as={FiArrowLeft}
+                  transition="transform 0.2s"
+                  _groupHover={{ transform: "translateX(-4px)" }}
+                />
+              }
+              variant="link"
+              color={mutedColor}
+              fontWeight="medium"
               width="fit-content"
-              size="sm"
-              _hover={{ bg: 'whiteAlpha.200', color: 'gold.500' }}
+              _hover={{ color: "gold.500", textDecoration: 'none' }}
             >
-              Retour au blog
+              Retour
             </Button>
           </Link>
 
-          {/* Header */}
-          <Box textAlign="center" maxW="3xl" mx="auto">
-            <HStack justify="center" spacing={2} mb={6}>
+          {/* Article Header */}
+          <VStack spacing={6} align="start" width="100%">
+            <HStack spacing={2} wrap="wrap">
               {article.tags && article.tags.split(',').map((tag) => (
                 <Badge
                   key={tag}
-                  colorScheme="gold"
-                  variant="outline"
+                  colorScheme="gray"
+                  variant="subtle"
                   px={3}
                   py={1}
                   borderRadius="full"
-                  fontWeight="600"
                   fontSize="xs"
-                  textTransform="lowercase"
+                  fontWeight="600"
+                  textTransform="uppercase"
+                  letterSpacing="wider"
                 >
-                  #{tag.trim()}
+                  {tag.trim()}
                 </Badge>
               ))}
             </HStack>
@@ -106,45 +118,39 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
             <Heading
               as="h1"
               size={{ base: '2xl', md: '3xl' }}
-              mb={6}
-              color={textColor}
+              lineHeight="1.2"
               fontWeight="800"
-              lineHeight="1.1"
+              color={textColor}
               letterSpacing="tight"
             >
               {article.title}
             </Heading>
 
-            <HStack
-              justify="center"
-              spacing={8}
-              fontSize="sm"
-              color={mutedColor}
-              mb={8}
-            >
+            <HStack spacing={6} color={mutedColor} fontSize="sm" divider={<Box as="span" bg="gray.300" w="1px" h="15px" />}>
               <HStack spacing={2}>
-                <Avatar size="xs" src="/avatar.jpg" name="Ramadane" />
-                <Text fontWeight="600">Ramadane</Text>
+                <Avatar size="xs" src="/r-avatar.png" name="Ramadane" />
+                <Text fontWeight="600" color={textColor}>Ramadane</Text>
               </HStack>
-              <HStack spacing={1}>
-                <Icon as={FiCalendar} />
-                <Text>{new Date(article.published_at).toLocaleDateString('en-GB')}</Text>
-              </HStack>
-              <HStack spacing={1}>
-                <Icon as={FiClock} />
-                <Text>5 min de lecture</Text>
-              </HStack>
+              <Text>{new Date(article.published_at).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</Text>
+              <Text>{readingTime} min de lecture</Text>
             </HStack>
-          </Box>
+          </VStack>
 
           {/* Cover Image */}
           {article.cover_image && (
             <Box
               borderRadius="2xl"
               overflow="hidden"
-              boxShadow="2xl"
-              maxH="500px"
+              boxShadow="xl"
               position="relative"
+              width="100vw"
+              maxWidth="100%"
+              marginLeft="50%"
+              transform="translateX(-50%)"
+              // Break out of container on larger screens if desired, but here keeping it contained but wide
+              // actually let's keep it consistent width for readability focus
+              w="100%"
+              height={{ base: "250px", md: "400px" }}
             >
               <Image
                 src={article.cover_image}
@@ -152,139 +158,82 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
                 width="100%"
                 height="100%"
                 objectFit="cover"
+                transition="transform 0.5s ease"
+                _hover={{ transform: 'scale(1.02)' }}
               />
             </Box>
           )}
 
-          {/* Content */}
+          {/* Content Body */}
           <Box
-            bg={contentBg}
-            backdropFilter="blur(12px)"
-            borderRadius="2xl"
-            padding={{ base: 6, md: 12 }}
-            boxShadow="xl"
-            border="1px solid"
-            borderColor={borderColor}
             className="article-content"
-            maxW="4xl"
-            mx="auto"
-            width="100%"
+            fontSize={{ base: 'lg', md: 'lg' }}
+            lineHeight="1.8"
+            color={textColor}
+            pb={10}
+            sx={{
+              '& p': { mb: 8 },
+              '& h2': { fontSize: '2xl', fontWeight: 'bold', mt: 12, mb: 4, letterSpacing: 'tight' },
+              '& h3': { fontSize: 'xl', fontWeight: 'bold', mt: 8, mb: 3 },
+              '& blockquote': {
+                borderLeft: '4px solid',
+                borderColor: 'gold.500',
+                pl: 6,
+                fontStyle: 'italic',
+                my: 10,
+                color: mutedColor,
+              },
+              '& img': { borderRadius: 'xl', boxShadow: 'lg', my: 8 },
+              '& a': { color: 'gold.500', textDecoration: 'underline', textUnderlineOffset: '4px' },
+              '& ul, & ol': { pl: 6, mb: 8 },
+              '& li': { mb: 2 },
+              '& pre': {
+                bg: useColorModeValue('gray.50', 'gray.900'),
+                p: 6,
+                borderRadius: 'xl',
+                overflowX: 'auto',
+                mb: 8,
+                border: '1px solid',
+                borderColor: borderColor
+              }
+            }}
           >
-            <Box
-              color={textColor}
-              fontSize={{ base: 'md', md: 'lg' }}
-              lineHeight="1.9"
-              sx={{
-                '& h1': { fontSize: '3xl', fontWeight: '800', mt: 12, mb: 6, letterSpacing: 'tight' },
-                '& h2': { fontSize: '2xl', fontWeight: '700', mt: 10, mb: 4, letterSpacing: 'tight' },
-                '& h3': { fontSize: 'xl', fontWeight: '600', mt: 8, mb: 3 },
-                '& p': { mb: 6 },
-                '& a': { color: 'gold.500', textDecoration: 'none', borderBottom: '1px dashed', _hover: { borderBottom: '1px solid' } },
-                '& ul, & ol': { pl: 6, mb: 6 },
-                '& li': { mb: 2 },
-                '& img': { borderRadius: 'xl', my: 8, maxWidth: '100%', boxShadow: 'lg' },
-                '& pre': {
-                  bg: useColorModeValue('gray.900', 'black'),
-                  color: 'gray.100',
-                  p: 6,
-                  borderRadius: 'xl',
-                  overflowX: 'auto',
-                  mb: 8,
-                  fontSize: 'sm',
-                  boxShadow: 'inner',
-                },
-                '& code': {
-                  fontFamily: 'monospace',
-                  fontSize: '0.9em',
-                  bg: useColorModeValue('gray.100', 'gray.800'),
-                  px: 1,
-                  py: 0.5,
-                  borderRadius: 'md',
-                },
-                '& blockquote': {
-                  borderLeft: '4px solid',
-                  borderColor: 'gold.500',
-                  pl: 6,
-                  fontStyle: 'italic',
-                  my: 8,
-                  color: mutedColor,
-                  fontSize: 'xl',
-                },
-              }}
-            >
-              <ReactMarkdown>{article.content}</ReactMarkdown>
-            </Box>
+            <ReactMarkdown>{article.content}</ReactMarkdown>
           </Box>
 
           <Divider borderColor={borderColor} />
 
-          {/* Share Section */}
-          <Box
-            bg={contentBg}
-            backdropFilter="blur(12px)"
-            borderRadius="xl"
-            padding={{ base: 6, md: 8 }}
-            border="1px solid"
-            borderColor={borderColor}
-            textAlign="center"
-            maxW="2xl"
-            mx="auto"
-            width="100%"
-          >
-            <VStack spacing={6}>
-              <HStack spacing={2}>
-                <Icon as={FiShare2} />
-                <Heading size="md" color={textColor}>
-                  Partager cet article
-                </Heading>
-              </HStack>
-              <HStack spacing={4}>
-                <Button
-                  leftIcon={<FaTwitter />}
-                  colorScheme="twitter"
-                  variant="solid"
-                  as="a"
-                  href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}`}
-                  target="_blank"
-                >
-                  Twitter
-                </Button>
-                <Button
-                  leftIcon={<FaLinkedin />}
-                  colorScheme="linkedin"
-                  variant="solid"
-                  as="a"
-                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
-                  target="_blank"
-                >
-                  LinkedIn
-                </Button>
-                <Button
-                  leftIcon={<FaFacebook />}
-                  colorScheme="facebook"
-                  variant="solid"
-                  as="a"
-                  href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== 'undefined' ? window.location.href : '')}`}
-                  target="_blank"
-                >
-                  Facebook
-                </Button>
-              </HStack>
-            </VStack>
-          </Box>
+          {/* Footer Share & Author */}
+          <VStack spacing={8} py={8}>
+            <Heading size="md">Avez-vous apprécié cet article ?</Heading>
+            <HStack spacing={4}>
+              <Button
+                leftIcon={<FaTwitter />}
+                colorScheme="twitter"
+                variant="outline"
+                borderRadius="full"
+                as="a"
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(article.title)}`}
+                target="_blank"
+              >
+                Partager
+              </Button>
+              <Button
+                leftIcon={<FaLinkedin />}
+                colorScheme="linkedin"
+                variant="outline"
+                borderRadius="full"
+                as="a"
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
+                  typeof window !== 'undefined' ? window.location.href : ''
+                )}`}
+                target="_blank"
+              >
+                LinkedIn
+              </Button>
+            </HStack>
+          </VStack>
 
-          {/* Back Button Bottom */}
-          <Link href="/blog" passHref>
-            <Button
-              leftIcon={<FiArrowLeft />}
-              variant="outline"
-              width="fit-content"
-              mx="auto"
-              display="flex"
-            >
-              Retour au blog
-            </Button>
-          </Link>
         </VStack>
       </Container>
     </>
@@ -295,14 +244,14 @@ export async function getStaticPaths() {
   const posts = await getAllPosts()
 
   const paths = posts.map((post) => ({
-    params: { id: post.id.toString() },
+    params: { id: post.id },
   }))
 
   return { paths, fallback: true }
 }
 
 export async function getStaticProps({ params }: { params: { id: string } }) {
-  const article = await getPostById(Number(params.id))
+  const article = await getPostById(params.id)
 
   if (!article) {
     return {

@@ -7,7 +7,7 @@ export default async function handler(
     res: NextApiResponse
 ) {
     const { id } = req.query
-    const postId = Number(id)
+    const postId = id as string
 
     if (req.method === 'GET') {
         const post = await getPostById(postId)
@@ -17,7 +17,7 @@ export default async function handler(
             res.status(404).json({ error: 'Post not found' })
         }
     } else if (req.method === 'PUT') {
-        if (!verifyAuth(req)) {
+        if (!await verifyAuth(req)) {
             return res.status(401).json({ error: 'Unauthorized' })
         }
         try {
@@ -27,7 +27,7 @@ export default async function handler(
             res.status(500).json({ error: 'Failed to update post' })
         }
     } else if (req.method === 'DELETE') {
-        if (!verifyAuth(req)) {
+        if (!await verifyAuth(req)) {
             return res.status(401).json({ error: 'Unauthorized' })
         }
         try {
