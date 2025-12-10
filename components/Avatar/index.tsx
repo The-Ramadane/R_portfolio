@@ -11,8 +11,8 @@ import { useEffect } from 'react'
 import { avatarAnimation } from 'config/animations'
 
 const AvatarImages = {
-  DarkMode: '/r-avatar.png',
-  LightMode: '/r-avatar.png',
+  DarkMode: '/ramadane_port.jpg',
+  LightMode: '/ramadane_port.jpg',
 }
 
 declare global {
@@ -27,6 +27,7 @@ const Avatar = () => {
     AvatarImages.LightMode,
     AvatarImages.DarkMode
   )
+  const borderColor = useColorModeValue('gray.200', 'gray.700')
   useEffect(() => {
     // Some nice preloading and caching
     const images = [AvatarImages.DarkMode, AvatarImages.LightMode]
@@ -41,7 +42,10 @@ const Avatar = () => {
     <AnimatePresence>
       <MotionBox
         id="klAvatar"
-        boxSize={{ base: 64, lg: 'sm' }}
+        width={{ base: 'auto', lg: '300px' }}
+        height={{ base: 'auto', lg: '450px' }}
+        display="flex"
+        justifyContent="center"
         padding={{ base: 8 }}
         marginBottom={{ base: 10, md: 0, lg: 0 }}
         initial="initial"
@@ -52,9 +56,14 @@ const Avatar = () => {
         <ChkImage
           src={imgAvatar}
           alt="Ramadane Avatar"
-          htmlWidth="250"
-          htmlHeight="250"
+          htmlWidth="300"
+          htmlHeight="450"
           margin="auto"
+          borderRadius="3xl"
+          objectFit="cover"
+          width={{ base: '250px', lg: '300px' }}
+          height={{ base: '350px', lg: '450px' }}
+          boxShadow="2xl"
           fallback={<SkeletonCircle height="100%" width="100%" />}
         />
       </MotionBox>

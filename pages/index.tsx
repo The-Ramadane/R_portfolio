@@ -87,6 +87,8 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
                 minH={{ lg: '100vh' }}
                 display="flex"
                 alignItems="center"
+                justifyContent="center"
+                
                 paddingTop={{ base: 0, lg: 20, xl: 0 }}
                 paddingBottom={{ base: 12, lg: 0 }}
                 flexDirection={{

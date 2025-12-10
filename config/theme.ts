@@ -30,7 +30,7 @@ export const mobileBreakpointsMap = {
 
 // Configuration du thème
 const config = {
-  initialColorMode: ThemeMode.Dark,  // Mode par défaut au chargement
+  initialColorMode: ThemeMode.Light,  // Mode par défaut au chargement
   useSystemColorMode: false,         // Ne pas suivre les préférences système
 }
 
@@ -38,7 +38,7 @@ const config = {
 // Vous pouvez utiliser ces couleurs partout avec : color="gold.400" ou bg="luxury.darkBg"
 const colors = {
   black: '#0a0a0a',  // Noir personnalisé
-  
+
   // Palette dorée : du plus clair (50) au plus foncé (900)
   gold: {
     50: '#fffbeb',   // Presque blanc doré
@@ -52,7 +52,7 @@ const colors = {
     800: '#92400e',  // Très foncé
     900: '#78350f',  // Presque marron
   },
-  
+
   // Couleurs premium pour un look luxueux
   luxury: {
     darkBg: '#0f0f0f',      // Fond noir profond
@@ -74,13 +74,13 @@ const styles = {
       color: mode('gray.800', 'gray.100')(props),  // Couleur du texte
       bg: mode('#fafafa', '#0f0f0f')(props),       // Couleur de fond
     },
-    
+
     // Style quand on sélectionne du texte avec la souris
     '*::selection': {
       bg: mode('gold.200', 'gold.700')(props),     // Fond de la sélection
       color: mode('gray.900', 'white')(props),     // Couleur du texte sélectionné
     },
-    
+
     // Animation shimmer (effet de brillance qui se déplace)
     // Utilisée pour les titres avec effet doré animé
     '@keyframes shimmer': {
@@ -103,19 +103,19 @@ const textVariants = {
     fontWeight: 'bold',    // Texte en gras
     textShadow: mode('none', '0 0 20px rgba(212, 175, 55, 0.3)')(props), // Glow en dark mode
   }),
-  
+
   // Style "description" = texte secondaire/descriptif
   description: (props: ThemeComponentProps<ChakraTheme>) => ({
     color: mode('gray.600', 'gray.400')(props),  // Gris moyen
     lineHeight: '1.8',                            // Espacement entre les lignes
   }),
-  
+
   // Style "accent" = texte avec accent subtil
   accent: (props: ThemeComponentProps<ChakraTheme>) => ({
     color: mode('gray.700', 'gray.300')(props),
     letterSpacing: '0.05em',  // Espacement entre les lettres
   }),
-  
+
   // Style alternatif
   accentAlternative: (props: ThemeComponentProps<ChakraTheme>) => ({
     color: mode('gray.500', 'gray.500')(props),  // Même couleur en light/dark
@@ -125,19 +125,19 @@ const textVariants = {
 // Création du thème final en étendant le thème par défaut de Chakra UI
 const theme = extendTheme({
   config,  // Configuration (dark mode par défaut)
-  
+
   // Polices utilisées dans toute l'app
   fonts: {
     body: 'Poppins',     // Police pour le texte normal
     heading: 'Poppins',  // Police pour les titres
   },
-  
+
   colors,  // Palette de couleurs personnalisées
   styles,  // Styles globaux
-  
+
   // Personnalisation des composants Chakra UI
   components: {
-    
+
     // ========== LIENS (Link) ==========
     Link: {
       // Style de base pour tous les liens
@@ -146,7 +146,7 @@ const theme = extendTheme({
         textDecoration: 'none',  // Pas de soulignement par défaut
         position: 'relative',
         transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',  // Animation fluide
-        
+
         // Pseudo-élément _after = ligne qui apparaît sous le lien au hover
         _after: {
           content: '""',
@@ -161,7 +161,7 @@ const theme = extendTheme({
           )(props),
           transition: 'width 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         },
-        
+
         // Au survol (_hover)
         _hover: {
           color: mode('gold.600', 'gold.400')(props),  // Couleur dorée
@@ -170,7 +170,7 @@ const theme = extendTheme({
           },
         },
       }),
-      
+
       // Variantes de liens
       variants: {
         ...textVariants,  // Hérite des variantes de texte
@@ -183,17 +183,17 @@ const theme = extendTheme({
         }),
       },
     },
-    
+
     // ========== TEXTE (Text) ==========
     Text: {
       variants: textVariants,  // Utilise les variantes définies plus haut
     },
-    
+
     // ========== TITRES (Heading) ==========
     Heading: {
       variants: textVariants,  // Utilise les mêmes variantes que Text
     },
-    
+
     // ========== BOUTONS (Button) ==========
     Button: {
       variants: {
@@ -208,7 +208,7 @@ const theme = extendTheme({
           letterSpacing: '0.05em',
           position: 'relative',
           overflow: 'hidden',
-          
+
           // Pseudo-élément _before = fond doré qui glisse au hover
           _before: {
             content: '""',
@@ -224,7 +224,7 @@ const theme = extendTheme({
             transition: 'left 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
             zIndex: -1,
           },
-          
+
           // Au survol
           _hover: {
             color: mode('white', 'gray.900')(props),  // Texte devient blanc/noir
@@ -240,7 +240,7 @@ const theme = extendTheme({
           },
           transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
         }),
-        
+
         // Variante alternative avec effet de verre
         outlineAlternative: (props: ThemeComponentProps<ChakraTheme>) => ({
           borderWidth: '1px',
@@ -261,7 +261,7 @@ const theme = extendTheme({
         }),
       },
     },
-    
+
     // ========== ICÔNES (Icon) ==========
     Icon: {
       variants: {
@@ -270,7 +270,7 @@ const theme = extendTheme({
         }),
       },
     },
-    
+
     // ========== SÉPARATEURS (Divider) ==========
     Divider: {
       variants: {
