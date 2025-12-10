@@ -16,26 +16,18 @@ type SocialMedia = {
 }
 
 export const SocialMedias: SocialMedia[] = [
-  {
-    label: 'Twitter',
-    href: 'https://twitter.com/keysl1831',
-    icon: FaTwitter,
-  },
+  
   {
     label: 'Instagram',
-    href: 'https://www.instagram.com/kllawingco/',
+    href: 'https://www.instagram.com/ramadane_diallo_?igsh=MWo5bXZoamsyMjI1Yg%3D%3D&utm_source=qr',
     icon: FaInstagram,
   },
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/marclawingco/',
+    href: 'https://www.linkedin.com/in/mouhammadou-ramadane-diallo-32a36b2b0?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
     icon: FaLinkedin,
   },
-  {
-    label: 'Youtube',
-    href: 'https://www.youtube.com/channel/UCV-MiUVsKJrKJKKfUK58nhg',
-    icon: FaYoutube,
-  },
+  
   {
     label: 'Github',
     href: 'https://github.com/The-Ramadane',
