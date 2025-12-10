@@ -1,7 +1,7 @@
 import { Link } from '@chakra-ui/react'
 import { ReactElement } from 'react'
 
-export type Company = 'SPA'
+export type Company = 'SPA' | 'LyonTech'
 
 export type CompanyDetail = {
   name: string
@@ -37,8 +37,29 @@ export const Experiences: {
       </>,
     ],
   },
+  LyonTech: {
+    name: 'Lyon Tech',
+    longName: 'Association Lyon Tech',
+    subDetail: 'Lyon, France',
+    url: 'https://site-lyon-tech.web.app',
+    position: 'Membre actif & Développeur Web',
+    duration: 'Septembre 2025 - Présent', // Assuming school year start
+    logo: {
+      light: '/logo_asso.jpg',
+      dark: '/logo_asso.jpg',
+    },
+    roles: [
+      <>
+        Développement intégral du site vitrine de l'association (HTML, CSS, Firebase) en équipe réduite.
+      </>,
+      <>
+        Participation aux activités et événements de l'association.
+      </>,
+    ],
+  },
 }
 
 export const ExperiencesList = [
+  Experiences.LyonTech,
   Experiences.SPA,
 ]

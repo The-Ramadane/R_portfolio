@@ -38,6 +38,16 @@ import {
     SiMui,
     SiChakraui,
     SiFramer,
+    SiSpringboot,
+    SiFastapi,
+    SiAngular,
+    SiSwagger,
+    SiTensorflow,
+    SiPytorch,
+    SiScikitlearn,
+    SiJupyter,
+    SiFirebase,
+    SiExpress,
 } from 'react-icons/si'
 import { FaJava } from 'react-icons/fa'
 
@@ -67,61 +77,49 @@ export const splitSkills = (srcArray: Skill[]) => {
 }
 
 export const Skills = {
-    backend: [
-        { name: 'Node.js', icon: SiNodedotjs },
-        { name: 'C# - .NET Core', icon: SiDotnet },
-        { name: 'Python', icon: SiPython },
+    languages: [
+        { name: 'JavaScript', icon: SiJavascript },
+        { name: 'TypeScript', icon: SiTypescript },
         { name: 'Java', icon: FaJava },
-        { name: 'GraphQL', icon: SiGraphql },
+        { name: 'Python', icon: SiPython },
+    ],
+    backend: [
+        { name: 'Spring Boot', icon: SiSpringboot },
+        { name: 'FastAPI', icon: SiFastapi },
+        { name: 'Express.js', icon: SiExpress },
+        { name: 'Firebase', icon: SiFirebase },
     ],
     frontend: [
+        { name: 'Angular', icon: SiAngular },
         { name: 'React', icon: SiReact },
         { name: 'Next.js', icon: SiNextdotjs },
-        { name: 'TypeScript', icon: SiTypescript },
-        { name: 'JavaScript', icon: SiJavascript },
+        { name: 'Tailwind CSS', icon: SiTailwindcss },
+        { name: 'PrimeNG', icon: SiAngular },
         { name: 'HTML5', icon: SiHtml5 },
         { name: 'CSS3', icon: SiCss3 },
     ],
+    mobile: [
+        { name: 'Flutter', icon: SiFlutter },
+        { name: 'React Native', icon: SiReact },
+    ],
     database: [
-        { name: 'PostgreSQL', icon: SiPostgresql },
         { name: 'MySQL', icon: SiMysql },
+        { name: 'PostgreSQL', icon: SiPostgresql },
         { name: 'MongoDB', icon: SiMongodb },
         { name: 'Redis', icon: SiRedis },
     ],
-    cicd: [
-        { name: 'Docker', icon: SiDocker },
-        { name: 'Kubernetes', icon: SiKubernetes },
-        { name: 'AWS', icon: SiAmazon },
-        { name: 'GCP', icon: SiGooglecloud },
+    tools: [
+        { name: 'Postman', icon: SiPostman },
+        { name: 'Swagger', icon: SiSwagger },
         { name: 'Git', icon: SiGit },
         { name: 'GitHub', icon: SiGithub },
+        { name: 'Docker', icon: SiDocker },
+        { name: 'Kubernetes', icon: SiKubernetes },
     ],
-    'ui frameworks': [
-        { name: 'Chakra UI', icon: SiChakraui },
-        { name: 'Tailwind CSS', icon: SiTailwindcss },
-        { name: 'Material UI', icon: SiMui },
-        { name: 'Framer Motion', icon: SiFramer },
-        { name: 'Figma', icon: SiFigma },
-    ],
-    'productivity boost': [
-        { name: 'Postman', icon: SiPostman },
-        { name: 'Notion', icon: SiNotion },
-        { name: 'Slack', icon: SiSlack },
-    ],
-    mobile: [
-        { name: 'React Native', icon: SiReact },
-        { name: 'Flutter', icon: SiFlutter },
-        { name: 'Android', icon: SiAndroid },
-        { name: 'iOS', icon: SiIos },
-        { name: 'Kotlin', icon: SiKotlin },
-        { name: 'Swift', icon: SiSwift },
-    ],
-    games: [
-        { name: 'Unity', icon: SiUnity },
-        { name: 'Unreal Engine', icon: SiUnrealengine },
-    ],
-    desktop: [
-        { name: 'Electron', icon: SiElectron },
-        { name: 'Tauri', icon: SiRust },
+    ai: [
+        { name: 'Machine Learning', icon: SiScikitlearn },
+        { name: 'Data Science', icon: SiJupyter },
+        { name: 'TensorFlow', icon: SiTensorflow },
+        { name: 'PyTorch', icon: SiPytorch },
     ],
 }

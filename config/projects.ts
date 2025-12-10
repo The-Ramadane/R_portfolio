@@ -9,6 +9,14 @@ export type Project = {
 
 export const Projects: Project[] = [
     {
+        title: 'Lyon Tech - Site Vitrine',
+        role: 'Développeur Web & Déploiement',
+        description: "Création et déploiement du site vitrine de l'association Lyon Tech. Responsable de la majeure partie du développement (HTML, CSS) et de l'hébergement sur Firebase.",
+        technologies: ['HTML', 'CSS', 'Firebase'],
+        image: '/logo_asso.jpg',
+        url: 'https://site-lyon-tech.web.app',
+    },
+    {
         title: 'Plateforme de gestion de soutenance (PFE)',
         role: 'Full-Stack',
         description: "Conception d'une application pour la gestion des soutenances, incluant la mise en place de l'authentification.",

@@ -21,6 +21,7 @@ import {
   SiNextdotjs,
   SiNodedotjs,
   SiDocker,
+  SiSpringboot,
 } from 'react-icons/si'
 import { GiCoffeePot } from 'react-icons/gi'
 import { IoMdOpen } from 'react-icons/io'
@@ -87,8 +88,8 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
               bg: useColorModeValue('gray.100', 'gray.700'),
             }}
           >
-            <ListIcon as={SiDotnet} color={useColorModeValue('gray.700', 'gray.300')} fontSize="1.5em" />
-            C# - .NET.Core
+            <ListIcon as={SiSpringboot} color={useColorModeValue('gray.700', 'gray.300')} fontSize="1.5em" />
+            Spring Boot
           </ListItem>
           <ListItem
             fontSize="small"

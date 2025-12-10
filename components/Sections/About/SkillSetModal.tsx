@@ -100,15 +100,13 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
   const bg = useColorModeValue('rgba(255, 255, 255, 0.2)', 'rgba(0, 0, 0, 0.2)')
   const borderColor = useColorModeValue('rgba(255, 255, 255, 0.3)', 'rgba(255, 255, 255, 0.1)')
 
+  const languageCols = splitSkills(Skills.languages)
   const backendCols = splitSkills(Skills.backend)
   const frontendCols = splitSkills(Skills.frontend)
-  const cicdCols = splitSkills(Skills.cicd)
-  const dataBaseCols = splitSkills(Skills.database)
-  const uiFrameWorkCols = splitSkills(Skills['ui frameworks'])
-  const productivityCols = splitSkills(Skills['productivity boost'])
   const mobileCols = splitSkills(Skills.mobile)
-  const gameCols = splitSkills(Skills.games)
-  const desktopCols = splitSkills(Skills.desktop)
+  const dataBaseCols = splitSkills(Skills.database)
+  const toolsCols = splitSkills(Skills.tools)
+  const aiCols = splitSkills(Skills.ai)
 
   return (
     <Modal
@@ -136,22 +134,20 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
           pb={2}
         >
           Expertise Technique
-          <Text fontSize="sm" fontWeight="normal"  color="white.500" mt={2}>
+          <Text fontSize="sm" fontWeight="normal" color="white.500" mt={2}>
             Vue d'ensemble de mes compétences
           </Text>
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody px={{ base: 6, md: 10 }} py={6}>
           <VStack align="stretch" spacing={2}>
-            <SkillList title="Backend & Architecture" columns={backendCols} />
-            <SkillList title="Frontend & UI" columns={frontendCols} />
-            <SkillList title="Frameworks UI" columns={uiFrameWorkCols} />
-            <SkillList title="Base de données & Streams" columns={dataBaseCols} />
-            <SkillList title="DevOps & CI/CD" columns={cicdCols} />
-            <SkillList title="Mobile" columns={mobileCols} />
-            <SkillList title="Desktop" columns={desktopCols} />
-            <SkillList title="Jeux Vidéo" columns={gameCols} />
-            <SkillList title="Outils & Productivité" columns={productivityCols} />
+            <SkillList title="Langages de programmation" columns={languageCols} />
+            <SkillList title="Développement BackEnd" columns={backendCols} />
+            <SkillList title="Développement FrontEnd" columns={frontendCols} />
+            <SkillList title="Développement Mobile" columns={mobileCols} />
+            <SkillList title="Bases de données" columns={dataBaseCols} />
+            <SkillList title="Outils et Services" columns={toolsCols} />
+            <SkillList title="IA & Data" columns={aiCols} />
           </VStack>
         </ModalBody>
         <ModalFooter justifyContent="center" pb={8}>
