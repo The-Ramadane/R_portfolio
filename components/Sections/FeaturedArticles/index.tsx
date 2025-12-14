@@ -46,14 +46,14 @@ const FeaturedArticles = ({ articles }: { articles: BlogPost[] }) => {
                     Mes dernières réflexions et tutoriels.
                 </Text>
             </Stack>
-
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 8, md: 10 }}>
                 {articles.slice(0, 2).map((item) => (
-                    <NextLink href={`/blog/${item.id}`} passHref legacyBehavior key={item.id}>
-                        <Link
+                    <NextLink href={`/blog/${item.id}`} key={item.id}>
+                        <Box
                             aria-label={item.title}
                             _hover={{ textDecoration: 'none' }}
                             role="group"
+                            width="100%"
                         >
                             <MotionBox
                                 whileHover={{ y: -5 }}
@@ -123,16 +123,15 @@ const FeaturedArticles = ({ articles }: { articles: BlogPost[] }) => {
                                     </Flex>
                                 </Stack>
                             </MotionBox>
-                        </Link>
+                        </Box>
                     </NextLink>
                 ))}
             </SimpleGrid>
-
             {articles.length > 2 && (
                 <Flex justifyContent="center" width="100%">
-                    <NextLink href="/blog" passHref legacyBehavior>
+                    <NextLink href="/blog">
                         <Button
-                            as="a"
+                            as="div"
                             rightIcon={<Icon as={FiArrowRight} />}
                             colorScheme="teal"
                             variant="outline"
@@ -145,6 +144,7 @@ const FeaturedArticles = ({ articles }: { articles: BlogPost[] }) => {
                                 transform: 'translateY(-2px)',
                                 boxShadow: 'lg',
                                 textDecoration: 'none',
+                                cursor: 'pointer'
                             }}
                             transition="all 0.2s"
                         >
@@ -154,7 +154,7 @@ const FeaturedArticles = ({ articles }: { articles: BlogPost[] }) => {
                 </Flex>
             )}
         </Stack>
-    )
+    );
 }
 
 export default memo(FeaturedArticles)

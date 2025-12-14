@@ -116,13 +116,12 @@ const Sidebar = () => {
             maxWidth={{ base: '100%', lg: '80%' }}
             lineHeight="tall"
           >
-            Hé ! Merci beaucoup d’être passé sur mon site,
+            Merci beaucoup d’être passé sur mon site,
             <Text variant="emphasis" as="span">
               {' '}
               ça me fait super plaisir ! ✨
             </Text>
-            <br /> Je suis developpeur logiciel spécialisé backend apis,
-            intégration front-end et passionné par le machine learning.
+            <br /> Passionné par le backend, l'intégration front-end et le machine learning.
           </MotionText>
           <MotionButton
             size={{ base: "md", md: "lg" }}

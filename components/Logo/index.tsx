@@ -13,7 +13,7 @@ const Logo = () => {
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
   return (
     <AnimatePresence>
-      <Link href="/" passHref>
+      <Link href="/">
         {colorMode === ThemeMode.Dark ? (
           <MotionImage
             className={!isMobile ? styles.logo : ''}
@@ -45,7 +45,7 @@ const Logo = () => {
         )}
       </Link>
     </AnimatePresence>
-  )
+  );
 }
 
 export default memo(Logo)

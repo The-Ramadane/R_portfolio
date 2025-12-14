@@ -54,13 +54,15 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
         <Container maxW="container.md" py={20}>
           <VStack spacing={4}>
             <Heading>Article non trouvé</Heading>
-            <Link href="/blog" passHref legacyBehavior>
+            <Link href="/blog">
+              {/* @next-codemod-error This Link previously used the now removed `legacyBehavior` prop, and has a child that might not be an anchor. The codemod bailed out of lifting the child props to the Link. Check that the child component does not render an anchor, and potentially move the props manually to Link. */
+              }
               <Button as="a" leftIcon={<FiArrowLeft />}>Retour au blog</Button>
             </Link>
           </VStack>
         </Container>
       </>
-    )
+    );
   }
 
   // Calculate reading time: approx 200 words per minute
@@ -73,7 +75,9 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
       <Container maxW="container.md" py={{ base: 24, md: 32 }} position="relative" zIndex={1}>
         <VStack spacing={8} align="stretch">
           {/* Exit / Back Navigation */}
-          <Link href="/blog" passHref legacyBehavior>
+          <Link href="/blog">
+            {/* @next-codemod-error This Link previously used the now removed `legacyBehavior` prop, and has a child that might not be an anchor. The codemod bailed out of lifting the child props to the Link. Check that the child component does not render an anchor, and potentially move the props manually to Link. */
+            }
             <Button
               as="a"
               role="group"
@@ -237,7 +241,7 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
         </VStack>
       </Container>
     </>
-  )
+  );
 }
 
 export async function getStaticPaths() {

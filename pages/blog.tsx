@@ -69,13 +69,9 @@ const Blog = ({ articles }: BlogProps): ReactElement => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   whileHover={{ y: -10 }}
                 >
-                  <NextLink
-                    href={`/blog/${post.id}`}
-                    passHref
-                    legacyBehavior
-                  >
+                  <NextLink href={`/blog/${post.id}`}>
                     <Box
-                      as="a"
+                      as="div"
                       display="flex"
                       flexDirection="column"
                       height="100%"
@@ -90,7 +86,8 @@ const Blog = ({ articles }: BlogProps): ReactElement => {
                       _hover={{
                         boxShadow: '2xl',
                         borderColor: 'gold.500',
-                        textDecoration: 'none'
+                        textDecoration: 'none',
+                        cursor: 'pointer'
                       }}
                     >
                       {/* Image */}
@@ -182,7 +179,7 @@ const Blog = ({ articles }: BlogProps): ReactElement => {
         </FadeInLayout>
       </Container>
     </>
-  )
+  );
 }
 
 export async function getStaticProps() {

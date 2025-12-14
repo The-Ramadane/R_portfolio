@@ -79,7 +79,7 @@ const AdminDashboard = () => {
             <Flex justifyContent="space-between" alignItems="center" mb={8}>
                 <Heading>Blog Administration</Heading>
                 <Box>
-                    <NextLink href="/admin/settings" passHref>
+                    <NextLink href="/admin/settings">
                         <Button variant="outline" mr={4}>
                             Settings
                         </Button>
@@ -87,14 +87,13 @@ const AdminDashboard = () => {
                     <Button colorScheme="red" variant="ghost" onClick={handleLogout} mr={4}>
                         Logout
                     </Button>
-                    <NextLink href="/admin/create" passHref>
+                    <NextLink href="/admin/create">
                         <Button leftIcon={<AddIcon />} colorScheme="teal">
                             Create New Post
                         </Button>
                     </NextLink>
                 </Box>
             </Flex>
-
             <Box overflowX="auto">
                 <Table variant="simple">
                     <Thead>
@@ -114,7 +113,7 @@ const AdminDashboard = () => {
                                 <Td>{post.slug}</Td>
                                 <Td>{new Date(post.published_at).toLocaleDateString('en-GB')}</Td>
                                 <Td>
-                                    <NextLink href={`/admin/edit/${post.id}`} passHref>
+                                    <NextLink href={`/admin/edit/${post.id}`}>
                                         <IconButton
                                             aria-label="Edit"
                                             icon={<EditIcon />}
@@ -136,7 +135,7 @@ const AdminDashboard = () => {
                 </Table>
             </Box>
         </Container>
-    )
+    );
 }
 
 export default AdminDashboard
