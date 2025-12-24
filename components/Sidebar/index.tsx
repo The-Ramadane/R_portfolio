@@ -22,36 +22,51 @@ import {
 import { SocialMedias } from 'config/sidebar'
 const Sidebar = () => {
   const { colorMode } = useColorMode()
-  const display = useBreakpointValue({ base: 'none', lg: 'block' })
-  const surNameSize = useBreakpointValue({ base: '3xl', md: '4xl' })
+  // Afficher la sidebar sur tous les écrans, mais avec des styles différents
+  const display = useBreakpointValue({ base: 'block', xl: 'block' })
+  const surNameSize = useBreakpointValue({
+    base: '3xl',
+    md: '4xl',
+    lg: '4xl',
+    xl: '5xl',
+    '2xl': '5xl',
+  })
   const MotionHeading = motion(Heading)
   const MotionText = motion(Text)
   const MotionStack = motion(Stack)
   const MotionButton = motion(Button)
   const MotionBox = motion(Box)
+  // ... (surNameSize)
+
+  // ... (Motion components)
 
   return (
     <MotionBox
       initial="initial"
       animate="animate"
-      position={{ xl: 'fixed' }}
-      maxWidth={{ xl: '34%' }}
-      top={{ lg: 0 }}
+      position={{ xl: 'sticky' }}
+      top={{ xl: '160px' }}
+      display={display}
+      width={{ base: '90%', xl: '100%' }} // 90% width below xl
+      margin={{ base: '0 auto', xl: '0' }} // Centered below xl
+      marginBottom={{ base: '40px', xl: '0' }} // Spacing below on mobile/tablet
     >
       <Container
         padding={0}
         margin={0}
-        height={{ xl: '100vh' }}
-        display={{ xl: 'flex' }}
-        alignItems={{ xl: 'center' }}
+        height="auto"
+        w="100%"
+        maxWidth="100%"
       >
         <MotionStack
           variants={stagger}
           spacing={{ base: 5, md: 6 }}
-          w="100"
+          w="100%"
           bg={colorMode === 'dark' ? 'gray.900' : 'white'}
           borderRadius="xl"
-          padding={{ base: 6, md: 8, lg: 10 }}
+          paddingX={{ base: 6, md: 8, lg: 10, xl: 4, '2xl': 10 }}
+          paddingBottom={{ base: 6, md: 8, lg: 10 }}
+          paddingTop={{ base: 6, md: 8, lg: 10 }}
           boxShadow={colorMode === 'dark'
             ? '0 4px 20px rgba(0, 0, 0, 0.5)'
             : '0 4px 20px rgba(0, 0, 0, 0.08)'}
@@ -69,7 +84,7 @@ const Sidebar = () => {
           </MotionText>
           <MotionHeading
             as="h1"
-            size={{ base: "xl", md: "2xl" }}
+            size={{ base: "xl", md: "2xl", xl: "xl", "2xl": "2xl" }}
             textTransform="uppercase"
             variants={fadeInUp}
             fontWeight="700"
@@ -80,7 +95,7 @@ const Sidebar = () => {
           </MotionHeading>
           <MotionHeading
             as="h2"
-            size={{ base: "lg", md: surNameSize }}
+            fontSize={surNameSize}
             variant="emphasis"
             className={styles.marginTopForce}
             textTransform="uppercase"

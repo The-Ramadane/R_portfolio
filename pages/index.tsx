@@ -24,12 +24,17 @@ const FeaturedArticles = dynamic(() => import('components/Sections/FeaturedArtic
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
 
 const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
-  const sideBarPadding = useBreakpointValue({ base: '5', md: '8', lg: '14' })
+  const sideBarPadding = useBreakpointValue({
+    base: '5',
+    md: '8',
+    lg: '14',
+    xl: 20,
+  })
   const mainContent = useBreakpointValue({
     base: '5',
     md: '14',
     lg: '14',
-    xl: 0,
+    xl: 20,
   })
   const paddTop = useBreakpointValue({ base: '20', sm: 20, md: 20 })
   return (
@@ -49,9 +54,9 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
       <Menu />
       <Grid
         id="mainGrid"
+        marginTop={{ base: '100px', lg: '130px', xl: '160px' }}
         templateColumns={{
           base: 'repeat(1, 1fr)',
-          lg: 'repeat(3, 1fr)',
           xl: 'repeat(5, 1fr)',
         }}
         templateRows={{
@@ -61,12 +66,13 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
         gap={4}
       >
         <GridItem
-          padding={sideBarPadding}
-          marginTop={paddTop}
+          paddingLeft={{ base: '5', md: '8', lg: '14', xl: 20 }}
+          paddingRight={{ base: '5', md: '8', lg: '14', xl: 8 }}
+          paddingBottom={{ base: '5', md: '8', lg: '14', xl: 20 }}
           rowSpan={2}
-          colSpan={{ base: 1, sm: 1, md: 1, lg: 1, xl: 2 }}
+          colSpan={{ base: 1, xl: 2 }}
           display="flex"
-          alignContent="center"
+          alignItems="flex-start"
           as="div"
           flexDirection={'row'}
         >
@@ -74,22 +80,24 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
         </GridItem>
         <GridItem
           as="main"
-          padding={mainContent}
+          paddingRight={{ base: '5', md: '14', lg: '14', xl: 20 }}
+          paddingLeft={{ base: '5', md: '14', lg: '14', xl: 8 }}
+          paddingBottom={{ base: '5', md: '14', lg: '14', xl: 20 }}
           rowSpan={2}
-          colSpan={{ base: 1, sm: 2, md: 2, lg: 3, xl: 3 }}
+          colSpan={{ base: 1, xl: 3 }}
           overflow="hidden"
         >
-          <Stack w="100" spacing={24}>
+          <Stack w="100%" spacing={24}>
             <FadeInLayout>
               <Box
                 id="aboutMe"
                 className="contentRow"
-                minH={{ lg: '100vh' }}
+                minH={{ lg: 'auto' }}
                 display="flex"
-                alignItems="center"
+                alignItems="start"
                 justifyContent="center"
-
-                paddingTop={{ base: 0, lg: 20, xl: 0 }}
+                scrollMarginTop={{ base: '100px', xl: '180px' }}
+                paddingTop={{ base: 0, lg: 0, xl: 0 }}
                 paddingBottom={{ base: 12, lg: 0 }}
                 flexDirection={{
                   base: 'column-reverse',

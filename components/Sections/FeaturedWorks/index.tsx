@@ -26,6 +26,8 @@ const FeaturedWorksSection = () => {
       width={{ base: '99%', lg: '60%', xl: '75%' }}
       height="100%"
       spacing={{ base: 6, xl: 8 }}
+      alignItems={{ base: 'center', lg: 'flex-start' }}
+      textAlign={{ base: 'center', lg: 'left' }}
     >
       <Heading
         size="2xl"

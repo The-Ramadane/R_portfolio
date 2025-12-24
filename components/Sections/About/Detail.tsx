@@ -50,6 +50,7 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
       )}
       border="1px solid"
       borderColor={useColorModeValue('gray.200', 'gray.800')}
+      alignItems={{ base: 'center', lg: 'flex-start' }}
     >
       <Heading
         as="h4"
@@ -57,10 +58,11 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
         letterSpacing="tight"
         fontWeight="700"
         color={useColorModeValue('gray.900', 'white')}
+        textAlign={{ base: 'center', lg: 'left' }}
       >
         Ce que je fais.
       </Heading>
-      <Text variant="description" fontSize="lg" lineHeight="tall">
+      <Text variant="description" fontSize="lg" lineHeight="tall" textAlign={{ base: "center", lg: "left" }}>
         <Tooltip label="Architecture & Logique métier" hasArrow>
           <Text as="span" fontWeight="bold" color={emphasis}>Développeur Backend & IA</Text>
         </Tooltip> basé à <Text as="span" fontWeight="bold">Lyon</Text>.
@@ -106,21 +108,7 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
             <ListIcon as={SiJavascript} color={useColorModeValue('gray.700', 'gray.300')} fontSize="1.5em" />
             Javascript (ES6+)
           </ListItem>
-          <ListItem
-            fontSize="small"
-            display="flex"
-            alignItems="center"
-            p={{ base: 3, md: 4 }}
-            borderRadius="md"
-            bg={useColorModeValue('gray.50', 'gray.800')}
-            transition="all 0.2s"
-            _hover={{
-              bg: useColorModeValue('gray.100', 'gray.700'),
-            }}
-          >
-            <ListIcon as={SiTypescript} color={useColorModeValue('gray.700', 'gray.300')} fontSize="1.5em" />
-            Typescript
-          </ListItem>
+
 
 
         </List>
@@ -156,21 +144,7 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
             <ListIcon as={SiNextdotjs} color={useColorModeValue('gray.700', 'gray.300')} fontSize="1.5em" />
             NextJS
           </ListItem>
-          <ListItem
-            fontSize="small"
-            display="flex"
-            alignItems="center"
-            p={{ base: 3, md: 4 }}
-            borderRadius="md"
-            bg={useColorModeValue('gray.50', 'gray.800')}
-            transition="all 0.2s"
-            _hover={{
-              bg: useColorModeValue('gray.100', 'gray.700'),
-            }}
-          >
-            <ListIcon as={SiNodedotjs} color={useColorModeValue('gray.700', 'gray.300')} fontSize="1.5em" />
-            Node
-          </ListItem>
+
         </List>
         <Box gridColumn={{ base: '1', md: 'span 2' }}>
           <Text

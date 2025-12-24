@@ -33,7 +33,13 @@ export const Experiences: {
     },
     roles: [
       <>
-        Participation à la conception et à l'implémentation de fonctionnalités clés pour les produits logiciels de l'entreprise.
+        Conception et développement de sites et applications web, incluant l'utilisation de l'architecture MVC avec PHP.
+      </>,
+      <>
+        Développement d'APIs backend robustes en utilisant le framework Spring Boot.
+      </>,
+      <>
+        Déploiement et configuration d'applications web sur des serveurs en ligne.
       </>,
     ],
   },
@@ -50,10 +56,13 @@ export const Experiences: {
     },
     roles: [
       <>
-        Développement intégral du site vitrine de l'association (HTML, CSS, Firebase) en équipe réduite.
+        Développement intégral et maintenance du site vitrine de l'association (HTML, CSS, Firebase).
       </>,
       <>
-        Participation aux activités et événements de l'association.
+        Collaboration technique efficace au sein d'une équipe réduite pour le suivi du projet.
+      </>,
+      <>
+        Participation active à l'organisation et à la logistique des événements de l'association.
       </>,
     ],
   },

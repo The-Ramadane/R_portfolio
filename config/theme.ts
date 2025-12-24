@@ -24,7 +24,7 @@ export const ThemeMode: IThemeMode = {
 export const mobileBreakpointsMap = {
   base: true,   // Mobile
   md: true,     // Tablette
-  lg: true,     // Laptop
+  lg: true,     // Laptop set to true for tablet mode below 1370px
   xl: false,    // Desktop (pas mobile)
 }
 
@@ -61,6 +61,16 @@ const colors = {
     accentLight: '#f4e4c1', // Or clair
     accentDark: '#b8941f',  // Or foncé
   },
+}
+
+// Points de rupture personnalisés
+const breakpoints = {
+  base: '0em',
+  sm: '30em',
+  md: '48em',
+  lg: '62em',
+  xl: '85.625em', // 1370px
+  '2xl': '96em',
 }
 
 // Styles globaux appliqués à toute l'application
@@ -125,6 +135,7 @@ const textVariants = {
 // Création du thème final en étendant le thème par défaut de Chakra UI
 const theme = extendTheme({
   config,  // Configuration (dark mode par défaut)
+  breakpoints, // Points de rupture personnalisés
 
   // Polices utilisées dans toute l'app
   fonts: {

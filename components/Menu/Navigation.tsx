@@ -74,10 +74,10 @@ const Navigation = () => {
         width="100%"
         backgroundColor={bg}
         backdropFilter="blur(16px) saturate(180%)"
-        maxWidth={{ base: '100%', sm: '100%', lg: '50%', xl: '60%' }}
+        maxWidth={{ base: '100%', sm: '100%', lg: '60%', xl: '60%' }}
         className={styles.menu}
         right={{
-          lg:
+          xl:
             !isMobile && scrollDirection === ScrollDirection.Down
               ? '2%'
               : '3.5%',
@@ -95,7 +95,7 @@ const Navigation = () => {
         }}
         borderColor={isOpen && isMobile ? borderColor : glassBorder}
         borderWidth="1px"
-        borderRadius={{ base: 0, lg: "2xl" }}
+        borderRadius={{ base: 0, xl: "2xl" }}
         boxShadow="0 8px 32px 0 rgba(0, 0, 0, 0.1)"
         paddingBottom={isOpen && isMobile ? '1px' : undefined}
         variants={menuAnim}
@@ -104,24 +104,24 @@ const Navigation = () => {
         as="nav"
       >
         <Flex
-          justifyContent={{ base: 'center', lg: 'flex-end' }}
+          justifyContent={{ base: 'center', xl: 'flex-end' }}
           direction={{
             base: 'column',
-            lg: scrollDirection === ScrollDirection.Down ? 'column' : 'row',
+            xl: scrollDirection === ScrollDirection.Down ? 'column' : 'row',
           }}
-          paddingX={{ base: '', sm: '10', lg: '0' }}
+          paddingX={{ base: '', sm: '10', xl: '4' }}
           paddingY={{
             base: '10',
-            lg: scrollDirection === ScrollDirection.Down ? '10' : '3',
+            xl: scrollDirection === ScrollDirection.Down ? '10' : '3',
           }}
-          height={{ base: '100vh', lg: 'auto' }}
+          height={{ base: '100vh', xl: 'auto' }}
           paddingRight="0"
           paddingBottom={isMobile ? 10 : '0'}
           onClick={() => isMobile && toggleOpen()}
         >
           <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
+            width={{ base: '100%', xl: 'auto' }}
+            textAlign={{ base: 'center', xl: 'left' }}
           >
             <Button
               fontWeight="light"
@@ -140,9 +140,9 @@ const Navigation = () => {
             </Button>
           </Box>
           <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
-            marginY={{ base: 2, lg: 0 }}
+            width={{ base: '100%', xl: 'auto' }}
+            textAlign={{ base: 'center', xl: 'left' }}
+            marginY={{ base: 2, xl: 0 }}
           >
             <Button
               fontWeight="light"
@@ -161,9 +161,9 @@ const Navigation = () => {
             </Button>
           </Box>
           <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
-            marginY={{ base: 2, lg: 0 }}
+            width={{ base: '100%', xl: 'auto' }}
+            textAlign={{ base: 'center', xl: 'left' }}
+            marginY={{ base: 2, xl: 0 }}
           >
             <Button
               fontWeight="light"
@@ -182,9 +182,9 @@ const Navigation = () => {
             </Button>
           </Box>
           <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
-            marginY={{ base: 2, lg: 0 }}
+            width={{ base: '100%', xl: 'auto' }}
+            textAlign={{ base: 'center', xl: 'left' }}
+            marginY={{ base: 2, xl: 0 }}
           >
             <Button
               fontWeight="light"
@@ -203,9 +203,9 @@ const Navigation = () => {
             </Button>
           </Box>
           <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
-            marginY={{ base: 2, lg: 0 }}
+            width={{ base: '100%', xl: 'auto' }}
+            textAlign={{ base: 'center', xl: 'left' }}
+            marginY={{ base: 2, xl: 0 }}
           >
             <Button
               fontWeight="light"
@@ -224,9 +224,9 @@ const Navigation = () => {
             </Button>
           </Box>
           <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
-            marginY={{ base: 2, lg: 0 }}
+            width={{ base: '100%', xl: 'auto' }}
+            textAlign={{ base: 'center', xl: 'left' }}
+            marginY={{ base: 2, xl: 0 }}
           >
             <Button
               fontWeight="light"
