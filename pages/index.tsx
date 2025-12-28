@@ -94,7 +94,7 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
                 className="contentRow"
                 minH={{ lg: 'auto' }}
                 display="flex"
-                alignItems="start"
+                alignItems={{ base: 'center', lg: 'start' }}
                 justifyContent="center"
                 scrollMarginTop={{ base: '100px', xl: '180px' }}
                 paddingTop={{ base: 0, lg: 0, xl: 0 }}

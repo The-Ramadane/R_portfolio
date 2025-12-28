@@ -47,7 +47,7 @@ const Avatar = () => {
         display="flex"
         justifyContent="center"
         padding={{ base: 8 }}
-        marginBottom={{ base: 10, md: 0, lg: 0 }}
+        marginBottom={{ base: 10, md: 10, lg: 0 }}
         initial="initial"
         animate={'animate'}
         variants={avatarAnimation}

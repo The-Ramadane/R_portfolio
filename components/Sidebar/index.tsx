@@ -25,9 +25,9 @@ const Sidebar = () => {
   // Afficher la sidebar sur tous les écrans, mais avec des styles différents
   const display = useBreakpointValue({ base: 'block', xl: 'block' })
   const surNameSize = useBreakpointValue({
-    base: '3xl',
-    md: '4xl',
-    lg: '4xl',
+    base: '5xl',
+    md: '5xl',
+    lg: '5xl',
     xl: '5xl',
     '2xl': '5xl',
   })
@@ -72,6 +72,7 @@ const Sidebar = () => {
             : '0 4px 20px rgba(0, 0, 0, 0.08)'}
           border="1px solid"
           borderColor={colorMode === 'dark' ? 'gray.800' : 'gray.200'}
+          alignItems={{ base: 'center', xl: 'flex-start' }}
         >
           <MotionText
             variants={fadeInUp}
@@ -79,6 +80,7 @@ const Sidebar = () => {
             fontWeight="medium"
             fontSize="sm"
             letterSpacing="wide"
+            textAlign={{ base: 'center', xl: 'left' }}
           >
             👋 Ahh vous me cherchez ? Bonjour! je suis
           </MotionText>
@@ -90,6 +92,7 @@ const Sidebar = () => {
             fontWeight="700"
             letterSpacing="tight"
             color={colorMode === 'dark' ? 'white' : 'gray.900'}
+            textAlign={{ base: 'center', xl: 'left' }}
           >
             Diallo Mouhammadou
           </MotionHeading>
@@ -100,6 +103,7 @@ const Sidebar = () => {
             className={styles.marginTopForce}
             textTransform="uppercase"
             variants={letterSpace}
+            textAlign={{ base: 'center', xl: 'left' }}
           >
             Ramadane.
           </MotionHeading>
@@ -108,6 +112,7 @@ const Sidebar = () => {
             fontSize="smaller"
             className={styles.marginTopForce}
             variants={fadeInUp}
+            textAlign={{ base: 'center', xl: 'left' }}
           >
             Ou tu pourrais m'appeler Ramadane😉. Ça marche aussi...
           </MotionText>
@@ -119,6 +124,7 @@ const Sidebar = () => {
             variants={fadeInUp}
             fontWeight="600"
             color={colorMode === 'dark' ? 'gray.300' : 'gray.700'}
+            textAlign={{ base: 'center', xl: 'left' }}
           >
             💻 Developpeur FullStack / mobile / IA
           </MotionHeading>
@@ -130,6 +136,7 @@ const Sidebar = () => {
             variants={fadeInUp}
             maxWidth={{ base: '100%', lg: '80%' }}
             lineHeight="tall"
+            textAlign={{ base: 'center', xl: 'left' }}
           >
             Merci beaucoup d’être passé sur mon site,
             <Text variant="emphasis" as="span">
@@ -159,6 +166,7 @@ const Sidebar = () => {
             gap={3}
             variants={simpleOpacity}
             flexWrap="wrap"
+            justifyContent={{ base: 'center', xl: 'flex-start' }}
           >
             {SocialMedias.map((socMedia) => (
               <Link

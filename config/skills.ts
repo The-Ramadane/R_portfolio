@@ -22,7 +22,7 @@ import {
     SiUnity,
     SiUnrealengine,
     SiElectron,
-    SiFlutter,
+
     SiKotlin,
     SiSwift,
     SiRust,
@@ -48,6 +48,7 @@ import {
     SiJupyter,
     SiFirebase,
     SiExpress,
+    SiShadcnui,
 } from 'react-icons/si'
 import { FaJava } from 'react-icons/fa'
 
@@ -94,12 +95,11 @@ export const Skills = {
         { name: 'React', icon: SiReact },
         { name: 'Next.js', icon: SiNextdotjs },
         { name: 'Tailwind CSS', icon: SiTailwindcss },
-        { name: 'PrimeNG', icon: SiAngular },
+        { name: 'shadcn/ui', icon: SiShadcnui },
         { name: 'HTML5', icon: SiHtml5 },
         { name: 'CSS3', icon: SiCss3 },
     ],
     mobile: [
-        { name: 'Flutter', icon: SiFlutter },
         { name: 'React Native', icon: SiReact },
     ],
     database: [
