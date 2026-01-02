@@ -15,6 +15,7 @@ import Avatar from 'components/Avatar'
 import About from 'components/Sections/About'
 import Experience from 'components/Sections/Experience'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
+import OngoingProjects from 'components/Sections/OngoingProjects'
 import ScrollMore from 'components/Misc/ScrollMore'
 import { BlogPost, getAllPosts } from 'lib/blogService'
 import { ReactElement } from 'react'
@@ -142,6 +143,18 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
                 flexDirection={'row'}
               >
                 <FeaturedWorks />
+              </Box>
+            </FadeInLayout>
+            <FadeInLayout>
+              <Box
+                id="ongoing"
+                className="contentRow"
+                paddingTop={{ base: 0, lg: 20, xl: 20 }}
+                paddingBottom={{ base: 12, lg: 10 }}
+                paddingX={0}
+                flexDirection={'row'}
+              >
+                <OngoingProjects />
               </Box>
             </FadeInLayout>
             <FadeInLayout>
