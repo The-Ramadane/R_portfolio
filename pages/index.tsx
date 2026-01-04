@@ -23,6 +23,7 @@ import Formation from '../components/Sections/Formation'
 
 const FeaturedArticles = dynamic(() => import('components/Sections/FeaturedArticles'))
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
+const Newsletter = dynamic(() => import('components/Sections/Newsletter'))
 
 const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
   const sideBarPadding = useBreakpointValue({
@@ -171,6 +172,18 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
             </FadeInLayout>
             <FadeInLayout>
               <Box
+                id="newsletter"
+                className="contentRow"
+                paddingTop={{ base: 0, lg: 20, xl: 20 }}
+                paddingBottom={{ base: 12, lg: 10 }}
+                paddingX={0}
+                flexDirection={'row'}
+              >
+                <Newsletter />
+              </Box>
+            </FadeInLayout>
+            <FadeInLayout>
+              <Box
                 id="contact"
                 className="contentRow"
                 paddingTop={{ base: 0, lg: 20, xl: 20 }}
@@ -180,9 +193,10 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
                 <GetInTouch />
               </Box>
             </FadeInLayout>
+            
           </Stack>
         </GridItem>
-      </Grid>
+      </Grid >
       <ScrollMore />
     </>
   )
