@@ -11,6 +11,13 @@ export type Formation = {
 
 export const Formations: Formation[] = [
     {
+        title: 'Certification GenAI - Prompt Engineering (Niveau 1)',
+        institution: 'DataScientest',
+        location: 'Paris, France',
+        period: 'Janvier 2026',
+        certificate: '/certification/prompt_engineering_l1.pdf',
+    },
+    {
         title: 'Bachelor Développeur en Intelligence Artificielle (En cours)',
         institution: 'ECE LYON',
         location: 'Lyon, France',
