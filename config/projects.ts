@@ -33,11 +33,11 @@ export const Projects: Project[] = [
         url: '#',
     },
     {
-        title: 'Sagtech',
-        role: 'Backend',
-        description: "Implémentation de modules de reporting et gestion des activités stratégiques et prioritaires (travail en équipe).",
-        technologies: ['Spring Boot'],
-        image: '/works/sagtech.png', // Placeholder
-        url: '#',
+        title: 'Sagitech',
+        role: 'Conception & Développement',
+        description: "Plateforme intégrée pour le Ministère de la Santé (Guinée) : gestion des financements, du PNDS, des structures d'exécution et tableaux de bord stratégiques pour une gouvernance optimisée.",
+        technologies: ['Spring Boot', 'Angular', 'PostgreSQL'],
+        image: '/works/sagitech.png',
+        url: 'https://www.linkedin.com/in/alpha947/details/projects/406839056/multiple-media-viewer?profileId=ACoAADNPtaEBA2C-jA6Bd4McmDl8cxaxH67X_VM&treasuryMediaId=1767785882190&type=IMAGE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_media_list_details_modal%3BFRBPy%2F24QGCcx1bYM9JC%2Bw%3D%3D',
     },
 ]
