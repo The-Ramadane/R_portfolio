@@ -18,7 +18,7 @@ import {
 } from '@chakra-ui/react'
 import { FiCalendar, FiClock, FiArrowLeft, FiShare2 } from 'react-icons/fi'
 import { FaTwitter, FaLinkedin, FaFacebook } from 'react-icons/fa'
-import Menu from 'components/Menu'
+
 import Link from 'next/link'
 import ReactMarkdown from 'react-markdown'
 import { getAllPosts, getPostById, BlogPost as BlogPostType } from 'lib/blogService'
@@ -38,7 +38,7 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
   if (router.isFallback) {
     return (
       <>
-        <Menu />
+
         <Container maxW="container.md" py={20} centerContent>
           <Spinner size="xl" color="gold.500" />
           <Text mt={4}>Chargement de l'article...</Text>
@@ -50,7 +50,7 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
   if (!article) {
     return (
       <>
-        <Menu />
+
         <Container maxW="container.md" py={20}>
           <VStack spacing={4}>
             <Heading>Article non trouvé</Heading>
@@ -71,7 +71,7 @@ const BlogPost = ({ article }: BlogPostProps): ReactElement => {
 
   return (
     <>
-      <Menu />
+
       <Container maxW="container.md" py={{ base: 24, md: 32 }} position="relative" zIndex={1}>
         <VStack spacing={8} align="stretch">
           {/* Exit / Back Navigation */}
