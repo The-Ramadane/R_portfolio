@@ -1,66 +1,87 @@
-# KL Lawingco's Personal Site
+# Portfolio de Ramadane 🚀
 
-Hey there! KL here. This is a v2 of my portfolio site, a complete rewrite from v1 which is shamefully a template I edited a bit back on 2018. I wanted to try out what I can do on my own in regards to UI and UX design so I reckon why not start with my porfolio.
+Bienvenue sur le dépôt de mon portfolio personnel. Ce projet est une vitrine de mes compétences en développement Full Stack, intégrant une section blog, une gestion de projets interactive et un système de newsletter automatisé.
 
-This is written in Typescript using [Next.js](https://nextjs.org/), as a SSG tool. It utilizes [ChakraUI](https://chakra-ui.com/) as well as  [Framer Motion](https://www.framer.com/motion/) for animations.
+## ✨ Fonctionnalités
 
+- **Vitrine de Projets** : Présentation détaillée de mes réalisations (ex: Together, Smart Recycle) avec galeries interactives et modales immersives.
+- **Blog Système** : Création et lecture d'articles techniques avec support Markdown.
+- **Dashboard Admin** : Interface sécurisée pour rédiger et publier des articles (`/admin`).
+- **Newsletter Automatisée** : 
+  - Inscription des visiteurs via Firebase Firestore.
+  - Notification automatique par email (via **Resend**) aux abonnés lors de la publication d'un nouvel article.
+- **UI/UX Moderne** : Design soigné avec **Chakra UI**, animations fluides via **Framer Motion**, et responsive design complet.
 
-This contains bits of my details. In future I am planning to get this to cater my own blog too but for now will use dev.to links. 
+## 🛠 Stack Technique
 
-Site is Currently deployed at <b>Netlify</b>'s Free tier .
+- **Framework** : [Next.js](https://nextjs.org/) (React)
+- **Langage** : TypeScript
+- **Styling** : [Chakra UI](https://chakra-ui.com/)
+- **Animations** : [Framer Motion](https://www.framer.com/motion/)
+- **Backend / BaaS** : 
+  - [Firebase](https://firebase.google.com/) (Firestore pour la DB, Auth pour l'admin).
+  - [API Routes](https://nextjs.org/docs/api-routes/introduction) (Next.js serverless functions).
+- **Emailing** : [Resend](https://resend.com/) (Notifications transactionnelles).
 
-> Build Status 
+## 🚀 Installation & Démarrage
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4a91d5f6-a717-4b60-9f92-82c11745f2e8/deploy-status)](https://app.netlify.com/sites/kllawingco/deploys)
-
-
-## Demo
-
-<img src="./public/demo.gif" alt="DEMO" />
-
-
-## Local Development
-
-This is just a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-Please use atleast Node v12, but the recommended version is Node v14 LTS. There's a `.nvmrc`, you can run `nvm use` if you have nvm installed.
-
-## Getting Started
-
-This project heavily favors <b>yarn</b> over npm. 
-
-So to set things up you need to run
+### 1. Cloner le projet
 
 ```bash
-yarn install
+git clone https://github.com/votre-user/R_portfolio.git
+cd R_portfolio
 ```
-or just
+
+### 2. Installer les dépendances
+
 ```bash
+npm install
+# ou
 yarn
 ```
 
-Then to run the development server:
+### 3. Configuration des Variables d'Environnement
 
-```bash
-yarn dev
+Créez un fichier `.env` (ou `.env.local` pour le dev) à la racine du projet et ajoutez les clés suivantes :
+
+```env
+# Configuration Firebase
+NEXT_PUBLIC_FIREBASE_API_KEY=votre_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=votre_projet.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=votre_projet_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=votre_bucket.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=votre_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=votre_app_id
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=votre_measurement_id
+
+# Google Analytics (Optionnel)
+NEXT_PUBLIC_ANALYTICS_ID=votre_ga_id
+
+# Emailing (Resend)
+# Nécessaire pour les notifications de newsletter
+RESEND_API_KEY=re_votre_cle_resend
 ```
 
-and it should open at
+### 4. Lancer le serveur de développement
 
-> http://localhost:3000/
+```bash
+npm run dev
+```
 
+Ouvrez [http://localhost:3000](http://localhost:3000) pour voir le résultat.
 
-## Deployment
+## 📦 Déploiement
 
-Nothing special, its setup at Netlify end (in other words: no `netlify.toml`), just merge a feat branch to master branch and you're good. 
+Ce projet est optimisé pour un déploiement sur **Vercel**.
 
+1. Poussez votre code sur GitHub.
+2. Importez le projet dans Vercel.
+3. **Important** : Ajoutez toutes les variables d'environnement ci-dessus dans les réglages du projet sur Vercel ("Settings" > "Environment Variables").
 
-## Credits
+## 👤 Auteur
 
-Logo and Avatar are made by my friend : <b>KojiroArt</b>.
-Please check him out at his [`twitter`](https://twitter.com/kojiro_ai) account.  
+**Ramadane**  
+Développeur Full Stack passionné par l'innovation et les interfaces utilisateurs soignées.
 
-And of course 
-Made with Love and :coffee:
-
-KL 
+---
+*Fait avec ❤️ et beaucoup de café.*
