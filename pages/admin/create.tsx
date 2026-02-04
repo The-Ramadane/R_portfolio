@@ -57,6 +57,43 @@ const CreatePost = () => {
                 duration: 3000,
                 isClosable: true,
             })
+
+            // Notification Logic
+            try {
+                const { getAllSubscribers } = await import('lib/newsletter')
+                const subscribers = await getAllSubscribers()
+
+                if (subscribers.length > 0) {
+                    toast({
+                        title: 'Notifying subscribers...',
+                        status: 'info',
+                        duration: 2000,
+                    })
+
+                    await fetch('/api/notify', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            emails: subscribers,
+                            post: { title, slug }
+                        })
+                    })
+
+                    toast({
+                        title: 'Subscribers notified!',
+                        status: 'success',
+                        duration: 3000,
+                    })
+                }
+            } catch (notifyError) {
+                console.error("Notification failed:", notifyError)
+                toast({
+                    title: 'Notification failed',
+                    description: "Post created, but emails weren't sent.",
+                    status: 'warning',
+                })
+            }
+
             router.push('/admin')
         } catch (error: any) {
             console.error(error)

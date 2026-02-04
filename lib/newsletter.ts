@@ -28,3 +28,14 @@ export const subscribeToNewsletter = async (email: string) => {
         throw new Error(error.message || 'Something went wrong. Please try again.')
     }
 }
+
+export const getAllSubscribers = async () => {
+    try {
+        const subscribersRef = collection(db, 'subscribers')
+        const querySnapshot = await getDocs(query(subscribersRef))
+        return querySnapshot.docs.map((doc) => doc.data().email as string)
+    } catch (error) {
+        console.error('Error fetching subscribers:', error)
+        return []
+    }
+}
