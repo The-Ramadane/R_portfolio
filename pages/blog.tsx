@@ -93,7 +93,7 @@ const Blog = ({ articles }: BlogProps): ReactElement => {
                       {/* Image */}
                       <Box
                         height="220px"
-                        bgImage={`url(${post.cover_image || '/avatar.jpg'})`}
+                        bgImage={`url(${post.cover_image || '/ramadane_2026.jpeg'})`}
                         bgSize="cover"
                         bgPosition="center"
                         position="relative"
@@ -154,7 +154,7 @@ const Blog = ({ articles }: BlogProps): ReactElement => {
                         <Box pt={4} borderTop="1px solid" borderColor={useColorModeValue('gray.100', 'gray.700')}>
                           <HStack justify="space-between" fontSize="xs" color="gray.500">
                             <HStack>
-                              <Avatar size="xs" src="/avatar.jpg" name="Ramadane" />
+                              <Avatar size="xs" src="/ramadane_2026.jpeg" name="Ramadane" />
                               <Text fontWeight="600">Ramadane</Text>
                             </HStack>
                             <HStack spacing={4}>
