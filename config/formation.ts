@@ -20,7 +20,7 @@ export const Formations: Formation[] = [
         type: 'Certification',
     },
     {
-        title: 'Bachelor Développeur en Intelligence Artificielle (En cours)',
+        title: 'Bachelor Intelligence Artificielle (En cours)',
         institution: 'ECE LYON',
         location: 'Lyon, France',
         period: 'Septembre 2025 - présent',
@@ -39,5 +39,12 @@ export const Formations: Formation[] = [
         location: 'Conakry',
         period: 'Juillet 2024',
         type: 'Certification',
+    },
+    {
+        title: 'Baccalauréat Scientifique',
+        institution: 'Hamdallaye Secondaire',
+        location: 'Conakry, Guinée',
+        period: '2021',
+        type: 'Education',
     },
 ]

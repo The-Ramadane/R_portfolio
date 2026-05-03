@@ -50,15 +50,6 @@ const OngoingProjects = [
             '/works/together/register.jpg',
         ],
     },
-    {
-        title: 'Smart Recycle APP ♻️',
-        description: 'Service backend intelligent qui reconnaît le type de déchet par image et indique la poubelle adéquate avec un message éducatif.',
-        technologies: ['React Native', 'FastAPI', 'Python', 'ML', 'Docker'],
-        status: 'Développement',
-        progress: 35,
-        url: '#',
-        github: '#',
-    },
 ]
 
 const ProjectDetailModal = ({

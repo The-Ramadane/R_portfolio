@@ -40,6 +40,7 @@ import {
     SiFramer,
     SiSpringboot,
     SiFastapi,
+    SiNestjs,
     SiAngular,
     SiSwagger,
     SiTensorflow,
@@ -87,7 +88,7 @@ export const Skills = {
     backend: [
         { name: 'Spring Boot', icon: SiSpringboot },
         { name: 'FastAPI', icon: SiFastapi },
-        { name: 'Express.js', icon: SiExpress },
+        { name: 'NestJS', icon: SiNestjs },
         { name: 'Firebase', icon: SiFirebase },
     ],
     frontend: [

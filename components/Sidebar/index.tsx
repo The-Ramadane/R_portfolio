@@ -126,7 +126,7 @@ const Sidebar = () => {
             color={colorMode === 'dark' ? 'gray.300' : 'gray.700'}
             textAlign={{ base: 'center', xl: 'left' }}
           >
-            💻 Developpeur FullStack / mobile / IA
+            🎓 Ingénieur ML & Développeur Full-Stack — Alternance
           </MotionHeading>
 
           <MotionText
@@ -138,12 +138,12 @@ const Sidebar = () => {
             lineHeight="tall"
             textAlign={{ base: 'center', xl: 'left' }}
           >
-            Merci beaucoup d’être passé sur mon site,
+            Merci beaucoup d'être passé sur mon site,
             <Text variant="emphasis" as="span">
               {' '}
               ça me fait super plaisir ! ✨
             </Text>
-            <br /> Passionné par le backend, l'intégration front-end et le machine learning.
+            <br /> Actuellement en stage chez la LPO (React Native & Backend). Passionné par le développement Full-Stack, le mobile et le Machine Learning.
           </MotionText>
           <MotionButton
             size={{ base: "md", md: "lg" }}

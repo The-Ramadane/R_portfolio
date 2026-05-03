@@ -34,10 +34,26 @@ export const Projects: Project[] = [
     },
     {
         title: 'Sagitech',
-        role: 'Conception & Développement',
-        description: "Plateforme intégrée pour le Ministère de la Santé (Guinée) : gestion des financements, du PNDS, des structures d'exécution et tableaux de bord stratégiques pour une gouvernance optimisée.",
+        role: 'Full-Stack',
+        description: "Implémentation d'un système d'authentification sécurisé (Backend avec Spring Boot et Frontend avec Angular) et gestion de base de données PostgreSQL.",
         technologies: ['Spring Boot', 'Angular', 'PostgreSQL'],
         image: '/works/sagitech.png',
         url: 'https://www.linkedin.com/in/alpha947/details/projects/406839056/multiple-media-viewer?profileId=ACoAADNPtaEBA2C-jA6Bd4McmDl8cxaxH67X_VM&treasuryMediaId=1767785882190&type=IMAGE&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_media_list_details_modal%3BFRBPy%2F24QGCcx1bYM9JC%2Bw%3D%3D',
+    },
+    {
+        title: 'Emotion API',
+        role: 'Backend & IA',
+        description: "API REST avec FastAPI pour la classification de texte (NLP). Déploiement en production d'un modèle BERT fine-tuné et géré avec MLflow, combiné à une solution LLM (Google Gemini) pour la comparaison de résultats et l'estimation des coûts d'inférence.",
+        technologies: ['Python', 'FastAPI', 'PyTorch', 'Hugging Face', 'MLflow', 'Gemini'],
+        image: '/works/agora.png',
+        url: '#',
+    },
+    {
+        title: 'Smart Recycle',
+        role: 'Deep Learning & Vision',
+        description: "Conception d'un système de classification automatisée des déchets. Intégration d'un modèle IA (YOLOv11) couplé à une API FastAPI et une interface Next.js.",
+        technologies: ['Python', 'FastAPI', 'YOLOv11', 'Next.js'],
+        image: '/works/prot_kyc01.png',
+        url: '#',
     },
 ]

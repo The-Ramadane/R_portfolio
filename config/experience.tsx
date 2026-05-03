@@ -1,7 +1,7 @@
 import { Link } from '@chakra-ui/react'
 import { ReactElement } from 'react'
 
-export type Company = 'SPA' | 'LyonTech'
+export type Company = 'SPA' | 'LyonTech' | 'LPO'
 
 export type CompanyDetail = {
   name: string
@@ -20,6 +20,29 @@ export type CompanyDetail = {
 export const Experiences: {
   [key in Company]: CompanyDetail
 } = {
+  LPO: {
+    name: 'LPO AuRA',
+    longName: 'LPO Auvergne-Rhône-Alpes',
+    subDetail: 'Lyon, France',
+    url: 'https://auvergne-rhone-alpes.lpo.fr/',
+    position: 'Développeur Backend & Mobile (Stage)',
+    duration: 'Avril 2026 – Août 2026',
+    logo: {
+      light: '/worked_at_logos/lpo/lpo_logo.png',
+      dark: '/worked_at_logos/lpo/lpo_logo.png',
+    },
+    roles: [
+      <>
+        Refonte complète de l'application mobile de l'association.
+      </>,
+      <>
+        Conception et développement de la nouvelle version de l'application avec React Native.
+      </>,
+      <>
+        Modernisation de la base de code pour garantir de meilleures performances et une maintenabilité optimale.
+      </>,
+    ],
+  },
   SPA: {
     name: 'SPA Technology',
     longName: 'SPA Technology',
@@ -69,6 +92,7 @@ export const Experiences: {
 }
 
 export const ExperiencesList = [
+  Experiences.LPO,
   Experiences.LyonTech,
   Experiences.SPA,
 ]

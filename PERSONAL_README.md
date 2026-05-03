@@ -2,11 +2,11 @@
 
 <div align="center">
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&duration=4000&pause=1000&color=00D9FF&center=true&vCenter=true&width=500&lines=Full+Stack+Developer;Data+Science+Enthusiast;AI+%26+Machine+Learning+Explorer" alt="Typing SVG" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&duration=4000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=ML+Engineer+%26+Full-Stack+Developer;React+Native+%26+Backend+Engineer;AI+%26+Machine+Learning+Engineer;Looking+for+3-year+Alternance" alt="Typing SVG" />
 
-**🌍 Based in Lyon, France | 🎯 Passionate about building robust applications and exploring AI**
+**🌍 Based in Lyon, France | � Bachelor IA @ ECE Lyon | 🔍 Recherche alternance 3 ans**
 
-[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-FF6B6B?style=for-the-badge&logo=vercel&logoColor=white)](https://ton-portfolio-url.vercel.app/)
+[![Portfolio](https://img.shields.io/badge/🌐_Portfolio-FF6B6B?style=for-the-badge&logo=vercel&logoColor=white)](https://ramadane.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=github&logoColor=white)](https://github.com/The-Ramadane)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mouhammadou-ramadane-diallo-32a36b2b0)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/ramadane_diallo_)
@@ -15,28 +15,41 @@
 
 ---
 
-## 🚀 About Me 
+## 🚀 About Me
 
 ```yaml
 name: Mouhammadou Ramadane DIALLO
-role: Full Stack Developer
-specialization: [Web Development, Data Science, AI Integration]
-current_position: Student & Active Member @ Lyon Tech
+role: ML Engineer & Full-Stack / Mobile Developer
+specialization: [Backend, Mobile (React Native), AI & ML, Full-Stack]
+current_position: Backend & Mobile Intern @ LPO AuRA | Bachelor IA @ ECE Lyon
 location: Lyon, France
-learning: [Machine Learning, Advanced React Patterns, DevOps]
+seeking: Alternance 3 ans — ML Engineer / Full-Stack / Mobile
 ```
 
-**Passionate Developer** with a strong foundation in both web technologies and data science. I love creating seamless user experiences and building powerful backends. Currently exploring the intersection of **Web Development** and **Artificial Intelligence**.
+**Passionate developer** specializing in backend architectures, mobile development and AI integration. I build robust APIs, cross-platform mobile apps, and deploy production-grade ML models. Currently exploring the intersection of **Deep Learning** and **real-world software engineering**.
 
 🎯 **What I do:**
-- Develop modern web applications (Next.js, React, Angular)
-- Build robust and scalable APIs (Spring Boot, FastAPI)
-- Analyze data and build ML models (Python, TensorFlow, Scikit-learn)
-- Deploy and manage cloud infrastructure (Firebase, Docker)
+- Build cross-platform mobile apps (React Native)
+- Develop robust & scalable APIs (Spring Boot, FastAPI, NestJS)
+- Design full-stack web applications (Next.js, React, Angular)
+- Train and deploy ML models in production (PyTorch, BERT, YOLOv11, MLflow)
+- Deploy and manage infrastructure (Firebase, Docker)
 
 ---
 
 ## 💼 Professional Experience
+
+<details>
+<summary><strong>🐦 Backend & Mobile Developer Intern @ LPO Auvergne-Rhône-Alpes</strong> <em>(Apr 2026 - Aug 2026)</em></summary>
+
+**Key Achievements:**
+- 📱 **Full Refactor** of the association's mobile application using React Native.
+- ⚙️ **Modernized** the codebase for better performance and maintainability.
+- 🏗️ **Designed & Developed** the new version of the app from the ground up.
+
+**Technologies:** React Native, TypeScript, Backend APIs
+
+</details>
 
 <details>
 <summary><strong>🦁 Active Member & Web Developer @ Lyon Tech</strong> <em>(Sept 2025 - Present)</em></summary>
@@ -74,28 +87,37 @@ learning: [Machine Learning, Advanced React Patterns, DevOps]
 ![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=java&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 
-### 🚀 Frontend
+### � Mobile & Frontend
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
 ![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 ![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=for-the-badge&logo=shadcnui&logoColor=white)
 
-### ⚙️ Backend & Database
+### ⚙️ Backend
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
+
+### 🗄️ Databases
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white)
 ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
 ![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
 
-### 🧠 AI & Data Science
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+### 🧠 AI & Machine Learning
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
 ![Scikit-Learn](https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/Hugging_Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+![MLflow](https://img.shields.io/badge/MLflow-0194E2?style=for-the-badge&logo=mlflow&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
 
-### 🛠️ Tools
+### 🛠️ Tools & DevOps
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
+![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
 
 </div>
 
@@ -107,35 +129,12 @@ learning: [Machine Learning, Advanced React Patterns, DevOps]
 
 | Project | Description | Tech Stack | Link |
 |---------|-------------|------------|------|
-| ♻️ **Smart Recycle APP** | Intelligent backend service for waste recognition & recycling guidance | `React Native` `FastAPI` `ML` `Docker` | [WIP] |
+| 🎓 **Together** | Student social network (SaaS) — events, associations & real-time messaging | `React Native` `NestJS` `PostgreSQL` `Socket.io` | WIP |
+| 🧠 **Emotion API** | NLP text classification API — BERT fine-tuned + MLflow + Gemini LLM | `FastAPI` `PyTorch` `BERT` `MLflow` `Gemini` | [Code] |
+| ♻️ **Smart Recycle** | Automated waste classification system using computer vision | `FastAPI` `YOLOv11` `Next.js` `Python` | [Code] |
 | 🦁 **Lyon Tech Website** | Official showcase website for Lyon Tech association | `HTML` `CSS` `Firebase` | [Live →](https://site-lyon-tech.web.app) |
-| 🎓 **PFE Management** | Platform for managing student defense presentations | `Spring Boot` `Angular` `PostgreSQL` | [Code] |
-| 💊 **ePharma** | Pharmacy management platform | `Spring Boot` `Java` | [Code] |
+| 💊 **ePharma** | Pharmacy stock & sales management platform | `Spring Boot` `Java` | [Code] |
 
-</div>
-
----
-
-## 📊 GitHub Analytics
-
-<div align="center">
-
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=The-Ramadane&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true"/>
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=The-Ramadane&layout=compact&langs_count=7&theme=tokyonight"/>
-
-</div>
-
-<div align="center">
-
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=The-Ramadane&theme=tokyonight)](https://git.io/streak-stats)
-
-</div>
-
----
-
-## 🏆 GitHub Trophies
-<div align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=The-Ramadane&theme=tokyonight&no-frame=true&column=6" alt="GitHub Trophies"/>
 </div>
 
 ---
@@ -147,7 +146,7 @@ learning: [Machine Learning, Advanced React Patterns, DevOps]
 I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
 
 [![LinkedIn](https://img.shields.io/badge/Connect-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mouhammadou-ramadane-diallo-32a36b2b0)
-[![Portfolio](https://img.shields.io/badge/View_Portfolio-FF6B6B?style=for-the-badge&logo=vercel&logoColor=white)](https://ton-portfolio-url.vercel.app/)
+[![Portfolio](https://img.shields.io/badge/View_Portfolio-FF6B6B?style=for-the-badge&logo=vercel&logoColor=white)](https://ramadane.vercel.app/)
 
 ---
 
