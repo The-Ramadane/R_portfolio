@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { useLang } from 'lib/i18n'
 import {
   Heading,
   Text,
@@ -21,6 +22,7 @@ const MotionGridItem = motion(GridItem)
 
 const FeaturedWorksSection = () => {
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
+  const { t } = useLang()
   return (
     <Stack
       width={{ base: '99%', lg: '60%', xl: '75%' }}
@@ -35,10 +37,10 @@ const FeaturedWorksSection = () => {
           fontVariantCaps: 'small-caps',
         }}
       >
-        Projets Réalisés.
+        {t.works.heading}
       </Heading>
       <Text variant="description">
-        Une sélection de projets techniques sur lesquels j'ai travaillé, démontrant mes compétences en développement Full-Stack et Backend.
+        {t.works.description}
       </Text>
 
       <MotionGrid
@@ -56,7 +58,7 @@ const FeaturedWorksSection = () => {
               description={
                 <Box>
                   <Text mb={2}>{project.description}</Text>
-                  <Text fontSize="sm" fontWeight="bold" mb={1}>Rôle: <Text as="span" fontWeight="normal">{project.role}</Text></Text>
+                  <Text fontSize="sm" fontWeight="bold" mb={1}>{t.works.roleLabel} <Text as="span" fontWeight="normal">{project.role}</Text></Text>
                   <HStack spacing={2} mt={2} wrap="wrap">
                     {project.technologies.map((tech) => (
                       <Badge key={tech} colorScheme="teal" variant="subtle">

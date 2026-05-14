@@ -1,4 +1,5 @@
 import { memo } from 'react'
+import { useLang } from 'lib/i18n'
 import {
   Heading,
   Text,
@@ -18,6 +19,7 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
   const emphasis = useColorModeValue('teal.500', 'cyan.200')
   const currentYear = new Date().getFullYear()
   const professionalYears = currentYear - 2016
+  const { t } = useLang()
 
   return (
     <Stack
@@ -44,16 +46,16 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
         color={useColorModeValue('gray.900', 'white')}
         textAlign={{ base: 'center', lg: 'left' }}
       >
-        Ce que je fais.
+        {t.about.heading}
       </Heading>
       <Text variant="description" fontSize="lg" lineHeight="tall" textAlign={{ base: "center", lg: "left" }}>
-        Passionné par l'<Tooltip label="Deep Learning & Data" hasArrow><Text as="span" fontWeight="bold">Intelligence Artificielle</Text></Tooltip> et l'<Tooltip label="Architecture & Clean Code" hasArrow><Text as="span" fontWeight="bold">Ingénierie Logicielle</Text></Tooltip>, je conçois des solutions innovantes et performantes.
+        {t.about.p1_before}<Tooltip label={t.about.tt_ai} hasArrow><Text as="span" fontWeight="bold">{t.about.p1_ai}</Text></Tooltip>{t.about.p1_mid}<Tooltip label={t.about.tt_soft} hasArrow><Text as="span" fontWeight="bold">{t.about.p1_soft}</Text></Tooltip>{t.about.p1_end}
         <br /> <br />
-        Je développe des architectures <Tooltip label="FastAPI, Spring Boot, NestJS" hasArrow><Text as="span" fontWeight="bold" color={emphasis}>Backend</Text></Tooltip>, des applications <Tooltip label="React Native" hasArrow><Text as="span" fontWeight="bold" color={emphasis}>Mobile</Text></Tooltip> et des interfaces <Tooltip label="React, Next.js, Tailwind" hasArrow><Text as="span" fontWeight="bold" color={emphasis}>Full-Stack</Text></Tooltip>, tout en intégrant des composantes de <Tooltip label="PyTorch, BERT, YOLOv11" hasArrow><Text as="span" fontWeight="bold">Machine Learning</Text></Tooltip>.
+        {t.about.p2_before}<Tooltip label={t.about.tt_backend} hasArrow><Text as="span" fontWeight="bold" color={emphasis}>{t.about.p2_backend}</Text></Tooltip>{t.about.p2_mid1}<Tooltip label={t.about.tt_mobile} hasArrow><Text as="span" fontWeight="bold" color={emphasis}>{t.about.p2_mobile}</Text></Tooltip>{t.about.p2_mid2}<Tooltip label={t.about.tt_fullstack} hasArrow><Text as="span" fontWeight="bold" color={emphasis}>{t.about.p2_fullstack}</Text></Tooltip>{t.about.p2_mid3}<Tooltip label={t.about.tt_ml} hasArrow><Text as="span" fontWeight="bold">{t.about.p2_ml}</Text></Tooltip>{t.about.p2_end}
         <br /> <br />
-        Actuellement en stage à la <Tooltip label="LPO Auvergne-Rhône-Alpes — React Native & Backend" hasArrow><Text as="span" fontWeight="bold">LPO AuRA</Text></Tooltip> et en <Tooltip label="École Centrale d'Électronique" hasArrow><Text as="span" fontWeight="bold">Bachelor IA à l'ECE Lyon</Text></Tooltip>, je recherche une alternance de 3 ans pour mettre ces compétences au service de projets ambitieux.
+        {t.about.p3_before}<Tooltip label={t.about.tt_lpo} hasArrow><Text as="span" fontWeight="bold">{t.about.p3_lpo}</Text></Tooltip>{t.about.p3_mid}<Tooltip label={t.about.tt_ece} hasArrow><Text as="span" fontWeight="bold">{t.about.p3_ece}</Text></Tooltip>{t.about.p3_end}
         <br /> <br />
-        Mon ambition ? Développer des systèmes intelligents pour demain. 🚀
+        {t.about.p4}
       </Text>
 
       <Box width="100%">
@@ -77,7 +79,7 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
             bg: useColorModeValue('gray.800', 'gray.100'),
           }}
         >
-          voir mon arsenal complet <Icon as={IoMdOpen} />
+          {t.about.cta} <Icon as={IoMdOpen} />
         </Text>
       </Box>
     </Stack>

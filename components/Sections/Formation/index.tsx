@@ -1,7 +1,10 @@
 import { memo } from 'react'
 import { Heading, Text, Stack, Link } from '@chakra-ui/react'
 import ExperienceTab from './FormationTab'
-const DetailSection = () => (
+import { useLang } from 'lib/i18n'
+const DetailSection = () => {
+  const { t } = useLang()
+  return (
   <Stack
     width={{ base: '99%', lg: '60%', xl: '75%' }}
     height="100%"
@@ -9,20 +12,21 @@ const DetailSection = () => (
     alignItems={{ base: 'center', lg: 'flex-start' }}
     textAlign={{ base: 'center', lg: 'left' }}
   >
-    <Heading
-      size="2xl"
-      style={{
-        fontVariantCaps: 'small-caps',
-      }}
-    >
-      Formations & Certifications.
-    </Heading>
-    <Text variant="description">
-      Mon parcours académique et mes certifications qui valident mes compétences techniques.
-    </Text>
+      <Heading
+        size="2xl"
+        style={{
+          fontVariantCaps: 'small-caps',
+        }}
+      >
+        {t.formation.heading}
+      </Heading>
+      <Text variant="description">
+        {t.formation.description}
+      </Text>
 
-    <ExperienceTab />
-  </Stack>
-)
+      <ExperienceTab />
+    </Stack>
+  )
+}
 
 export default memo(DetailSection)

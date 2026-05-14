@@ -1,5 +1,6 @@
 import { memo } from 'react'
 import { Heading, Text, Stack, Link, Icon, Box } from '@chakra-ui/react'
+import { useLang } from 'lib/i18n'
 import { motion, Variants } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { RiHeartPulseFill, RiCopyleftLine, RiGithubFill } from 'react-icons/ri'
@@ -26,6 +27,7 @@ const rimuruVariant: Variants = {
 
 const GetInTouch = () => {
   const [ref, inView] = useInView()
+  const { t } = useLang()
   return (
     <Stack
       width={{ base: '99%', lg: '60%', xl: '75%' }}
@@ -41,7 +43,7 @@ const GetInTouch = () => {
           fontVariantCaps: 'small-caps',
         }}
       >
-        Restons en contact !{' '}
+        {t.contact.heading}{' '}
         <Text as="span" fontSize="2xl" variant="emphasis">
           <motion.div
             style={{ display: 'inline-block' }}
@@ -54,15 +56,13 @@ const GetInTouch = () => {
         </Text>
       </Heading>
       <Text variant="description">
-        Envie de concrétiser une idée, de lancer un projet innovant ou simplement de discuter tech ?
-        Mon inbox est toujours ouverte pour des échanges passionnants.
-        N'hésitez pas à me faire signe sur mes réseaux ou à m'envoyer un{' '}
+        {t.contact.description}{' '}
         <Link
           href="mailto:mouhammadouramadaned@gmail.com"
           target="_blank"
           rel="noreferrer"
         >
-          email
+          {t.contact.email}
         </Link>
         .
       </Text>
@@ -83,7 +83,7 @@ const GetInTouch = () => {
         >
           <Text as="span">
             <Icon as={RiGithubFill} h={6} w={6} /> <br />
-            Conçu et développé avec <Icon as={RiHeartPulseFill} /> <br />
+            {t.contact.footer} <Icon as={RiHeartPulseFill} /> <br />
             Ramadane <Icon as={RiCopyleftLine} /> 2025
           </Text>
         </Link>

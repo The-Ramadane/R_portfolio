@@ -16,9 +16,11 @@ import MobileMenu from './toggle'
 import { ThemeMode, mobileBreakpointsMap } from 'config/theme'
 import { menuAnim } from 'config/animations'
 import useScrollDirection, { ScrollDirection } from 'hooks/useScrollDirection'
+import { useLang } from 'lib/i18n'
 
 const Navigation = () => {
   const { toggleColorMode, colorMode } = useColorMode()
+  const { lang, t, toggleLang } = useLang()
   const MotionContainer = motion(Container)
   const [isOpen, toggleOpen] = useCycle(false, true)
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
@@ -67,6 +69,17 @@ const Navigation = () => {
           onClick={toggleColorMode}
           padding={0}
         />
+        <Button
+          variant="ghost"
+          fontSize="xs"
+          fontWeight="bold"
+          onClick={toggleLang}
+          boxShadow="none"
+          px={2}
+          minW="auto"
+        >
+          {lang === 'fr' ? '🇬🇧' : '🇫🇷'}
+        </Button>
         <MobileMenu isDarkMode={IsDark} toggle={toggleOpen} isOpen={isOpen} />
       </Box>
 
@@ -136,7 +149,7 @@ const Navigation = () => {
               rel="noreferrer"
               onClick={onMenuItemClick}
             >
-              A propos
+              {t.nav.about}
             </Button>
           </Box>
           <Box
@@ -157,7 +170,7 @@ const Navigation = () => {
               rel="noreferrer"
               onClick={onMenuItemClick}
             >
-              Formation
+              {t.nav.formation}
             </Button>
           </Box>
           <Box
@@ -178,7 +191,7 @@ const Navigation = () => {
               rel="noreferrer"
               onClick={onMenuItemClick}
             >
-              Expérience
+              {t.nav.experience}
             </Button>
           </Box>
           <Box
@@ -199,7 +212,7 @@ const Navigation = () => {
               rel="noreferrer"
               onClick={onMenuItemClick}
             >
-              Projets
+              {t.nav.projects}
             </Button>
           </Box>
           <Box
@@ -241,11 +254,11 @@ const Navigation = () => {
               rel="noreferrer"
               onClick={onMenuItemClick}
             >
-              Contact
+              {t.nav.contact}
             </Button>
           </Box>
           {!isMobile && (
-            <Box>
+            <Box display="flex" alignItems="center">
               <IconButton
                 marginX={1}
                 aria-label="Color Mode"
@@ -254,6 +267,19 @@ const Navigation = () => {
                 boxShadow="none"
                 onClick={toggleColorMode}
               />
+              <Button
+                marginX={1}
+                variant="ghost"
+                fontSize="xs"
+                fontWeight="bold"
+                letterSpacing={1}
+                onClick={toggleLang}
+                boxShadow="none"
+                px={2}
+                minW="auto"
+              >
+                {lang === 'fr' ? '🇬🇧 EN' : '🇫🇷 FR'}
+              </Button>
             </Box>
           )}
         </Flex>

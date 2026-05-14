@@ -1,4 +1,5 @@
 import { memo, useState } from 'react'
+import { useLang } from 'lib/i18n'
 import {
     Heading,
     Text,
@@ -62,6 +63,7 @@ const ProjectDetailModal = ({
     project: typeof OngoingProjects[0]
 }) => {
     const [selectedImage, setSelectedImage] = useState(project.image)
+    const { t } = useLang()
 
     // Ensure selectedImage is updated when project changes or modal opens
     if (!selectedImage && project.image) setSelectedImage(project.image)
@@ -123,7 +125,7 @@ const ProjectDetailModal = ({
                         <HStack align="start" spacing={10} divider={<Box w="1px" h="100px" bg="gray.700" />}>
                             {/* Left Col: Description */}
                             <Box flex={1}>
-                                <Heading size="md" mb={4}>À propos du projet</Heading>
+                                <Heading size="md" mb={4}>{t.ongoing.aboutProject}</Heading>
                                 <Text color="gray.400" fontSize="md" lineHeight="tall">
                                     {project.description}
                                 </Text>
@@ -132,7 +134,7 @@ const ProjectDetailModal = ({
                             {/* Right Col: Details */}
                             <Stack flex={0.5} spacing={6}>
                                 <Box>
-                                    <Heading size="xs" textTransform="uppercase" color="gray.500" mb={3}>État d'avancement</Heading>
+                                    <Heading size="xs" textTransform="uppercase" color="gray.500" mb={3}>{t.ongoing.statusLabel}</Heading>
                                     <HStack mb={2}>
                                         <Badge colorScheme={project.progress > 80 ? 'green' : project.progress > 40 ? 'yellow' : 'blue'} fontSize="0.9em" px={2} py={1}>
                                             {project.status}
@@ -143,7 +145,7 @@ const ProjectDetailModal = ({
                                 </Box>
 
                                 <Box>
-                                    <Heading size="xs" textTransform="uppercase" color="gray.500" mb={3}>Technologies</Heading>
+                                    <Heading size="xs" textTransform="uppercase" color="gray.500" mb={3}>{t.ongoing.technologies}</Heading>
                                     <HStack spacing={2} wrap="wrap">
                                         {project.technologies.map((tech) => (
                                             <Badge key={tech} px={2} py={1} borderRadius="md" variant="subtle" colorScheme="teal">
@@ -163,19 +165,19 @@ const ProjectDetailModal = ({
                             {project.url !== '#' && (
                                 <Link href={project.url} isExternal style={{ textDecoration: 'none' }}>
                                     <Button leftIcon={<Icon as={FaExternalLinkAlt} />} colorScheme="teal" variant="solid">
-                                        Voir la Demo
+                                        {t.ongoing.seeDemo}
                                     </Button>
                                 </Link>
                             )}
                             {project.github !== '#' && (
                                 <Link href={project.github} isExternal style={{ textDecoration: 'none' }}>
                                     <Button leftIcon={<Icon as={FaGithub} />} variant="outline">
-                                        Code Source
+                                        {t.ongoing.sourceCode}
                                     </Button>
                                 </Link>
                             )}
                         </HStack>
-                        <Button onClick={onClose} variant="ghost">Fermer</Button>
+                        <Button onClick={onClose} variant="ghost">{t.ongoing.close}</Button>
                     </HStack>
                 </ModalFooter>
             </ModalContent>
@@ -187,6 +189,7 @@ const OngoingProjectCard = ({ project }: { project: typeof OngoingProjects[0] })
     const bg = useColorModeValue('whiteAlpha.500', 'whiteAlpha.100')
     const border = useColorModeValue('gray.200', 'gray.700')
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const { t } = useLang()
 
     return (
         <>
@@ -225,13 +228,16 @@ const OngoingProjectCard = ({ project }: { project: typeof OngoingProjects[0] })
                         </Badge>
                     </HStack>
 
+                    <Text fontSize="xs" color="gray.400" mt={2} fontStyle="italic" textAlign="right" cursor="pointer" onClick={onOpen}>
+                        {t.ongoing.details}
+                    </Text>
                     <Text fontSize="md" color="gray.400" mb={8} noOfLines={3} lineHeight="tall">
                         {project.description}
                     </Text>
 
                     <Stack spacing={3} mb={6}>
                         <HStack justify="space-between">
-                            <Text fontSize="xs" fontWeight="bold" textTransform="uppercase" letterSpacing="wider" color="gray.500">Avancement</Text>
+                            <Text fontSize="xs" fontWeight="bold" textTransform="uppercase" letterSpacing="wider" color="gray.500">{t.ongoing.progress}</Text>
                             <Text fontSize="xs" fontWeight="bold">{project.progress}%</Text>
                         </HStack>
                         <Progress value={project.progress} size="xs" colorScheme="teal" borderRadius="full" />
@@ -258,7 +264,7 @@ const OngoingProjectCard = ({ project }: { project: typeof OngoingProjects[0] })
                         rightIcon={<Icon as={FaExternalLinkAlt} />}
                         _groupHover={{ bg: 'teal.500', color: 'white', borderColor: 'teal.500' }}
                     >
-                        Explorer
+                        {t.ongoing.explore}
                     </Button>
                 </Box>
             </Box>
@@ -269,6 +275,8 @@ const OngoingProjectCard = ({ project }: { project: typeof OngoingProjects[0] })
 }
 
 const OngoingProjectsSection = () => {
+    const { t } = useLang()
+
     return (
         <Stack
             width={{ base: '99%', lg: '60%', xl: '75%' }}
@@ -283,10 +291,10 @@ const OngoingProjectsSection = () => {
                     fontVariantCaps: 'small-caps',
                 }}
             >
-                En Cours.
+                {t.ongoing.heading}
             </Heading>
             <Text variant="description">
-                Aperçu de ce qui se prépare dans mon laboratoire. Des projets en pleine construction.
+                {t.ongoing.description}
             </Text>
 
             <MotionGrid

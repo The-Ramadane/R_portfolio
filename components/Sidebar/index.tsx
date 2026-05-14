@@ -20,8 +20,10 @@ import {
   scaleUp,
 } from 'config/animations'
 import { SocialMedias } from 'config/sidebar'
+import { useLang } from 'lib/i18n'
 const Sidebar = () => {
   const { colorMode } = useColorMode()
+  const { t } = useLang()
   // Afficher la sidebar sur tous les écrans, mais avec des styles différents
   const display = useBreakpointValue({ base: 'block', xl: 'block' })
   const surNameSize = useBreakpointValue({
@@ -82,7 +84,7 @@ const Sidebar = () => {
             letterSpacing="wide"
             textAlign={{ base: 'center', xl: 'left' }}
           >
-            👋 Ahh vous me cherchez ? Bonjour! je suis
+            {t.sidebar.greeting}
           </MotionText>
           <MotionHeading
             as="h1"
@@ -114,7 +116,7 @@ const Sidebar = () => {
             variants={fadeInUp}
             textAlign={{ base: 'center', xl: 'left' }}
           >
-            Ou tu pourrais m'appeler Ramadane😉. Ça marche aussi...
+            {t.sidebar.nameSubtitle}
           </MotionText>
 
           <MotionHeading
@@ -126,7 +128,7 @@ const Sidebar = () => {
             color={colorMode === 'dark' ? 'gray.300' : 'gray.700'}
             textAlign={{ base: 'center', xl: 'left' }}
           >
-            🎓 Ingénieur ML & Développeur Full-Stack — Alternance
+            {t.sidebar.jobTitle}
           </MotionHeading>
 
           <MotionText
@@ -138,12 +140,12 @@ const Sidebar = () => {
             lineHeight="tall"
             textAlign={{ base: 'center', xl: 'left' }}
           >
-            Merci beaucoup d'être passé sur mon site,
+            {t.sidebar.descriptionStart}
             <Text variant="emphasis" as="span">
               {' '}
-              ça me fait super plaisir ! ✨
+              {t.sidebar.descriptionEmphasis}
             </Text>
-            <br /> Actuellement en stage chez la LPO (React Native & Backend). Passionné par le développement Full-Stack, le mobile et le Machine Learning.
+            <br /> {t.sidebar.descriptionEnd}
           </MotionText>
           <MotionButton
             size={{ base: "md", md: "lg" }}
@@ -158,7 +160,7 @@ const Sidebar = () => {
             href="mailto:mouhammadouramadaned@gmail.com"
             target="_blank"
           >
-            Entrez en contact
+            {t.sidebar.cta}
           </MotionButton>
 
           <MotionBox
