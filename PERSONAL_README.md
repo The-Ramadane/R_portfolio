@@ -2,9 +2,9 @@
 
 <div align="center">
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&duration=4000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=ML+Engineer+%26+Full-Stack+Developer;React+Native+%26+Backend+Engineer;AI+%26+Machine+Learning+Engineer;Looking+for+3-year+Alternance" alt="Typing SVG" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=24&duration=4000&pause=1000&color=00D9FF&center=true&vCenter=true&width=600&lines=ML+Engineer+%26+Full-Stack+Developer;React+Native+%26+Backend+Engineer;AI+%26+Machine+Learning+Engineer;Looking+for+2-year+Apprenticeship" alt="Typing SVG" />
 
-**🌍 Based in Lyon, France | � Bachelor IA @ ECE Lyon | 🔍 Recherche alternance 3 ans**
+**🌍 Based in Lyon, France | 🎓 Ing1 @ EPITA | 🔍 Recherche Alternance 2 ans (Sept. 2026)**
 
 [![Portfolio](https://img.shields.io/badge/🌐_Portfolio-FF6B6B?style=for-the-badge&logo=vercel&logoColor=white)](https://ramadane.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-171515?style=for-the-badge&logo=github&logoColor=white)](https://github.com/The-Ramadane)
@@ -21,12 +21,12 @@
 name: Mouhammadou Ramadane DIALLO
 role: ML Engineer & Full-Stack / Mobile Developer
 specialization: [Backend, Mobile (React Native), AI & ML, Full-Stack]
-current_position: Backend & Mobile Intern @ LPO AuRA | Bachelor IA @ ECE Lyon
+current_position: Ing1 @ EPITA
 location: Lyon, France
-seeking: Alternance 3 ans — ML Engineer / Full-Stack / Mobile
+seeking: Alternance 2 ans — ML Engineer / Full-Stack (Sept. 2026)
 ```
 
-**Passionate developer** specializing in backend architectures, mobile development and AI integration. I build robust APIs, cross-platform mobile apps, and deploy production-grade ML models. Currently exploring the intersection of **Deep Learning** and **real-world software engineering**.
+**Passionate developer** specializing in backend architectures, mobile development and AI integration. I build robust APIs (FastAPI, NestJS, Spring Boot), cross-platform mobile apps, and deploy production-grade ML models. I focus on the entire software lifecycle, from containerization (Docker) to model tracking (MLflow) and scalable architecture design.
 
 🎯 **What I do:**
 - Build cross-platform mobile apps (React Native)
@@ -40,12 +40,12 @@ seeking: Alternance 3 ans — ML Engineer / Full-Stack / Mobile
 ## 💼 Professional Experience
 
 <details>
-<summary><strong>🐦 Backend & Mobile Developer Intern @ LPO Auvergne-Rhône-Alpes</strong> <em>(Apr 2026 - Aug 2026)</em></summary>
+<summary><strong>🐦 Backend & Mobile Developer @ LPO Auvergne-Rhône-Alpes</strong> <em>(Apr 2026 - Aug 2026)</em></summary>
 
 **Key Achievements:**
-- 📱 **Full Refactor** of the association's mobile application using React Native.
-- ⚙️ **Modernized** the codebase for better performance and maintainability.
-- 🏗️ **Designed & Developed** the new version of the app from the ground up.
+- 📱 **Refonte Complète** de l'application mobile "Scrute La Nature" (React Native) avec une architecture modulaire.
+- ⚙️ **Conception et Développement** du backoffice Next.js et des API, en appliquant les principes de Clean Code.
+- 🏗️ **Conteneurisation & Déploiement** via Docker pour garantir la scalabilité et la maintenabilité de la solution.
 
 **Technologies:** React Native, TypeScript, Backend APIs
 
@@ -113,11 +113,18 @@ seeking: Alternance 3 ans — ML Engineer / Full-Stack / Mobile
 ![MLflow](https://img.shields.io/badge/MLflow-0194E2?style=for-the-badge&logo=mlflow&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
 
-### 🛠️ Tools & DevOps
+### 🛠️ Tools, DevOps & MLOps
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![MLflow](https://img.shields.io/badge/MLflow-0194E2?style=for-the-badge&logo=mlflow&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)
 ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
+
+### 🤖 AI Assistants & Environments
+![Windsurf](https://img.shields.io/badge/Windsurf-000000?style=for-the-badge&logo=windsurf&logoColor=white)
+![Claude Code](https://img.shields.io/badge/Claude_Code-D97757?style=for-the-badge&logo=anthropic&logoColor=white)
+![Antigravity](https://img.shields.io/badge/Antigravity-4285F4?style=for-the-badge&logo=google&logoColor=white)
+![Google Jules](https://img.shields.io/badge/Google_Jules-34A853?style=for-the-badge&logo=google&logoColor=white)
 
 </div>
 
@@ -131,7 +138,8 @@ seeking: Alternance 3 ans — ML Engineer / Full-Stack / Mobile
 |---------|-------------|------------|------|
 | 🎓 **Together** | Student social network (SaaS) — events, associations & real-time messaging | `React Native` `NestJS` `PostgreSQL` `Socket.io` | WIP |
 | 🧠 **Emotion API** | NLP text classification API — BERT fine-tuned + MLflow + Gemini LLM | `FastAPI` `PyTorch` `BERT` `MLflow` `Gemini` | [Code] |
-| ♻️ **Smart Recycle** | Automated waste classification system using computer vision | `FastAPI` `YOLOv11` `Next.js` `Python` | [Code] |
+| 📝 **Think&Notes** | Application IA pour capturer des pensées non structurées et organiser les tâches (Productivité) | `Next.js` `AI` `Backend` | WIP |
+| ♻️ **Smart Recycle** | Système de tri des déchets (gamification). Architecture complète, tracking MLflow, APIs robustes et conteneurisation Docker. | `FastAPI` `YOLOv11` `ResNet50` `PostgreSQL` `Prisma` `Next.js` `Docker` `MLflow` | [Code] |
 | 🦁 **Lyon Tech Website** | Official showcase website for Lyon Tech association | `HTML` `CSS` `Firebase` | [Live →](https://site-lyon-tech.web.app) |
 | 💊 **ePharma** | Pharmacy stock & sales management platform | `Spring Boot` `Java` | [Code] |
 

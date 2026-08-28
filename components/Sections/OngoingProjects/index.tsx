@@ -51,6 +51,17 @@ const OngoingProjects = [
             '/works/together/register.jpg',
         ],
     },
+    {
+        title: 'Think&Notes 🧠',
+        description: 'Application intelligente basée sur l\'IA, conçue pour capturer des pensées non structurées et organiser les tâches quotidiennes. Un outil orienté productivité pour simplifier le quotidien.',
+        technologies: ['Next.js', 'AI Assistants', 'TypeScript', 'Tailwind CSS'],
+        status: 'En conception',
+        progress: 30,
+        url: '#',
+        github: '#',
+        image: '/works/together/feed.jpg', // placeholder
+        gallery: [],
+    },
 ]
 
 const ProjectDetailModal = ({

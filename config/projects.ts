@@ -50,9 +50,9 @@ export const Projects: Project[] = [
     },
     {
         title: 'Smart Recycle',
-        role: 'Deep Learning & Vision',
-        description: "Conception d'un système de classification automatisée des déchets. Intégration d'un modèle IA (YOLOv11) couplé à une API FastAPI et une interface Next.js.",
-        technologies: ['Python', 'FastAPI', 'YOLOv11', 'Next.js'],
+        role: 'Deep Learning, Vision & Full-Stack',
+        description: "Conception d'une architecture logicielle complète pour la classification automatisée des déchets (gamification incluse). Déploiement de modèles IA (YOLOv11, ResNet50) trackés avec MLflow, servis par une API robuste sous FastAPI et conteneurisés avec Docker. Interface web développée en Next.js, adossée à PostgreSQL via Prisma.",
+        technologies: ['Python', 'FastAPI', 'YOLOv11', 'ResNet50', 'Next.js', 'PostgreSQL', 'Prisma', 'Docker', 'MLflow'],
         image: '/works/prot_kyc01.png',
         url: '#',
     },

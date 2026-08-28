@@ -107,6 +107,7 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
   const dataBaseCols = splitSkills(Skills.database)
   const toolsCols = splitSkills(Skills.tools)
   const aiCols = splitSkills(Skills.ai)
+  const aiAssistantsCols = splitSkills(Skills.ai_assistants)
 
   return (
     <Modal
@@ -146,8 +147,9 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
             <SkillList title="Développement FrontEnd" columns={frontendCols} />
             <SkillList title="Développement Mobile" columns={mobileCols} />
             <SkillList title="Bases de données" columns={dataBaseCols} />
-            <SkillList title="Outils et Services" columns={toolsCols} />
+            <SkillList title="Outils, DevOps & MLOps" columns={toolsCols} />
             <SkillList title="IA & Data" columns={aiCols} />
+            <SkillList title="Assistants IA" columns={aiAssistantsCols} />
           </VStack>
         </ModalBody>
         <ModalFooter justifyContent="center" pb={8}>

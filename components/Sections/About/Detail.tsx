@@ -58,6 +58,22 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
         {t.about.p4}
       </Text>
 
+      <Heading
+        as="h4"
+        size="lg"
+        letterSpacing="tight"
+        fontWeight="700"
+        color={useColorModeValue('gray.900', 'white')}
+        textAlign={{ base: 'center', lg: 'left' }}
+        mt={4}
+        mb={2}
+      >
+        {t.about.interests_heading}
+      </Heading>
+      <Text variant="description" fontSize="lg" lineHeight="tall" textAlign={{ base: "center", lg: "left" }} mb={6}>
+        {t.about.interests_desc}
+      </Text>
+
       <Box width="100%">
         <Text
           as="button"

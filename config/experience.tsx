@@ -33,13 +33,13 @@ export const Experiences: {
     },
     roles: [
       <>
-        Refonte complète de l'application mobile de l'association.
+        Refonte complète de l'application mobile de l'écosystème "Scrute La Nature" (React Native), en adoptant une architecture modulaire et scalable.
       </>,
       <>
-        Conception et développement de la nouvelle version de l'application avec React Native.
+        Conception et développement du backoffice complet avec Next.js et création d'API performantes, en intégrant les meilleures pratiques de Clean Code.
       </>,
       <>
-        Modernisation de la base de code pour garantir de meilleures performances et une maintenabilité optimale.
+        Conteneurisation (Docker) et modernisation de la base de code pour garantir une maintenabilité optimale sur le long terme.
       </>,
     ],
   },

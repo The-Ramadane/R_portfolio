@@ -20,10 +20,10 @@ export const Formations: Formation[] = [
         type: 'Certification',
     },
     {
-        title: 'Bachelor Intelligence Artificielle (En cours)',
-        institution: 'ECE LYON',
+        title: 'Cycle ingénieur (Ing1)',
+        institution: 'EPITA',
         location: 'Lyon, France',
-        period: 'Septembre 2025 - présent',
+        period: 'Septembre 2026 - présent',
         type: 'Education',
     },
     {

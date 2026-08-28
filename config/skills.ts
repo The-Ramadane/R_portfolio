@@ -51,7 +51,7 @@ import {
     SiExpress,
     SiShadcnui,
 } from 'react-icons/si'
-import { FaJava } from 'react-icons/fa'
+import { FaJava, FaRobot, FaBrain } from 'react-icons/fa'
 
 export type Skill = {
     name: string
@@ -110,12 +110,19 @@ export const Skills = {
         { name: 'Redis', icon: SiRedis },
     ],
     tools: [
+        { name: 'Docker', icon: SiDocker },
+        { name: 'MLflow', icon: SiScikitlearn },
         { name: 'Postman', icon: SiPostman },
         { name: 'Swagger', icon: SiSwagger },
         { name: 'Git', icon: SiGit },
         { name: 'GitHub', icon: SiGithub },
-        { name: 'Docker', icon: SiDocker },
         { name: 'Kubernetes', icon: SiKubernetes },
+    ],
+    ai_assistants: [
+        { name: 'Windsurf', icon: FaRobot },
+        { name: 'Claude Code', icon: FaBrain },
+        { name: 'Antigravity', icon: FaRobot },
+        { name: 'Google Jules', icon: FaBrain },
     ],
     ai: [
         { name: 'Machine Learning', icon: SiScikitlearn },
