@@ -131,6 +131,49 @@ const Sidebar = () => {
             {t.sidebar.jobTitle}
           </MotionHeading>
 
+          {/* Badge alternance */}
+          <MotionBox
+            variants={fadeInUp}
+            display="inline-flex"
+            alignItems="center"
+            gap={2}
+            px={3}
+            py={2}
+            borderRadius="full"
+            bg={colorMode === 'dark' ? 'rgba(72, 187, 120, 0.15)' : 'rgba(72, 187, 120, 0.12)'}
+            border="1px solid"
+            borderColor={colorMode === 'dark' ? 'green.500' : 'green.400'}
+            width={{ base: '100%', xl: 'auto' }}
+            justifyContent={{ base: 'center', xl: 'flex-start' }}
+          >
+            <Box
+              as="span"
+              w={2}
+              h={2}
+              borderRadius="full"
+              bg="green.400"
+              flexShrink={0}
+              style={{
+                animation: 'pulse 1.5s ease-in-out infinite',
+              }}
+              sx={{
+                '@keyframes pulse': {
+                  '0%, 100%': { opacity: 1 },
+                  '50%': { opacity: 0.3 },
+                },
+              }}
+            />
+            <Text
+              fontSize="xs"
+              fontWeight="600"
+              color={colorMode === 'dark' ? 'green.300' : 'green.700'}
+              textAlign={{ base: 'center', xl: 'left' }}
+              lineHeight="short"
+            >
+              {t.sidebar.alternanceBadge}
+            </Text>
+          </MotionBox>
+
           <MotionText
             variant="description"
             fontSize="small"

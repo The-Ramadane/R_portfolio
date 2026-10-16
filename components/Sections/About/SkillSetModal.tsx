@@ -100,13 +100,10 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
   const bg = useColorModeValue('rgba(255, 255, 255, 0.2)', 'rgba(0, 0, 0, 0.2)')
   const borderColor = useColorModeValue('rgba(255, 255, 255, 0.3)', 'rgba(255, 255, 255, 0.1)')
 
-  const languageCols = splitSkills(Skills.languages)
-  const backendCols = splitSkills(Skills.backend)
-  const frontendCols = splitSkills(Skills.frontend)
-  const mobileCols = splitSkills(Skills.mobile)
-  const dataBaseCols = splitSkills(Skills.database)
-  const toolsCols = splitSkills(Skills.tools)
-  const aiCols = splitSkills(Skills.ai)
+  const aiMlopsCols = splitSkills(Skills.ai_mlops)
+  const backendSystemCols = splitSkills(Skills.backend_system)
+  const frontendMobileCols = splitSkills(Skills.frontend_mobile)
+  const dataDevopsCols = splitSkills(Skills.data_devops)
   const aiAssistantsCols = splitSkills(Skills.ai_assistants)
 
   return (
@@ -136,20 +133,17 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
         >
           Expertise Technique
           <Text fontSize="sm" fontWeight="normal" color="white.500" mt={2}>
-            Vue d'ensemble de mes compétences
+            Vue d'ensemble de mes compétences — 4 piliers
           </Text>
         </ModalHeader>
         <ModalCloseButton />
         <ModalBody px={{ base: 6, md: 10 }} py={6}>
           <VStack align="stretch" spacing={2}>
-            <SkillList title="Langages de programmation" columns={languageCols} />
-            <SkillList title="Développement BackEnd" columns={backendCols} />
-            <SkillList title="Développement FrontEnd" columns={frontendCols} />
-            <SkillList title="Développement Mobile" columns={mobileCols} />
-            <SkillList title="Bases de données" columns={dataBaseCols} />
-            <SkillList title="Outils, DevOps & MLOps" columns={toolsCols} />
-            <SkillList title="IA & Data" columns={aiCols} />
-            <SkillList title="Assistants IA" columns={aiAssistantsCols} />
+            <SkillList title="🤖 IA & MLOps" columns={aiMlopsCols} />
+            <SkillList title="⚙️ Backend & Système" columns={backendSystemCols} />
+            <SkillList title="🖥️ Frontend & Mobile" columns={frontendMobileCols} />
+            <SkillList title="🗄️ Data & DevOps" columns={dataDevopsCols} />
+            <SkillList title="🧠 Assistants IA" columns={aiAssistantsCols} />
           </VStack>
         </ModalBody>
         <ModalFooter justifyContent="center" pb={8}>

@@ -70,6 +70,8 @@ const FeaturedWorksSection = () => {
               }
               height={{ base: '130px', md: '225px', '2xl': '300px' }}
               ctaUrl={project.url || '#'}
+              githubUrl={project.githubUrl}
+              highlight={project.highlight}
               isMobile={isMobile}
             />
           </MotionGridItem>

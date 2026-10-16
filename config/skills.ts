@@ -1,42 +1,22 @@
 import { IconType } from 'react-icons'
 import {
-    SiDotnet,
     SiJavascript,
     SiTypescript,
     SiNodedotjs,
-    SiGraphql,
     SiReact,
     SiNextdotjs,
     SiDocker,
     SiPostgresql,
     SiMysql,
     SiMongodb,
-    SiRedis,
     SiPython,
     SiGit,
     SiGithub,
     SiPostman,
-    SiFigma,
-    SiAndroid,
-    SiIos,
-    SiUnity,
-    SiUnrealengine,
-    SiElectron,
-
-    SiKotlin,
-    SiSwift,
-    SiRust,
-    SiKubernetes,
-    SiAmazon,
-    SiGooglecloud,
-    SiSlack,
-    SiNotion,
     SiLinux,
     SiHtml5,
     SiCss3,
     SiTailwindcss,
-    SiMui,
-    SiChakraui,
     SiFramer,
     SiSpringboot,
     SiFastapi,
@@ -50,8 +30,12 @@ import {
     SiFirebase,
     SiExpress,
     SiShadcnui,
+    SiHuggingface,
+    SiPrisma,
 } from 'react-icons/si'
 import { FaJava, FaRobot, FaBrain } from 'react-icons/fa'
+import { TbBrandReactNative } from 'react-icons/tb'
+import { VscTerminalBash } from 'react-icons/vsc'
 
 export type Skill = {
     name: string
@@ -79,55 +63,60 @@ export const splitSkills = (srcArray: Skill[]) => {
 }
 
 export const Skills = {
-    languages: [
-        { name: 'JavaScript', icon: SiJavascript },
-        { name: 'TypeScript', icon: SiTypescript },
-        { name: 'Java', icon: FaJava },
-        { name: 'Python', icon: SiPython },
+    // Pilier 1 — IA & MLOps
+    ai_mlops: [
+        { name: 'PyTorch', icon: SiPytorch },
+        { name: 'MLflow', icon: SiScikitlearn },
+        { name: 'Hugging Face (BERT)', icon: SiHuggingface },
+        { name: 'scikit-learn', icon: SiScikitlearn },
+        { name: 'YOLO / ResNet', icon: FaRobot },
+        { name: 'Gemini / OpenAI API', icon: FaBrain },
+        { name: 'TensorFlow', icon: SiTensorflow },
+        { name: 'Jupyter', icon: SiJupyter },
     ],
-    backend: [
-        { name: 'Spring Boot', icon: SiSpringboot },
-        { name: 'FastAPI', icon: SiFastapi },
-        { name: 'NestJS', icon: SiNestjs },
-        { name: 'Firebase', icon: SiFirebase },
+    // Pilier 2 — Backend & Système
+    backend_system: [
+        { name: 'Python (FastAPI)', icon: SiFastapi },
+        { name: 'TypeScript (NestJS)', icon: SiNestjs },
+        { name: 'Java (Spring Boot)', icon: SiSpringboot },
+        { name: 'Express.js', icon: SiExpress },
+        { name: 'C (Bas niveau)', icon: FaRobot },
+        { name: 'Linux / Bash', icon: SiLinux },
+        { name: 'Swagger / Postman', icon: SiSwagger },
     ],
-    frontend: [
-        { name: 'Angular', icon: SiAngular },
+    // Pilier 3 — Frontend & Mobile
+    frontend_mobile: [
+        { name: 'Next.js (App Router)', icon: SiNextdotjs },
         { name: 'React', icon: SiReact },
-        { name: 'Next.js', icon: SiNextdotjs },
+        { name: 'React Native', icon: TbBrandReactNative },
+        { name: 'TypeScript', icon: SiTypescript },
         { name: 'Tailwind CSS', icon: SiTailwindcss },
         { name: 'shadcn/ui', icon: SiShadcnui },
-        { name: 'HTML5', icon: SiHtml5 },
-        { name: 'CSS3', icon: SiCss3 },
+        { name: 'Angular', icon: SiAngular },
+        { name: 'HTML5 / CSS3', icon: SiHtml5 },
     ],
-    mobile: [
-        { name: 'React Native', icon: SiReact },
-    ],
-    database: [
-        { name: 'MySQL', icon: SiMysql },
+    // Pilier 4 — Data & DevOps
+    data_devops: [
         { name: 'PostgreSQL', icon: SiPostgresql },
+        { name: 'Prisma ORM', icon: SiPrisma },
         { name: 'MongoDB', icon: SiMongodb },
-        { name: 'Redis', icon: SiRedis },
+        { name: 'MySQL', icon: SiMysql },
+        { name: 'Docker / Compose', icon: SiDocker },
+        { name: 'Git / GitHub', icon: SiGithub },
+        { name: 'Firebase', icon: SiFirebase },
+        { name: 'JavaScript', icon: SiJavascript },
     ],
-    tools: [
-        { name: 'Docker', icon: SiDocker },
-        { name: 'MLflow', icon: SiScikitlearn },
-        { name: 'Postman', icon: SiPostman },
-        { name: 'Swagger', icon: SiSwagger },
-        { name: 'Git', icon: SiGit },
-        { name: 'GitHub', icon: SiGithub },
-        { name: 'Kubernetes', icon: SiKubernetes },
+    // Langages (gardé pour la vue legacy)
+    languages: [
+        { name: 'Python', icon: SiPython },
+        { name: 'TypeScript', icon: SiTypescript },
+        { name: 'Java', icon: FaJava },
+        { name: 'JavaScript', icon: SiJavascript },
     ],
     ai_assistants: [
         { name: 'Windsurf', icon: FaRobot },
         { name: 'Claude Code', icon: FaBrain },
         { name: 'Antigravity', icon: FaRobot },
         { name: 'Google Jules', icon: FaBrain },
-    ],
-    ai: [
-        { name: 'Machine Learning', icon: SiScikitlearn },
-        { name: 'Data Science', icon: SiJupyter },
-        { name: 'TensorFlow', icon: SiTensorflow },
-        { name: 'PyTorch', icon: SiPytorch },
     ],
 }

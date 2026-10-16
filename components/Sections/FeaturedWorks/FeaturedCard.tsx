@@ -10,9 +10,12 @@ import {
   Button,
   Container,
   Stack,
+  HStack,
   useColorModeValue,
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
+import { SiGithub } from 'react-icons/si'
+import { Icon } from '@chakra-ui/react'
 import styles from './styles.module.css'
 import { easing, DURATIONS } from 'config/animations'
 
@@ -26,7 +29,9 @@ export type FeaturedCardProps = {
   description: React.ReactNode
   objectPosition?: string
   ctaUrl: string
+  githubUrl?: string
   isMobile?: boolean
+  highlight?: boolean
 }
 
 const variants = {
@@ -58,14 +63,21 @@ const ProjectDescription = ({
   title,
   description,
   ctaUrl,
+  githubUrl,
   isLeft,
+  highlight,
 }: {
   idx?: number
   title: string
   description: React.ReactNode
   ctaUrl: string
+  githubUrl?: string
   isLeft: boolean
-}) => (
+  highlight?: boolean
+}) => {
+  const highlightColor = useColorModeValue('teal.600', 'cyan.300')
+  const highlightBg = useColorModeValue('teal.50', 'rgba(0,200,200,0.08)')
+  return (
   <Container
     paddingX={5}
     paddingY={1}
@@ -75,6 +87,24 @@ const ProjectDescription = ({
     flexDirection="column"
   >
     <Stack spacing={1} width="100%">
+      {highlight && (
+        <Text
+          fontSize="xs"
+          fontWeight="700"
+          color={highlightColor}
+          bg={highlightBg}
+          px={2}
+          py={1}
+          borderRadius="md"
+          display="inline-block"
+          width="fit-content"
+          letterSpacing="wider"
+          textTransform="uppercase"
+          mb={1}
+        >
+          ⭐ Projet Phare MLOps
+        </Text>
+      )}
       <Text
         fontSize={{ base: 'md', md: 'large', '2xl': 'xx-large' }}
         fontWeight="bold"
@@ -105,23 +135,40 @@ const ProjectDescription = ({
     >
       {description}
     </Box>
-    {ctaUrl && ctaUrl !== '#' && (
-      <Button
-        variant="outlineAlternative"
-        fontWeight="light"
-        fontSize={{ base: 'sm', '2xl': 'md' }}
-        size="sm"
-        as="a"
-        href={ctaUrl}
-        rel="noreferrer"
-        target="_blank"
-        marginY={{ base: 3, md: 0 }}
-      >
-        View Project
-      </Button>
-    )}
+    <HStack spacing={3} width="90%" alignSelf={isLeft ? 'flex-end' : 'flex-start'} marginY={{ base: 3, md: 2 }} flexWrap="wrap">
+      {ctaUrl && ctaUrl !== '#' && (
+        <Button
+          variant="outlineAlternative"
+          fontWeight="light"
+          fontSize={{ base: 'sm', '2xl': 'md' }}
+          size="sm"
+          as="a"
+          href={ctaUrl}
+          rel="noreferrer"
+          target="_blank"
+        >
+          View Project
+        </Button>
+      )}
+      {githubUrl && githubUrl !== '#' && (
+        <Button
+          variant="outline"
+          fontWeight="light"
+          fontSize={{ base: 'sm', '2xl': 'md' }}
+          size="sm"
+          as="a"
+          href={githubUrl}
+          rel="noreferrer"
+          target="_blank"
+          leftIcon={<Icon as={SiGithub} />}
+        >
+          GitHub
+        </Button>
+      )}
+    </HStack>
   </Container>
 )
+}
 
 const FeaturedCard = ({
   idx,
@@ -131,10 +178,13 @@ const FeaturedCard = ({
   description,
   objectPosition,
   ctaUrl,
+  githubUrl,
   isMobile,
+  highlight,
 }: FeaturedCardProps) => {
   const isLeftImage = isMobile ? false : idx % 2 === 0
   const bg = useColorModeValue('blackAlpha.50', 'whiteAlpha.200')
+  const highlightBorder = useColorModeValue('teal.300', 'cyan.500')
   const CoverImage = () => (
     <MotionImage
       height={height}
@@ -157,8 +207,9 @@ const FeaturedCard = ({
       bg={bg}
       borderRadius="1em"
       className={styles.featureCard}
-      borderColor={bg}
-      borderWidth="1px"
+      borderColor={highlight ? highlightBorder : bg}
+      borderWidth={highlight ? '2px' : '1px'}
+      boxShadow={highlight ? '0 0 16px rgba(72,187,120,0.18)' : undefined}
     >
       <SimpleGrid
         columns={{ base: 1, md: 2 }}
@@ -172,7 +223,9 @@ const FeaturedCard = ({
           title={title}
           description={description}
           ctaUrl={ctaUrl}
+          githubUrl={githubUrl}
           isLeft={isLeftImage}
+          highlight={highlight}
         />
         {!isLeftImage && <CoverImage />}
       </SimpleGrid>
