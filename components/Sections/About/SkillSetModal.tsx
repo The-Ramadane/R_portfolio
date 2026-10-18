@@ -139,11 +139,11 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
         <ModalCloseButton />
         <ModalBody px={{ base: 6, md: 10 }} py={6}>
           <VStack align="stretch" spacing={2}>
-            <SkillList title="🤖 IA & MLOps" columns={aiMlopsCols} />
-            <SkillList title="⚙️ Backend & Système" columns={backendSystemCols} />
-            <SkillList title="🖥️ Frontend & Mobile" columns={frontendMobileCols} />
-            <SkillList title="🗄️ Data & DevOps" columns={dataDevopsCols} />
-            <SkillList title="🧠 Assistants IA" columns={aiAssistantsCols} />
+            <SkillList title="IA & MLOps" columns={aiMlopsCols} />
+            <SkillList title="Backend & Système" columns={backendSystemCols} />
+            <SkillList title="Frontend & Mobile" columns={frontendMobileCols} />
+            <SkillList title="Data & DevOps" columns={dataDevopsCols} />
+            <SkillList title="Assistants IA" columns={aiAssistantsCols} />
           </VStack>
         </ModalBody>
         <ModalFooter justifyContent="center" pb={8}>

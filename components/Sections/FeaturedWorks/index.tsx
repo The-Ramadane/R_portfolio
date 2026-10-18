@@ -68,11 +68,12 @@ const FeaturedWorksSection = () => {
                   </HStack>
                 </Box>
               }
-              height={{ base: '130px', md: '225px', '2xl': '300px' }}
+              height={{ base: '180px', md: '225px', '2xl': '300px' }}
               ctaUrl={project.url || '#'}
+              ctaText={project.ctaText}
               githubUrl={project.githubUrl}
               highlight={project.highlight}
-              isMobile={isMobile}
+              badge={project.badge}
             />
           </MotionGridItem>
         ))}

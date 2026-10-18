@@ -25,7 +25,7 @@ export const Experiences: {
     longName: 'LPO Auvergne-Rhône-Alpes',
     subDetail: 'Lyon, France',
     url: 'https://auvergne-rhone-alpes.lpo.fr/',
-    position: 'Développeur Backend & Mobile (Stage)',
+    position: 'Développeur Full-Stack & Mobile (Stage)',
     duration: 'Avril 2026 – Août 2026',
     logo: {
       light: '/worked_at_logos/lpo/lpo_logo.png',
@@ -33,13 +33,13 @@ export const Experiences: {
     },
     roles: [
       <>
-        Refonte complète de l'application mobile de l'écosystème "Scrute La Nature" (React Native), en adoptant une architecture modulaire et scalable.
+        Refonte d'architecture & ingénierie logicielle : pilotage de la modernisation d'un écosystème applicatif complet (application mobile React Native & backoffice Next.js).
       </>,
       <>
-        Conception et développement du backoffice complet avec Next.js et création d'API performantes, en intégrant les meilleures pratiques de Clean Code.
+        Méthodologie Agile & coordination : sprints, spécifications fonctionnelles et échanges constants avec les équipes terrain et utilisateurs finaux.
       </>,
       <>
-        Conteneurisation (Docker) et modernisation de la base de code pour garantir une maintenabilité optimale sur le long terme.
+        Exigences de production & Clean Code : conteneurisation Docker, sécurisation des API REST, refonte de code legacy et optimisation des performances.
       </>,
     ],
   },

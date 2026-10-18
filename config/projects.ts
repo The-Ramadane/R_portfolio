@@ -5,8 +5,10 @@ export type Project = {
     technologies: string[]
     image: string
     url?: string
+    ctaText?: string
     githubUrl?: string
     highlight?: boolean
+    badge?: string
 }
 
 export const Projects: Project[] = [
@@ -19,6 +21,16 @@ export const Projects: Project[] = [
         url: '#',
         githubUrl: '#',
         highlight: true,
+    },
+    {
+        title: 'Scrute La Nature (SeMaNature) — Écosystème Web & Mobile',
+        role: 'Développeur Full-Stack & Mobile (Stage LPO)',
+        badge: 'Stage LPO • Production',
+        description: "Refonte intégrale de la plateforme citoyenne d'observation de la biodiversité pour la LPO. Développement d'une nouvelle application mobile cross-platform performante et conception d'un backoffice web dédié aux administrateurs pour la gestion et la validation des données d'observation terrain.",
+        technologies: ['React Native', 'Next.js', 'TypeScript', 'API REST', 'Tailwind CSS', 'Docker'],
+        image: '/works/scrute_nature.jpg',
+        url: 'https://play.google.com/store/apps/details?id=com.lpo.GameOfNature&hl=fr',
+        ctaText: 'Google Play Store',
     },
     {
         title: 'Smart Recycle',

@@ -114,6 +114,7 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
               <Box
                 id="formation"
                 className="contentRow"
+                scrollMarginTop={{ base: '100px', xl: '140px' }}
                 paddingTop={{ base: 0, lg: 20, xl: 0 }}
                 paddingBottom={{ base: 12, lg: 10 }}
                 paddingX={0}
@@ -126,6 +127,7 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
               <Box
                 id="jobs"
                 className="contentRow"
+                scrollMarginTop={{ base: '100px', xl: '140px' }}
                 paddingTop={{ base: 0, lg: 20, xl: 0 }}
                 paddingBottom={{ base: 12, lg: 10 }}
                 paddingX={0}
@@ -138,6 +140,7 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
               <Box
                 id="works"
                 className="contentRow"
+                scrollMarginTop={{ base: '100px', xl: '140px' }}
                 paddingTop={{ base: 0, lg: 20, xl: 20 }}
                 paddingBottom={{ base: 12, lg: 10 }}
                 paddingX={0}
@@ -150,6 +153,7 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
               <Box
                 id="ongoing"
                 className="contentRow"
+                scrollMarginTop={{ base: '100px', xl: '140px' }}
                 paddingTop={{ base: 0, lg: 20, xl: 20 }}
                 paddingBottom={{ base: 12, lg: 10 }}
                 paddingX={0}
@@ -162,6 +166,7 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
               <Box
                 id="blog"
                 className="contentRow"
+                scrollMarginTop={{ base: '100px', xl: '140px' }}
                 paddingTop={{ base: 0, lg: 20, xl: 20 }}
                 paddingBottom={{ base: 12, lg: 10 }}
                 paddingX={0}
@@ -174,6 +179,7 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
               <Box
                 id="newsletter"
                 className="contentRow"
+                scrollMarginTop={{ base: '100px', xl: '140px' }}
                 paddingTop={{ base: 0, lg: 20, xl: 20 }}
                 paddingBottom={{ base: 12, lg: 10 }}
                 paddingX={0}
@@ -186,6 +192,7 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
               <Box
                 id="contact"
                 className="contentRow"
+                scrollMarginTop={{ base: '100px', xl: '140px' }}
                 paddingTop={{ base: 0, lg: 20, xl: 20 }}
                 paddingX={0}
                 flexDirection={'row'}
@@ -203,6 +210,20 @@ const Portfolio = ({ articles }: { articles: BlogPost[] }): ReactElement => {
 }
 
 export async function getStaticProps() {
+  if (typeof window === 'undefined') {
+    try {
+      const fs = require('fs')
+      const path = require('path')
+      const src = '/Users/ramadane/.gemini/antigravity-ide/brain/d2297a1d-f987-46da-9da1-98542e67c9aa/scrute_nature_mockup_1792263641189.jpg'
+      const destDir = path.join(process.cwd(), 'public', 'works')
+      const dest = path.join(destDir, 'scrute_nature.jpg')
+      if (fs.existsSync(src) && !fs.existsSync(dest)) {
+        if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true })
+        fs.copyFileSync(src, dest)
+      }
+    } catch (e) {}
+  }
+
   const articles = await getAllPosts()
 
   // Optimization: Don't send full content to client for the index page to reduce JSON size

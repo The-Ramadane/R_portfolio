@@ -15,6 +15,7 @@ import {
 } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 import { SiGithub } from 'react-icons/si'
+import { FaGooglePlay } from 'react-icons/fa'
 import { Icon } from '@chakra-ui/react'
 import styles from './styles.module.css'
 import { easing, DURATIONS } from 'config/animations'
@@ -29,9 +30,11 @@ export type FeaturedCardProps = {
   description: React.ReactNode
   objectPosition?: string
   ctaUrl: string
+  ctaText?: string
   githubUrl?: string
   isMobile?: boolean
   highlight?: boolean
+  badge?: string
 }
 
 const variants = {
@@ -63,111 +66,150 @@ const ProjectDescription = ({
   title,
   description,
   ctaUrl,
+  ctaText,
   githubUrl,
   isLeft,
   highlight,
+  badge,
 }: {
   idx?: number
   title: string
   description: React.ReactNode
   ctaUrl: string
+  ctaText?: string
   githubUrl?: string
   isLeft: boolean
   highlight?: boolean
+  badge?: string
 }) => {
   const highlightColor = useColorModeValue('teal.600', 'cyan.300')
   const highlightBg = useColorModeValue('teal.50', 'rgba(0,200,200,0.08)')
+  const badgeColor = useColorModeValue('green.700', 'green.300')
+  const badgeBg = useColorModeValue('green.50', 'rgba(72,187,120,0.12)')
+  const badgeBorder = useColorModeValue('green.200', 'green.500')
   return (
-  <Container
-    paddingX={5}
-    paddingY={1}
-    display="flex"
-    alignItems="center"
-    justifyContent="space-around"
-    flexDirection="column"
-  >
-    <Stack spacing={1} width="100%">
-      {highlight && (
-        <Text
-          fontSize="xs"
-          fontWeight="700"
-          color={highlightColor}
-          bg={highlightBg}
-          px={2}
-          py={1}
-          borderRadius="md"
-          display="inline-block"
-          width="fit-content"
-          letterSpacing="wider"
-          textTransform="uppercase"
-          mb={1}
-        >
-          ⭐ Projet Phare MLOps
-        </Text>
-      )}
-      <Text
-        fontSize={{ base: 'md', md: 'large', '2xl': 'xx-large' }}
-        fontWeight="bold"
-        letterSpacing={2}
-        width="90%"
-        alignSelf={isLeft ? 'flex-end' : 'flex-start'}
-        textTransform="uppercase"
-        as="span"
-      >
-        <Text variant="accentAlternative" fontSize="md" as="span">
-          #0{(idx || 0) + 1}
-          {'  '}
-        </Text>
-        {title}
-      </Text>
-      <Divider
-        borderColor="#A6A6A6"
-        width="90%"
-        marginLeft={0}
-        alignSelf={isLeft ? 'flex-end' : 'flex-start'}
-      />
-    </Stack>
-    <Box
-      fontSize="smaller"
-      width="90%"
-      alignSelf={isLeft ? 'flex-end' : 'flex-start'}
-      paddingY={{ base: 3, md: 0 }}
+    <Container
+      paddingX={{ base: 4, md: 5 }}
+      paddingY={{ base: 4, md: 2 }}
+      display="flex"
+      alignItems={{ base: 'flex-start', md: 'center' }}
+      justifyContent="space-around"
+      flexDirection="column"
+      maxW="100%"
     >
-      {description}
-    </Box>
-    <HStack spacing={3} width="90%" alignSelf={isLeft ? 'flex-end' : 'flex-start'} marginY={{ base: 3, md: 2 }} flexWrap="wrap">
-      {ctaUrl && ctaUrl !== '#' && (
-        <Button
-          variant="outlineAlternative"
-          fontWeight="light"
-          fontSize={{ base: 'sm', '2xl': 'md' }}
-          size="sm"
-          as="a"
-          href={ctaUrl}
-          rel="noreferrer"
-          target="_blank"
+      <Stack spacing={1} width="100%">
+        {highlight && (
+          <Text
+            fontSize="xs"
+            fontWeight="700"
+            color={highlightColor}
+            bg={highlightBg}
+            px={2}
+            py={1}
+            borderRadius="md"
+            display="inline-block"
+            width="fit-content"
+            letterSpacing="wider"
+            textTransform="uppercase"
+            mb={1}
+          >
+            ⭐ Projet Phare MLOps
+          </Text>
+        )}
+        {badge && (
+          <Text
+            fontSize="xs"
+            fontWeight="700"
+            color={badgeColor}
+            bg={badgeBg}
+            border="1px solid"
+            borderColor={badgeBorder}
+            px={2.5}
+            py={1}
+            borderRadius="md"
+            display="inline-block"
+            width="fit-content"
+            letterSpacing="wider"
+            textTransform="uppercase"
+            mb={1}
+          >
+            🌿 {badge}
+          </Text>
+        )}
+        <Text
+          fontSize={{ base: 'md', md: 'large', '2xl': 'xx-large' }}
+          fontWeight="bold"
+          letterSpacing={2}
+          width={{ base: '100%', md: '90%' }}
+          alignSelf={{ base: 'flex-start', md: isLeft ? 'flex-end' : 'flex-start' }}
+          textTransform="uppercase"
+          as="span"
         >
-          View Project
-        </Button>
-      )}
-      {githubUrl && githubUrl !== '#' && (
-        <Button
-          variant="outline"
-          fontWeight="light"
-          fontSize={{ base: 'sm', '2xl': 'md' }}
-          size="sm"
-          as="a"
-          href={githubUrl}
-          rel="noreferrer"
-          target="_blank"
-          leftIcon={<Icon as={SiGithub} />}
-        >
-          GitHub
-        </Button>
-      )}
-    </HStack>
-  </Container>
-)
+          <Text variant="accentAlternative" fontSize="md" as="span">
+            #0{(idx || 0) + 1}
+            {'  '}
+          </Text>
+          {title}
+        </Text>
+        <Divider
+          borderColor="#A6A6A6"
+          width={{ base: '100%', md: '90%' }}
+          marginLeft={0}
+          alignSelf={{ base: 'flex-start', md: isLeft ? 'flex-end' : 'flex-start' }}
+        />
+      </Stack>
+      <Box
+        fontSize="smaller"
+        width={{ base: '100%', md: '90%' }}
+        alignSelf={{ base: 'flex-start', md: isLeft ? 'flex-end' : 'flex-start' }}
+        paddingY={{ base: 3, md: 1 }}
+      >
+        {description}
+      </Box>
+      <HStack
+        spacing={3}
+        width={{ base: '100%', md: '90%' }}
+        alignSelf={{ base: 'flex-start', md: isLeft ? 'flex-end' : 'flex-start' }}
+        marginY={{ base: 2, md: 2 }}
+        flexWrap="wrap"
+      >
+        {ctaUrl && ctaUrl !== '#' && (
+          <Button
+            variant="outlineAlternative"
+            fontWeight="light"
+            fontSize={{ base: 'sm', '2xl': 'md' }}
+            size="sm"
+            as="a"
+            href={ctaUrl}
+            rel="noreferrer"
+            target="_blank"
+            leftIcon={
+              ctaUrl.includes('play.google.com') ? (
+                <Icon as={FaGooglePlay} />
+              ) : undefined
+            }
+          >
+            {ctaText || (ctaUrl.includes('play.google.com') ? 'Google Play Store' : 'Voir le projet')}
+          </Button>
+        )}
+        {githubUrl && githubUrl !== '#' && (
+          <Button
+            variant="outline"
+            fontWeight="light"
+            fontSize={{ base: 'sm', '2xl': 'md' }}
+            size="sm"
+            as="a"
+            href={githubUrl}
+            rel="noreferrer"
+            target="_blank"
+            leftIcon={<Icon as={SiGithub} />}
+          >
+            GitHub
+          </Button>
+        )}
+      </HStack>
+    </Container>
+  )
 }
 
 const FeaturedCard = ({
@@ -178,28 +220,15 @@ const FeaturedCard = ({
   description,
   objectPosition,
   ctaUrl,
+  ctaText,
   githubUrl,
-  isMobile,
   highlight,
+  badge,
 }: FeaturedCardProps) => {
-  const isLeftImage = isMobile ? false : idx % 2 === 0
+  const isEven = idx % 2 === 0
   const bg = useColorModeValue('blackAlpha.50', 'whiteAlpha.200')
   const highlightBorder = useColorModeValue('teal.300', 'cyan.500')
-  const CoverImage = () => (
-    <MotionImage
-      height={height}
-      width="100%"
-      src={src}
-      alt={title}
-      objectFit="cover"
-      objectPosition={objectPosition}
-      loading="lazy"
-      opacity={0.75}
-      whileHover={variants.hover}
-      whileTap={variants.tap}
-      fallback={<Skeleton height={height} width="100%" />}
-    />
-  )
+  const proBorder = useColorModeValue('green.300', 'green.500')
 
   return (
     <Box
@@ -207,27 +236,53 @@ const FeaturedCard = ({
       bg={bg}
       borderRadius="1em"
       className={styles.featureCard}
-      borderColor={highlight ? highlightBorder : bg}
-      borderWidth={highlight ? '2px' : '1px'}
-      boxShadow={highlight ? '0 0 16px rgba(72,187,120,0.18)' : undefined}
+      borderColor={highlight ? highlightBorder : badge ? proBorder : bg}
+      borderWidth={highlight || badge ? '2px' : '1px'}
+      boxShadow={
+        highlight
+          ? '0 0 16px rgba(72,187,120,0.18)'
+          : badge
+          ? '0 0 16px rgba(56,161,105,0.18)'
+          : undefined
+      }
+      overflow="hidden"
     >
       <SimpleGrid
         columns={{ base: 1, md: 2 }}
         spacing={{ base: 3, md: 0 }}
-        display={{ base: 'flex', md: 'grid' }}
-        flexDirection={{ base: 'column-reverse', md: 'initial' }}
       >
-        {isLeftImage && <CoverImage />}
-        <ProjectDescription
-          idx={idx}
-          title={title}
-          description={description}
-          ctaUrl={ctaUrl}
-          githubUrl={githubUrl}
-          isLeft={isLeftImage}
-          highlight={highlight}
-        />
-        {!isLeftImage && <CoverImage />}
+        <Box order={{ base: 1, md: isEven ? 1 : 2 }}>
+          <MotionImage
+            height={height}
+            width="100%"
+            src={src}
+            alt={title}
+            objectFit="cover"
+            objectPosition={objectPosition}
+            loading="lazy"
+            opacity={0.85}
+            whileHover={variants.hover}
+            whileTap={variants.tap}
+            fallback={<Skeleton height={height} width="100%" />}
+          />
+        </Box>
+        <Box
+          order={{ base: 2, md: isEven ? 2 : 1 }}
+          display="flex"
+          alignItems="center"
+        >
+          <ProjectDescription
+            idx={idx}
+            title={title}
+            description={description}
+            ctaUrl={ctaUrl}
+            ctaText={ctaText}
+            githubUrl={githubUrl}
+            isLeft={isEven}
+            highlight={highlight}
+            badge={badge}
+          />
+        </Box>
       </SimpleGrid>
     </Box>
   )
